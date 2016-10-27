@@ -59,6 +59,7 @@
       <script>scripts\addBurstSpray.gml</script>
       <script>scripts\updateBurstSpray.gml</script>
     </scripts>
+    <script>scripts\EmptyScript.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_controller</object>
