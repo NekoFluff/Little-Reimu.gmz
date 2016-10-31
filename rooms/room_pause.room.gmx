@@ -51,8 +51,11 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_pauseBackground" x="0" y="0" name="inst_D75F9833" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pauseOverlay" x="0" y="0" name="inst_21108B36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseContinue" x="224" y="192" name="inst_76E8FAA0" locked="0" code="" scaleX="0.48192772269249" scaleY="0.479999989271164" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseQuit" x="266" y="245" name="inst_490F828A" locked="0" code="" scaleX="0.463855415582657" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseOverlay" x="96" y="64" name="inst_74527DBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseOverlay" x="0" y="0" name="inst_CEF70E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseBackground" x="0" y="0" name="inst_B5F7F873" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

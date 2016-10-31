@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>self.image_alpha = 0.5;
+            <string>global.roomfade = false;
 </string>
           </argument>
         </arguments>
@@ -48,9 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_escape)){
-    room_goto(global.RoomBeforePause);
-    sprite_delete(global.ScreenShot);
+            <string>if (global.roomfade == false){
+    self.image_alpha = 0.5;
 }
 </string>
           </argument>

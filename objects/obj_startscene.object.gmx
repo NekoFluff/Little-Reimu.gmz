@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Choose which scene to display
-sceneNum = 1;
+global.sceneNum = 1;
 
-switch(sceneNum){
+switch(global.sceneNum){
     case 1:
         timeline_index = scene_1_1;
         timeline_position = 0;
@@ -70,7 +70,7 @@ if (keyEscape){
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
     room_persistent = true;
     global.RoomBeforePause = room;
-    room_goto(room_pause);
+    room_goto(room_pausescene);
 }
 
 // Skip to the next picture

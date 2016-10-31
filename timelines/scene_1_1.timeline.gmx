@@ -78,6 +78,9 @@ audio_stop_sound(snd_walking);
             <kind>1</kind>
             <string>///Pic 2
 sprite_index = s_1_2;
+
+//In case user skips scene
+audio_stop_sound(snd_walking);
 </string>
           </argument>
         </arguments>
