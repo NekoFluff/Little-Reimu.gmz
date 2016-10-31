@@ -60,7 +60,7 @@ switch(global.sceneNum){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Skip cutscene function
+            <string>///Move to pause room / Skip picture
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
 
@@ -71,6 +71,7 @@ if (keyEscape){
     room_persistent = true;
     global.RoomBeforePause = room;
     room_goto(room_pausescene);
+    audio_pause_sound(global.currentAudio);
 }
 
 // Skip to the next picture

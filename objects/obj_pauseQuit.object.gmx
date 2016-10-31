@@ -28,11 +28,12 @@
             <string>///Fade menu out to transition to next room
 if (obj_pauseOverlay.image_alpha &lt; 1){ // If the image isn't completely black
     obj_pauseOverlay.image_alpha += 0.05;
-    alarm[0] = 4;
+    alarm[0] = 2;
 } else { // Disable alarm and go to the next room
     alarm[0] = -1;
     room_goto(room_menu);
     global.roomfade = false;
+    sprite_delete(global.ScreenShot);
 }
 </string>
           </argument>
@@ -56,10 +57,23 @@ if (obj_pauseOverlay.image_alpha &lt; 1){ // If the image isn't completely black
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Checks for mouse click or key 'Escape'
-if (keyboard_check_pressed(vk_escape) || mouse_check_button_pressed(mb_left)){
-    alarm[0] = 1;
-    global.roomfade = true;
+            <string>///Checks for key 'Enter' when 'Quit' selected
+
+if (global.pauseQuit){
+    if (keyboard_check_pressed(vk_enter)){
+        alarm[0] = 1;
+        self.image_alpha = 0;
+        self.image_alpha = 0;
+        global.roomfade = true;
+    }
+    // Visibility if room is fading
+    if (global.roomfade){
+        self.image_alpha = 0;
+    } else {
+        self.image_alpha = 1;
+    }
+} else {
+    self.image_alpha = 0.5;
 }
 </string>
           </argument>

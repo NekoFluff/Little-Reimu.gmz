@@ -107,12 +107,12 @@
       <object>objects\obj_csSkipNo</object>
     </objects>
     <objects name="Pause Room Controls">
+      <object>objects\obj_pauseBackground</object>
       <object>objects\obj_pauseOverlay</object>
-      <object>objects\obj_pauseQuit</object>
       <object>objects\obj_pauseContinue</object>
       <object>objects\obj_VolumeChange</object>
+      <object>objects\obj_pauseQuit</object>
       <object>objects\obj_pauseVolume</object>
-      <object>objects\obj_pauseBackground</object>
     </objects>
   </objects>
   <timelines name="timelines">
@@ -120,9 +120,9 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
+    <room>rooms\room_pause</room>
     <room>rooms\room_pausescene</room>
     <room>rooms\room_fight_1</room>
-    <room>rooms\room_pause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

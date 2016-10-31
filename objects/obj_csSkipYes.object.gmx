@@ -3,7 +3,7 @@
   <spriteName>spr_yes</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,12 +30,20 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
     obj_csSkipOverlay.image_alpha += 0.05;
     alarm[0] = 2;
 } else { // Disable alarm and go to the next room
+
     alarm[0] = -1;
     global.csSkip = false;
     global.roomfade = false;
-    obj_csSkipNo.image_alpha = 0;
-    obj_csSkipYes.image_alpha = 0;
-    room_goto(global.nextGameRoom);
+    sprite_delete(global.ScreenShot);
+    
+    switch (global.sceneNum){ // Fight selection
+        case 1:
+            room_goto(room_fight_1);
+        case 2:
+            //room_goto(room_fight_2);
+        case 3:
+            //room_goto(room_fight_3);
+    }
 }
 </string>
           </argument>
@@ -59,14 +67,23 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Checks for mouse click or key 'Enter'
-global.nextGameRoom = ("room_fight_" + string(global.sceneNum));
+            <string>///Checks for key 'Enter' when 'Yes' selected
 
-if (keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left)){
-    alarm[0] = 1;
-    obj_csSkipNo.image_alpha = 0;
-    obj_csSkipYes.image_alpha = 0;
-    global.roomfade = true;
+if (global.csYes){
+    if (keyboard_check_pressed(vk_enter)){
+        alarm[0] = 1;
+        obj_csSkipNo.image_alpha = 0;
+        obj_csSkipYes.image_alpha = 0;
+        global.roomfade = true;
+    }
+    // Visibility if room is fading
+    if (global.roomfade){
+        self.image_alpha = 0;
+    } else {
+        self.image_alpha = 1;
+    }
+} else {
+    self.image_alpha = 0.5;
 }
 </string>
           </argument>

@@ -3,7 +3,7 @@
   <spriteName>spr_no</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,10 +25,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Checks for mouse click or 'ESC' press
-if (keyboard_check_pressed(vk_escape) || mouse_check_button_pressed(mb_left)){
-    room_goto(global.RoomBeforePause);
-    sprite_delete(global.ScreenShot);
+            <string>///Checks for mouse click or 'Enter' press
+if (global.csNo){
+
+    if (!global.roomfade){
+        self.image_alpha = 1;
+    }
+    
+    if (keyboard_check_pressed(vk_enter)){ // Resume the cutscene
+        room_goto(global.RoomBeforePause);
+        sprite_delete(global.ScreenShot);
+        audio_resume_sound(global.currentAudio);
+    }
+}
+
+// Visibility if not selected or room fading
+if (!global.roomfade &amp;&amp; !global.csNo){
+    self.image_alpha = 0.5;
+} else  if (global.roomfade &amp;&amp; !global.csNo){
+    self.image_alpha = 0;
 }
 </string>
           </argument>
