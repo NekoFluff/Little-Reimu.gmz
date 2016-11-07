@@ -70,7 +70,12 @@
       <script>scripts\addBurstSpray.gml</script>
       <script>scripts\updateBurstSpray.gml</script>
     </scripts>
+    <script>scripts\scr_storyteller.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_horror</font>
+    <font>fonts\fnt_storyteller</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_wall</object>
@@ -116,6 +121,7 @@
       <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
     </objects>
+    <object>objects\obj_text</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
