@@ -3,7 +3,7 @@
   <spriteName>spr_player_static</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-90</depth>
+  <depth>-15</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -145,7 +145,7 @@ if (keyEscape){
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
     room_persistent = true;
     global.RoomBeforePause = room;
-    room_goto(room_pause);
+    room_goto(room_pauseGame);
 }
 
 // player spawn blink effect

@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiating global variables used in pause
+pauseContinue = true;
+pauseQuit = false;
+global.roomfade = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,10 +51,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot
+            <string>///Set background to ScreenShot / option select
 obj_pauseBackground.sprite_index = global.ScreenShot;
 image_xscale = room_width / sprite_width;
 image_yscale = room_height / sprite_height;
+
+keyUp = keyboard_check_pressed(vk_up);
+keyDown = keyboard_check_pressed(vk_down);
+
+// Selection on key press
+// Combinations of pauseContinue and key press
+if (pauseContinue &amp;&amp; keyDown){
+    pauseContinue = false;
+    pauseQuit = true;
+}
+
+else if (pauseContinue &amp;&amp; keyUp){
+    pauseContinue = false;
+    pauseQuit = true;
+}
+
+// Combinations of pauseQuit and key press
+else if (pauseQuit &amp;&amp; keyUp){
+    pauseContinue = true;
+    pauseQuit = false;
+}
+
+else if (pauseQuit &amp;&amp; keyDown){
+    pauseContinue = true;
+    pauseQuit = false;
+}
 </string>
           </argument>
         </arguments>

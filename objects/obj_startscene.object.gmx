@@ -26,17 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>///Choose which scene to display
-sceneNum = 1;
+global.sceneNum = 1;
 
-switch(sceneNum){
+switch(global.sceneNum){
     case 1:
         timeline_index = scene_1_1;
         timeline_position = 0;
         timeline_running = true;
+        break;
     case 2:
-        //timeline_index = scene_1_2;
+        timeline_index = scene_1_2;
         timeline_position = 0;
         timeline_running = true;
+        break;
 }
 </string>
           </argument>
@@ -60,17 +62,18 @@ switch(sceneNum){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Skip cutscene function
+            <string>///Move to pause room / Skip picture
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
 
 if (keyEscape){
-    width = surface_get_width(application_surface);
-    height = surface_get_height(application_surface);
+    var width = surface_get_width(application_surface);
+    var height = surface_get_height(application_surface);
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
     room_persistent = true;
     global.RoomBeforePause = room;
-    room_goto(room_pause);
+    room_goto(room_pauseCutscene);
+    audio_pause_sound(global.currentAudio);
 }
 
 // Skip to the next picture

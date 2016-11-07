@@ -23,7 +23,29 @@
 sprite_index = s_1_1;
 image_xscale = room_width / sprite_width;
 image_yscale = room_height / sprite_height;
-audio_play_sound(snd_walking,1,1);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Play sound
+global.currentAudio = audio_play_sound(snd_walking,1,1);
 </string>
           </argument>
         </arguments>
@@ -50,7 +72,7 @@ audio_play_sound(snd_walking,1,1);
           <argument>
             <kind>1</kind>
             <string>///Stop audio
-audio_stop_sound(snd_walking);
+audio_stop_sound(global.currentAudio);
 </string>
           </argument>
         </arguments>
@@ -78,6 +100,9 @@ audio_stop_sound(snd_walking);
             <kind>1</kind>
             <string>///Pic 2
 sprite_index = s_1_2;
+
+//In case user skips scene
+audio_stop_sound(global.currentAudio);
 </string>
           </argument>
         </arguments>
