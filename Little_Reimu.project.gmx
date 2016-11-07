@@ -94,6 +94,7 @@
     <objects name="bullets">
       <object>objects\obj_player_bullet</object>
       <object>objects\obj_bullet1</object>
+      <object>objects\obj_bulletTracker</object>
     </objects>
     <objects name="Backgrounds">
       <object>objects\obj_bg_forest</object>
@@ -110,8 +111,8 @@
       <object>objects\obj_pauseBackground</object>
       <object>objects\obj_pauseOverlay</object>
       <object>objects\obj_pauseContinue</object>
-      <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseQuit</object>
+      <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
     </objects>
   </objects>
@@ -120,8 +121,8 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
-    <room>rooms\room_pause</room>
-    <room>rooms\room_pausescene</room>
+    <room>rooms\room_pauseGame</room>
+    <room>rooms\room_pauseCutscene</room>
     <room>rooms\room_fight_1</room>
   </rooms>
   <help>

@@ -26,9 +26,33 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiating global variables used in cutscene pause
-global.csYes = true;
-global.csNo = false;
+csYes = true;
+csNo = false;
 global.roomfade = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set background to ScreenShot and Option Selection
+obj_csSkipBackground.sprite_index = global.ScreenShot;
+image_xscale = room_width / sprite_width;
+image_yscale = room_height / sprite_height;
 </string>
           </argument>
         </arguments>
@@ -51,35 +75,31 @@ global.roomfade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot and Option Selection
-obj_csSkipBackground.sprite_index = global.ScreenShot;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
-
+            <string>///Check for key press
 keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 
 // Selection on key press
 // Combinations of csYes and key press
-if (global.csYes &amp;&amp; keyDown){
-    global.csYes = false;
-    global.csNo = true;
+if (csYes &amp;&amp; keyDown){
+    csYes = false;
+    csNo = true;
 }
 
-else if (global.csYes &amp;&amp; keyUp){
-    global.csYes = false;
-    global.csNo = true;
+else if (csYes &amp;&amp; keyUp){
+    csYes = false;
+    csNo = true;
 }
 
 // Combinations of csNo and key press
-else if (global.csNo &amp;&amp; keyUp){
-    global.csYes = true;
-    global.csNo = false;
+else if (csNo &amp;&amp; keyUp){
+    csYes = true;
+    csNo = false;
 }
 
-else if (global.csNo &amp;&amp; keyDown){
-    global.csYes = true;
-    global.csNo = false;
+else if (csNo &amp;&amp; keyDown){
+    csYes = true;
+    csNo = false;
 }
 </string>
           </argument>

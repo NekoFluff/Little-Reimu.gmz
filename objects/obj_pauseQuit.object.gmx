@@ -59,7 +59,7 @@ if (obj_pauseOverlay.image_alpha &lt; 1){ // If the image isn't completely black
             <kind>1</kind>
             <string>///Checks for key 'Enter' when 'Quit' selected
 
-if (global.pauseQuit){
+if (obj_pauseBackground.pauseQuit){
     if (keyboard_check_pressed(vk_enter)){
         alarm[0] = 1;
         self.image_alpha = 0;

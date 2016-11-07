@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Checks for mouse click or 'Enter' press
-if (global.pauseContinue){
+if (obj_pauseBackground.pauseContinue){
 
     if (!global.roomfade){
         self.image_alpha = 1;
@@ -40,9 +40,9 @@ if (global.pauseContinue){
 }
 
 // Visibility if not selected or room fading
-if (!global.roomfade &amp;&amp; !global.pauseContinue){
+if (!global.roomfade &amp;&amp; !obj_pauseBackground.pauseContinue){
     self.image_alpha = 0.5;
-} else  if (global.roomfade &amp;&amp; !global.pauseContinue){
+} else  if (global.roomfade &amp;&amp; !obj_pauseBackground.pauseContinue){
     self.image_alpha = 0;
 }
 </string>

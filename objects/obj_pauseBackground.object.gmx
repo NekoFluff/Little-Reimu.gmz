@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiating global variables used in pause
-global.pauseContinue = true;
-global.pauseQuit = false;
+pauseContinue = true;
+pauseQuit = false;
 global.roomfade = false;
 </string>
           </argument>
@@ -61,25 +61,25 @@ keyDown = keyboard_check_pressed(vk_down);
 
 // Selection on key press
 // Combinations of pauseContinue and key press
-if (global.pauseContinue &amp;&amp; keyDown){
-    global.pauseContinue = false;
-    global.pauseQuit = true;
+if (pauseContinue &amp;&amp; keyDown){
+    pauseContinue = false;
+    pauseQuit = true;
 }
 
-else if (global.pauseContinue &amp;&amp; keyUp){
-    global.pauseContinue = false;
-    global.pauseQuit = true;
+else if (pauseContinue &amp;&amp; keyUp){
+    pauseContinue = false;
+    pauseQuit = true;
 }
 
 // Combinations of pauseQuit and key press
-else if (global.pauseQuit &amp;&amp; keyUp){
-    global.pauseContinue = true;
-    global.pauseQuit = false;
+else if (pauseQuit &amp;&amp; keyUp){
+    pauseContinue = true;
+    pauseQuit = false;
 }
 
-else if (global.pauseQuit &amp;&amp; keyDown){
-    global.pauseContinue = true;
-    global.pauseQuit = false;
+else if (pauseQuit &amp;&amp; keyDown){
+    pauseContinue = true;
+    pauseQuit = false;
 }
 </string>
           </argument>

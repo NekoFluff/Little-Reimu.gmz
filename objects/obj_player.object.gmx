@@ -145,7 +145,7 @@ if (keyEscape){
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
     room_persistent = true;
     global.RoomBeforePause = room;
-    room_goto(room_pause);
+    room_goto(room_pauseGame);
 }
 
 // player spawn blink effect

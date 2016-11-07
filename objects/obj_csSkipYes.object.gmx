@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -32,7 +32,7 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
 } else { // Disable alarm and go to the next room
 
     alarm[0] = -1;
-    global.csSkip = false;
+    
     global.roomfade = false;
     sprite_delete(global.ScreenShot);
     
@@ -69,7 +69,7 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
             <kind>1</kind>
             <string>///Checks for key 'Enter' when 'Yes' selected
 
-if (global.csYes){
+if (obj_csSkipBackground.csYes){
     if (keyboard_check_pressed(vk_enter)){
         alarm[0] = 1;
         obj_csSkipNo.image_alpha = 0;
