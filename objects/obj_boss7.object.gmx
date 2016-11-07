@@ -126,10 +126,10 @@ alarm[1] = room_speed*3
             <kind>1</kind>
             <string>///Add radial sprays
 //addRadialSpray(10000,0,360,60, 10, obj_bulletDeceleration, 2000)
-addRadialSpray(5000,360,0,60, 10, obj_bulletDeceleration, 0)
-addRadialSpray(5000,370,10,60, 10, obj_bulletDeceleration, 0)
-addRadialSpray(5000,380,20,60, 10, obj_bulletDeceleration, 0)
-addRadialSpray(5000,390,30,60, 10, obj_bulletDeceleration, 0)
+addRadialSpray(5000,360,0,60, 5, obj_bulletTracker, 0)
+//addRadialSpray(5000,370,10,60, 10, obj_bulletTracker, 0)
+//addRadialSpray(5000,380,20,60, 10, obj_bulletTracker, 0)
+//addRadialSpray(5000,390,30,60, 10, obj_bulletTracker, 0)
 </string>
           </argument>
         </arguments>

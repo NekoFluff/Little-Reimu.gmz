@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hasGrazed = false;
+            <string>///Initialize variables
+hasGrazed = false;
 hasHit = false;
 </string>
           </argument>
