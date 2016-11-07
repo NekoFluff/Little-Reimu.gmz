@@ -8,6 +8,10 @@
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
     </sounds>
+    <sound>sound\msc_realization</sound>
+    <sound>sound\msc_happy</sound>
+    <sound>sound\msc_shenanigans</sound>
+    <sound>sound\msc_</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="player sprites">

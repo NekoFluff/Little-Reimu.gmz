@@ -138,6 +138,10 @@ keyShift = keyboard_check(vk_shift);
 keyZ = keyboard_check(ord("Z"));
 keyEscape = keyboard_check_pressed(vk_escape);
 
+//Player speed
+var normalSpeed = 9;
+var slowSpeed = 3;
+
 // Pause button
 if (keyEscape){
     width = surface_get_width(application_surface);
@@ -222,38 +226,38 @@ if (!dyingAnimation){
         playerhit.image_alpha = 1;
         playerhitcenter.image_alpha = 1;
         if (keyLeft &amp;&amp; (obj_player.x &gt; 52)){
-            obj_player.x += -4;
+            obj_player.x += -slowSpeed;
         }
         
         if (keyRight &amp;&amp; (obj_player.x &lt; 396)){
-            obj_player.x += 4;
+            obj_player.x += slowSpeed;
         }
         
         if (keyDown &amp;&amp; (obj_player.y &lt; room_height-52)){
-            obj_player.y += 4;
+            obj_player.y += slowSpeed;
         }
         
         if (keyUp &amp;&amp; (obj_player.y &gt; 52)){
-            obj_player.y += -4;
+            obj_player.y += -slowSpeed;
         }
     }
     else {
         playerhit.image_alpha = 0;
         playerhitcenter.image_alpha = 0;
         if (keyLeft &amp;&amp; (obj_player.x &gt; 52)){
-            obj_player.x += -10
+            obj_player.x += -normalSpeed;
         }
         
         if (keyRight &amp;&amp; (obj_player.x &lt; 396)){
-            obj_player.x += 10
+            obj_player.x += normalSpeed;
         }
         
         if (keyDown &amp;&amp; (obj_player.y &lt; room_height-52)){
-            obj_player.y += 10
+            obj_player.y += normalSpeed;
         }
         
         if (keyUp &amp;&amp; (obj_player.y &gt; 52)){
-            obj_player.y += -10
+            obj_player.y += -normalSpeed;
         }
     }
     // Sprite changes based on key press

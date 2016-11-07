@@ -60,7 +60,9 @@ switch(global.sceneNum){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_storyteller("This is some text", 0.3, view_wview[0]/2, view_hview[0]/2);
+            <string>if (global.sceneNum == 1){
+    scr_storyteller("Would you like to hear a story?", 0.5, room_width/2, room_height/2.5);
+}
 </string>
           </argument>
         </arguments>

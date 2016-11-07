@@ -77,7 +77,7 @@ if (time &lt; text_length){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Render textbox and text
+            <string>///Render text
 
 draw_set_font(font);
 draw_set_color(c_white);
