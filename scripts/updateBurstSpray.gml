@@ -29,14 +29,16 @@ for (var i = 0; i < burstArrayCount; i += 1) {
             var currentAngle = angleOffset;
             var bulletsPerBurst = map[? "bulletsPerBurst"];
             var angleBetweenBullets = 360/bulletsPerBurst;
+            var bulletSpeed = map[? "bulletSpeed"];
+            var bulletType = map[? "bulletType"];
             
             for (var a = 0; a < bulletsPerBurst; a += 1) {
-                var bullet = instance_create(x,y, obj_bullet1);
+                var bullet = instance_create(x,y, bulletType);
                 bullet.direction = currentAngle;
                 bullet.image_angle = currentAngle;
                 currentAngle += angleBetweenBullets;
                 
-                bullet.speed = 2.5;
+                bullet.speed = bulletSpeed;
                 bullet.image_xscale = 0.3;
                 bullet.image_yscale = 0.3;
             }
@@ -54,9 +56,10 @@ for (var i = 0; i < burstArrayCount; i += 1) {
             //Shift remaining maps
             burstArray[j] = burstArray[j+1];
             
-            //De-increment i;
-            i -= 1;               
+            
         }
+        //De-increment i;
+        i -= 1;   
         
         //Subtract 1 from the count
         burstArrayCount -= 1;
