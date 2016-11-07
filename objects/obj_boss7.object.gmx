@@ -110,81 +110,27 @@ alarm[1] = room_speed*3
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>addRadialSpray</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>10000</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>360</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>60</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>2000</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>addRadialSpray</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>10000</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>365</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>5</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>60</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>///Add radial sprays
+//addRadialSpray(10000,0,360,60, 10, obj_bulletDeceleration, 2000)
+addRadialSpray(5000,360,0,60, 5, obj_bulletTracker, 0)
+//addRadialSpray(5000,370,10,60, 10, obj_bulletTracker, 0)
+//addRadialSpray(5000,380,20,60, 10, obj_bulletTracker, 0)
+//addRadialSpray(5000,390,30,60, 10, obj_bulletTracker, 0)
+</string>
           </argument>
         </arguments>
       </action>

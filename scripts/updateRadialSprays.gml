@@ -5,6 +5,8 @@ for (var i = 0; i < radialArrayCount; i += 1) {
     var dAngle = map[? "dAngle"];
     var prevTime = map[? "prevTime"];
     var numBullets = map[? "numBullets"];
+    var bulletSpeed = map[? "bulletSpeed"];
+    var bulletType = map[? "bulletType"];
     var currentAngle = map[? "currentAngle"];
     var pauseTime = map[? "pauseTime"];
     
@@ -25,12 +27,12 @@ for (var i = 0; i < radialArrayCount; i += 1) {
         if (dTime > timePerBullet) {
         
             //Create bullet
-            var bullet = instance_create(x,y, obj_bullet1);
+            var bullet = instance_create(x,y, bulletType);
             bullet.direction = currentAngle;
             bullet.image_angle = currentAngle;
-            bullet.speed = 2;
+            bullet.speed = bulletSpeed;
             bullet.image_xscale = 0.3;
-            bullet.image_yscale = 0.15;
+            bullet.image_yscale = 0.10;
             
             prevTime = prevTime + timePerBullet; 
             currentAngle += dAngle //Increment angle for next shot.
@@ -47,11 +49,13 @@ for (var i = 0; i < radialArrayCount; i += 1) {
             //Shift remaining maps
             radialArray[j] = radialArray[j+1];
             
-            //De-increment i;
-            i -= 1;               
+              
         }
+        //De-increment i;
+        i -= 1; 
         
         //Subtract 1 from the count
-        radialArrayCount -= 1;
+        radialArrayCount = radialArrayCount - 1;
+        show_debug_message("Radial Array Count: " + string(radialArrayCount));
     }
 }

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize variables for bullet
+            <string>///Initialize variables
 hasGrazed = false;
 hasHit = false;
 </string>
