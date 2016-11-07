@@ -60,6 +60,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_storyteller.gml</script>
     <scripts name="Radial Spray Pattern">
       <script>scripts\addRadialSpray.gml</script>
       <script>scripts\updateRadialSprays.gml</script>
@@ -70,7 +71,11 @@
       <script>scripts\addBurstSpray.gml</script>
       <script>scripts\updateBurstSpray.gml</script>
     </scripts>
-    <script>scripts\scr_storyteller.gml</script>
+    <scripts name="Flower Burst Pattern">
+      <script>scripts\initializeFlowerBurstSpray.gml</script>
+      <script>scripts\addFlowerBurstSpray.gml</script>
+      <script>scripts\updateFlowerBurstSpray.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_horror</font>
@@ -101,6 +106,7 @@
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bulletDeceleration</object>
       <object>objects\obj_bulletTracker</object>
+      <object>objects\obj_bulletFlower</object>
     </objects>
     <objects name="Backgrounds">
       <object>objects\obj_bg_forest</object>

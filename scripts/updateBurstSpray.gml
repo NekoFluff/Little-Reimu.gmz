@@ -34,6 +34,7 @@ for (var i = 0; i < burstArrayCount; i += 1) {
             
             for (var a = 0; a < bulletsPerBurst; a += 1) {
                 var bullet = instance_create(x,y, bulletType);
+                bullet.sfxEnabled = true;
                 bullet.direction = currentAngle;
                 bullet.image_angle = currentAngle;
                 currentAngle += angleBetweenBullets;

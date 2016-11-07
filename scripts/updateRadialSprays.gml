@@ -28,6 +28,7 @@ for (var i = 0; i < radialArrayCount; i += 1) {
         
             //Create bullet
             var bullet = instance_create(x,y, bulletType);
+            bullet.sfxEnabled = true;
             bullet.direction = currentAngle;
             bullet.image_angle = currentAngle;
             bullet.speed = bulletSpeed;
