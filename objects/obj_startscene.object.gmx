@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,9 +26,18 @@
           <argument>
             <kind>1</kind>
             <string>///Choose which scene to display
-global.sceneNum = 1;
+global.sceneNum = 0;
+
+// Instantiating keys
+keyZ = keyboard_check_pressed(ord("Z"));
+keyEnter = keyboard_check_pressed(vk_enter);
 
 switch(global.sceneNum){
+    case 0: // Introduction
+        timeline_index = scene_intro;
+        timeline_position = 0;
+        timeline_running = true;
+        break;
     case 1:
         timeline_index = scene_1_1;
         timeline_position = 0;
@@ -39,29 +48,6 @@ switch(global.sceneNum){
         timeline_position = 0;
         timeline_running = true;
         break;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.sceneNum == 1){
-    scr_storyteller("Would you like to hear a story?", 0.5, room_width/2, room_height/2.5);
 }
 </string>
           </argument>
@@ -101,14 +87,20 @@ if (keyEscape){
 
 // Skip to the next picture
 if (keyEnter){
-    var tempPosition = timeline_position;
-    
-    while (tempPosition &gt;= 0){ // Subtract tempPosition by 150 until there's a negative number
-        tempPosition -= 150;
+    if (timeline_index == scene_intro) {
+        txt.skipLine = true;
     }
-    
-    timeline_position = timeline_position - tempPosition;
+    else {
+        var tempPosition = timeline_position;
+        
+        while (tempPosition &gt;= 0){ // Subtract tempPosition by 150 until there's a negative number
+            tempPosition -= 150;
+        }
+        
+        timeline_position = timeline_position - tempPosition;
+    } 
 }
+
 </string>
           </argument>
         </arguments>

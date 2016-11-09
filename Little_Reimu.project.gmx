@@ -57,6 +57,7 @@
       <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_quit</sprite>
     </sprites>
+    <sprite>sprites\spr_blackscreen</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_forest</background>
@@ -75,15 +76,16 @@
       <script>scripts\updateBurstSpray.gml</script>
     </scripts>
     <script>scripts\scr_storyteller.gml</script>
+    <script>scripts\scr_updateText.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_horror</font>
     <font>fonts\fnt_storyteller</font>
+    <font>fonts\fnt_default</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_wall</object>
-    <object>objects\obj_lives</object>
     <objects name="Menu">
       <object>objects\obj_playbutton</object>
     </objects>
@@ -129,9 +131,11 @@
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
+    <timeline>timelines\scene_intro</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
+    <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
     <room>rooms\room_fight_1</room>
