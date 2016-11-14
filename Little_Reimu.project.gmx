@@ -128,6 +128,8 @@
       <object>objects\obj_pauseVolume</object>
     </objects>
     <object>objects\obj_text</object>
+    <object>objects\obj_introYes</object>
+    <object>objects\obj_introNo</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>

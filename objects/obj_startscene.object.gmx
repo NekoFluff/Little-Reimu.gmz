@@ -25,6 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Instantiating Yes/No variable states
+Yes = true;
+No = false;
+choiceNo = 0;
+askUser = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Choose which scene to display
 global.sceneNum = 0;
 
@@ -71,6 +96,54 @@ switch(global.sceneNum){
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Checks which option is selected
+keyLeft = keyboard_check_pressed(vk_left);
+keyRight = keyboard_check_pressed(vk_right);
+
+if (askUser){
+    // Selection on key press
+    // Combinations of csYes and key press
+    if (Yes &amp;&amp; keyRight){
+        Yes = false;
+        No = true;
+    }
+    
+    else if (Yes &amp;&amp; keyLeft){
+        Yes = false;
+        No = true;
+    }
+    
+    // Combinations of csNo and key press
+    else if (No &amp;&amp; keyLeft){
+        Yes = true;
+        No = false;
+    }
+    
+    else if (No &amp;&amp; keyRight){
+        Yes = true;
+        No = false;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Move to pause room / Skip picture
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
@@ -88,7 +161,9 @@ if (keyEscape){
 // Skip to the next picture
 if (keyEnter){
     if (timeline_index == scene_intro) {
-        txt.skipLine = true;
+        if (askUser == false){
+                txt.skipLine = true;
+        }
     }
     else {
         var tempPosition = timeline_position;

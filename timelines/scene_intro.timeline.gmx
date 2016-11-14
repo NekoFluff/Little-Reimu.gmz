@@ -23,10 +23,13 @@
 // Creating black background
 sprite_index = spr_blackscreen;
 currentTextIndex = 0;
-arrayIntro[0] = "This is the first line of text.";
-arrayIntro[1] = "Another line of text awaits."
-arrayIntro[2] = "Third line of text. Tee hee."
-arrayIntro[3] = "Fourth line of text. Tee hee."
+arrayIntro[0] = "Stories are peculiar things."
+arrayIntro[1] = "They're meant to tell an account of events. A tale, to be exact."
+arrayIntro[2] = "Sometimes, they spin a tale of fantasy. A lie meant to amuse. Decieve."
+arrayIntro[3] = "Sometimes, they craft a more honest tale. A narrative of truth."
+arrayIntro[4] = "Would you like to hear a story?"
+obj_introYes.image_alpha = 0;
+obj_introNo.image_alpha = 0;
 // Print out text
 scr_storyteller(arrayIntro[currentTextIndex], 0.5, room_width/2, room_height/2.5);
 
@@ -78,7 +81,12 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
     
     timeline_position = 1;
     
-} 
+} else {
+//No text to print; parse user for choice
+obj_startscene.askUser = true;
+obj_startscene.timeline_running = false;
+}
+
 </string>
           </argument>
         </arguments>
@@ -105,11 +113,18 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
           <argument>
             <kind>1</kind>
             <string>///Instantiate new set of text
-currentTextIndex = 0;
-arrayIntro[0] = "This is some new text.";
-arrayIntro[1] = "Another line of text awaits."
-arrayIntro[2] = "Third line of text. Tee hee."
-arrayIntro[3] = "Fourth line of text. Tee hee."
+currentTextIndex = -1;
+arrayIntro[0] = "Excellent. Everyone enjoys a new story now and then, don't they?";
+arrayIntro[1] = "But what story to tell on a night like this?"
+arrayIntro[2] = "No, no... not this one..."
+arrayIntro[3] = "Ah, here we are." 
+arrayIntro[4] = "Yes, for a night like this..."
+arrayIntro[5] = "A story from the land of Gensokyo would be fitting, would it not?"
+arrayIntro[6] = "A story from a land where forgotten things may find their home."
+arrayIntro[7] = "A story of beauty. A story of peril."
+arrayIntro[8] = "A story of a..."
+obj_introYes.image_alpha = 0;
+obj_introNo.image_alpha = 0;
 </string>
           </argument>
         </arguments>
@@ -147,6 +162,167 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
     } 
     
     timeline_position = 7;
+    
+} else {
+    show_debug_message("Finished Intro Scene");
+    
+    //Delete text 
+    with(txt) {
+        instance_destroy();
+    }
+    
+    //Pause current timeline
+    timeline_delete(timeline_running);
+    
+    //Move to scene_1_1 timeline
+    timeline_index = scene_1_1;
+    timeline_position = 0;
+    timeline_running = true;
+    global.sceneNum = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>11</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiate new set of text
+currentTextIndex = -1;
+arrayIntro = 0;
+arrayIntro[0] = "No? A shame. Are you sure?"
+obj_introYes.image_alpha = 0;
+obj_introNo.image_alpha = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>15</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check if text is complete. 
+if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to print
+    if (!txt.stillPrinting) {
+        //show_debug_message("Moving to next line of text")
+        currentTextIndex++;
+        
+        if (currentTextIndex != array_length_1d(arrayIntro)) { //Make sure you don't go out of the array's bounds!
+            scr_updateText(txt, arrayIntro[currentTextIndex])
+        }
+    } 
+    
+    timeline_position = 12;
+    
+} else {
+//No text to print; parse user for choice
+obj_startscene.askUser = true;
+obj_startscene.timeline_running = false;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>16</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiate new set of text
+currentTextIndex = -1;
+arrayIntro[0] = "Alright then, if you insist. You're missing out on quite a tale, though.";
+arrayIntro[1] = "Quite a tale indeed..."
+obj_introYes.image_alpha = 0;
+obj_introNo.image_alpha = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>20</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Second portion of intro scene
+if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to print
+    if (!txt.stillPrinting) {
+        //show_debug_message("Moving to next line of text")
+        currentTextIndex++;
+        
+        if (currentTextIndex != array_length_1d(arrayIntro)) { //Make sure you don't go out of the array's bounds!
+            scr_updateText(txt, arrayIntro[currentTextIndex])
+        }
+    } 
+    
+    timeline_position = 17;
     
 } else {
     show_debug_message("Finished Intro Scene");
