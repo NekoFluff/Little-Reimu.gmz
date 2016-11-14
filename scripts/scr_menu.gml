@@ -1,6 +1,6 @@
 switch (mpos){
     case 0:
-        room_goto(room_intro);
+        room_goto(room_difficulty)
         break;
     case 1:
         //room_goto(room_options);

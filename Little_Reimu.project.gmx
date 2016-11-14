@@ -8,7 +8,6 @@
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
     </sounds>
-    <sound>sound\msc_</sound>
     <sounds name="BGM">
       <sound>sound\msc_shenanigans</sound>
       <sound>sound\msc_happy</sound>
@@ -80,6 +79,7 @@
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
     <script>scripts\scr_menu.gml</script>
+    <script>scripts\scr_difficulty.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_horror</font>
@@ -93,6 +93,7 @@
     <object>objects\obj_wall</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
+      <object>objects\obj_difficulty</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -142,6 +143,7 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
+    <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
