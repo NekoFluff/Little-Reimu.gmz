@@ -8,10 +8,12 @@
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
     </sounds>
-    <sound>sound\msc_realization</sound>
-    <sound>sound\msc_happy</sound>
-    <sound>sound\msc_shenanigans</sound>
     <sound>sound\msc_</sound>
+    <sounds name="BGM">
+      <sound>sound\msc_shenanigans</sound>
+      <sound>sound\msc_happy</sound>
+      <sound>sound\msc_realization</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="player sprites">
@@ -77,17 +79,20 @@
     </scripts>
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
+    <script>scripts\scr_menu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_horror</font>
     <font>fonts\fnt_storyteller</font>
+    <font>fonts\fnt_menu</font>
+    <font>fonts\fnt_selected</font>
     <font>fonts\fnt_default</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_wall</object>
     <objects name="Menu">
-      <object>objects\obj_playbutton</object>
+      <object>objects\obj_menu</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
