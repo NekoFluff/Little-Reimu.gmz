@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiating global variables used in cutscene pause
-csYes = true;
-csNo = false;
-global.roomfade = false;
+            <string>///Set background to ScreenShot and Option Selection
+obj_csSkipBackground.sprite_index = global.ScreenShot;
+image_xscale = room_width / sprite_width;
+image_yscale = room_height / sprite_height;
 </string>
           </argument>
         </arguments>
@@ -49,10 +49,10 @@ global.roomfade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot and Option Selection
-obj_csSkipBackground.sprite_index = global.ScreenShot;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
+            <string>///Instantiating global variables used in cutscene pause
+csYes = true;
+csNo = false;
+global.roomfade = false;
 </string>
           </argument>
         </arguments>

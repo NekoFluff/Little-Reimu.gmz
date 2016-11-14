@@ -30,6 +30,8 @@ global.bossHP = 0;
 global.graze = 0;
 global.can_shoot = 0;
 global.bombs = 3;
+draw_set_font(fnt_default);
+draw_set_color(c_black);
 </string>
           </argument>
         </arguments>
@@ -105,14 +107,14 @@ if (instance_number(obj_player) &lt;= 0 &amp;&amp; lives &gt;= 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Bomb UI
-for (i = 0; i &lt; global.bombs; i++){
-        drawbombs = instance_create(512 + (20 * i), 160, obj_lives);
-}
+            <string>///Increment Can_Shoot
+global.can_shoot += 1;
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -129,179 +131,25 @@ for (i = 0; i &lt; global.bombs; i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Increment Can_Shoot
-global.can_shoot += 1;
+            <string>///Draw Scoreboard/Lives
+
+// Labels
+draw_text(448, 64, "Score");
+draw_text(448, 96, "Graze");
+draw_text(448, 128, "Player");
+draw_text(448, 160, "Bomb");
+
+// Variables
+draw_text(512, 64, score);
+draw_text(512, 96, global.graze);
+
+for (i = 0; i &lt; lives; i++){
+    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 128, 1, 1, 0, c_white, 1);
+}
+for (i = 0; i &lt; global.bombs; i++){
+    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 160, 1, 1, 0, c_white, 1);
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>703</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_score</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>448</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>64</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string>Score: </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>514</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_text</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>2</kind>
-            <string>Graze: </string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>448</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>96</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>global.graze</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>512</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>96</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>514</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_text</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>2</kind>
-            <string>Player</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>448</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>128</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>714</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_life_images</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>512</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>128</string>
-          </argument>
-          <argument>
-            <kind>5</kind>
-            <sprite>spr_star</sprite>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>514</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_text</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>2</kind>
-            <string>Bomb</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>448</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>160</string>
           </argument>
         </arguments>
       </action>
