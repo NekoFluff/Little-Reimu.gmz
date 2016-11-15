@@ -17,8 +17,8 @@
   <sprites name="sprites">
     <sprites name="player sprites">
       <sprite>sprites\spr_player_static</sprite>
-      <sprite>sprites\spr_player_left</sprite>
       <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_left</sprite>
       <sprite>sprites\spr_hitbox</sprite>
       <sprite>sprites\spr_player_center</sprite>
       <sprite>sprites\spr_star</sprite>
@@ -86,17 +86,19 @@
     <script>scripts\scr_difficulty.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fnt_horror</font>
-    <font>fonts\fnt_storyteller</font>
+    <font>fonts\fnt_default</font>
     <font>fonts\fnt_menu</font>
     <font>fonts\fnt_selected</font>
-    <font>fonts\fnt_default</font>
+    <font>fonts\fnt_controls</font>
+    <font>fonts\fnt_horror</font>
+    <font>fonts\fnt_storyteller</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_wall</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
+      <object>objects\obj_menu_aesthetics</object>
       <object>objects\obj_difficulty</object>
     </objects>
     <objects name="player">

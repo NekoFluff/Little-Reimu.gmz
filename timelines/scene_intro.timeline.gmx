@@ -115,7 +115,7 @@ obj_startscene.timeline_running = false;
             <kind>1</kind>
             <string>///Instantiate new set of text
 currentTextIndex = -1;
-arrayIntro[0] = "Excellent. Everyone enjoys a new story now and then, don't they?";
+arrayIntro[0] = "Excellent. Everyone enjoys a good story now and then, don't they?";
 arrayIntro[1] = "But what story to tell on a night like this?"
 arrayIntro[2] = "No, no... not this one..."
 arrayIntro[3] = "Ah, here we are." 

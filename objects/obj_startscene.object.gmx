@@ -209,6 +209,7 @@ if (askUser){
             <string>///Move to pause room / Skip picture
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
+keyZ = keyboard_check_pressed(ord("Z"));
 
 if (keyEscape and global.sceneNum != 0){
     var width = surface_get_width(application_surface);
@@ -221,7 +222,7 @@ if (keyEscape and global.sceneNum != 0){
 }
 
 // Skip to the next picture
-if (keyEnter){
+if (keyEnter or keyZ){
     if (timeline_index == scene_intro) {
         if (askUser == false){
                 txt.skipLine = true;

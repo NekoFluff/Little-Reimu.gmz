@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-999</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,39 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiate global variables
-global.bossHP = 0;
-global.graze = 0;
-global.can_shoot = 0;
-global.bombs = 3;
-draw_set_font(fnt_default);
-draw_set_color(c_black);
+            <string>fadeAlpha = 1;
+alarm[0] = 15;
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>3</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -74,38 +49,12 @@ draw_set_color(c_black);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create instance of Player
-if (instance_number(obj_player) &lt;= 0 &amp;&amp; lives &gt;= 0){
-    var newPlayer = instance_create(224, 384, obj_player);
-    newPlayer.image_alpha = 0;
-    newPlayer.image_xscale = 0;
-    newPlayer.image_yscale = 2;
-    newPlayer.invincible = true;
-    newPlayer.spawnEffectTrigger = 1;
+            <string>if (fadeAlpha &gt; 0){
+    alarm[0] = 1;
+    fadeAlpha -= 0.05;
+} else {
+    alarm[0] = -1;
 }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Increment Can_Shoot
-global.can_shoot += 1;
 </string>
           </argument>
         </arguments>
@@ -128,23 +77,9 @@ global.can_shoot += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Scoreboard/Lives
-
-// Labels
-draw_text(448, 64, "Score");
-draw_text(448, 96, "Graze");
-draw_text(448, 128, "Player");
-draw_text(448, 160, "Bomb");
-
-// Variables
-draw_text(512, 64, score);
-draw_text(512, 96, global.graze);
-
-for (i = 0; i &lt; lives; i++){
-    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 128, 1, 1, 0, c_white, 1);
-}
-for (i = 0; i &lt; global.bombs; i++){
-    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 160, 1, 1, 0, c_white, 1);
+            <string>///Draw fade in
+if (fadeAlpha &gt; 0){
+    fadeScreen = draw_sprite_ext(spr_blackscreen, 0, 1, 1, 1, 1, 0, c_white, fadeAlpha);
 }
 </string>
           </argument>
