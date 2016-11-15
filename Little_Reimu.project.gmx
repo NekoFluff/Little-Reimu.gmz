@@ -128,6 +128,9 @@
       <object>objects\obj_csSkipOverlay</object>
       <object>objects\obj_csSkipYes</object>
       <object>objects\obj_csSkipNo</object>
+      <object>objects\obj_introYes</object>
+      <object>objects\obj_introNo</object>
+      <object>objects\obj_text</object>
     </objects>
     <objects name="Pause Room Controls">
       <object>objects\obj_pauseBackground</object>
@@ -137,15 +140,13 @@
       <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
     </objects>
-    <object>objects\obj_text</object>
-    <object>objects\obj_introYes</object>
-    <object>objects\obj_introNo</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_intro</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>

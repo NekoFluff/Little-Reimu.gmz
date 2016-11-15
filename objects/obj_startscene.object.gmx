@@ -210,7 +210,7 @@ if (askUser){
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
 
-if (keyEscape){
+if (keyEscape and global.sceneNum != 0){
     var width = surface_get_width(application_surface);
     var height = surface_get_height(application_surface);
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
@@ -226,8 +226,7 @@ if (keyEnter){
         if (askUser == false){
                 txt.skipLine = true;
         }
-    }
-    else {
+    } else {
         var tempPosition = timeline_position;
         
         while (tempPosition &gt;= 0){ // Subtract tempPosition by 150 until there's a negative number
