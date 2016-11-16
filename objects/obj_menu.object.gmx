@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiate currentAudio to avoid errors
+            <string>///Instantiate currentAudio and gameVolume
 global.currentAudio = audio_play_sound(snd_walking,0,0);
 audio_stop_sound(global.currentAudio);
+global.gameVolume = 1;
 </string>
           </argument>
         </arguments>
@@ -124,6 +125,8 @@ move += max(keyDown, 0);
 //Move menu around
 if (move != 0){
     mpos += move;
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
     //Wrap menu position around
     if (mpos &lt; 0){
         mpos = array_length_1d(menu) - 1;
@@ -138,6 +141,8 @@ var select;
 select = max(keyEnter, keyZ, 0);
 if (select == 1){
     scr_menu();
+    audio_play_sound(snd_confirm, 1, false);
+    audio_sound_gain(snd_confirm, global.gameVolume/10, false);
 }
 </string>
           </argument>

@@ -90,7 +90,7 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
             <kind>1</kind>
             <string>///Checks for key 'Enter' when 'Yes' selected
 if (obj_csSkipBackground.csYes){
-    if (keyboard_check_pressed(vk_enter)){
+    if (keyboard_check_pressed(vk_enter) or keyboard_check_pressed(ord("Z"))){
         alarm[0] = 1;
         obj_csSkipNo.image_alpha = 0;
         obj_csSkipYes.image_alpha = 0;

@@ -7,6 +7,12 @@
   <sounds name="sound">
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
+      <sound>sound\snd_shoot</sound>
+      <sounds name="Menu SFX">
+        <sound>sound\snd_select</sound>
+        <sound>sound\snd_confirm</sound>
+        <sound>sound\snd_cancel</sound>
+      </sounds>
     </sounds>
     <sounds name="BGM">
       <sound>sound\msc_shenanigans</sound>
