@@ -29,6 +29,11 @@
 pauseContinue = true;
 pauseQuit = false;
 global.roomfade = false;
+///Set background to ScreenShot / option select
+obj_pauseBackground.sprite_index = global.ScreenShot;
+image_xscale = room_width / sprite_width;
+image_yscale = room_height / sprite_height;
+
 </string>
           </argument>
         </arguments>
@@ -51,12 +56,7 @@ global.roomfade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot / option select
-obj_pauseBackground.sprite_index = global.ScreenShot;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
-
-keyUp = keyboard_check_pressed(vk_up);
+            <string>keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 
 // Selection on key press
