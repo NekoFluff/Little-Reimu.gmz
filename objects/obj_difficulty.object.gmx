@@ -37,6 +37,12 @@ dpos = 0; //Select position
 
 fadeAlpha = 0;
 room_selected = room_menu;
+
+//X_Position for selected option
+centerX = room_width/2.75;
+for (var i = 0; i &lt; array_length_1d(menu)-1; i++) {
+    positions[i] = centerX
+}
 </string>
           </argument>
         </arguments>
@@ -59,7 +65,8 @@ room_selected = room_menu;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(room_selected);
+            <string>///Go to selected room
+room_goto(room_selected);
 </string>
           </argument>
         </arguments>
@@ -135,9 +142,7 @@ if (move != 0){
 }
 
 //Select an option
-var select;
-select = max(keyEnter, keyZ, 0);
-if (select == 1){
+if (max(keyEnter, keyZ, 0) == 1){
     scr_difficulty();
 }
 
@@ -178,10 +183,15 @@ for (i = 0; i &lt; array_length_1d(menu); i++){
     if !(i == 4){ 
         // Draw the currently selected option
         if (i == dpos){
-            currentDifficulty = draw_sprite_ext(menu[i], 0, room_width/2.75, 8 + (i * space), 0.375, 0.375, 0, c_white, 1);
+            
+            positions[i] = positions[i] + max(min(0.25 * (centerX - positions[i]), 10), -10) 
+            currentDifficulty = draw_sprite_ext(menu[i], 0, positions[i], 8 + (i * space), 0.375, 0.375, 0, c_white, 1);
         // Draw the non-selected options
+        
         } else { 
-            otherDifficulty = draw_sprite_ext(menu[i], 0, room_width/2.75, 8 + (i * space), 0.375, 0.375, 0, c_white, 0.4);
+            var targetX = centerX + (room_width/10 * power(-1, i));
+            positions[i] = positions[i] + max(min(0.05 * (targetX - positions[i]), 3), -3)
+            otherDifficulty = draw_sprite_ext(menu[i], 0, positions[i], 8 + (i * space), 0.375, 0.375, 0, c_white, 0.4);
         }
     // If the image drawn is 'Back' option (text)
     } else {
