@@ -157,7 +157,6 @@ if (max(keyEnter, keyZ, 0) == 1){
 
 if (keyX){
     dpos = 4;
-    scr_difficulty();
     audio_play_sound(snd_cancel, 1, false);
     audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
 }
@@ -194,7 +193,6 @@ for (i = 0; i &lt; array_length_1d(menu); i++){
     if !(i == 4){ 
         // Draw the currently selected option
         if (i == dpos){
-            
             positions[i] = positions[i] + max(min(0.25 * (centerX - positions[i]), 10), -10) 
             currentDifficulty = draw_sprite_ext(menu[i], 0, positions[i], 8 + (i * space), 0.375, 0.375, 0, c_white, 1);
         // Draw the non-selected options

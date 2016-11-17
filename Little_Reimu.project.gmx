@@ -12,6 +12,7 @@
         <sound>sound\snd_select</sound>
         <sound>sound\snd_confirm</sound>
         <sound>sound\snd_cancel</sound>
+        <sound>sound\snd_pause</sound>
       </sounds>
     </sounds>
     <sounds name="BGM">
@@ -90,6 +91,7 @@
     <script>scripts\scr_updateText.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
+    <script>scripts\scr_options.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -106,6 +108,7 @@
       <object>objects\obj_menu</object>
       <object>objects\obj_menu_aesthetics</object>
       <object>objects\obj_difficulty</object>
+      <object>objects\obj_options</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>

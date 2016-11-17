@@ -118,6 +118,7 @@ keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 keyEnter = keyboard_check_pressed(vk_enter);
 keyZ = keyboard_check_pressed(ord("Z"));
+keyX = keyboard_check_pressed(ord("X"));
 
 move -= max(keyUp, 0);
 move += max(keyDown, 0);
@@ -143,6 +144,12 @@ if (select == 1){
     scr_menu();
     audio_play_sound(snd_confirm, 1, false);
     audio_sound_gain(snd_confirm, global.gameVolume/10, false);
+}
+
+if (keyX){
+    mpos = 4;
+    audio_play_sound(snd_cancel, 1, false);
+    audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
 }
 </string>
           </argument>

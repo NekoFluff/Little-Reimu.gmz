@@ -25,34 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot and Option Selection
-obj_csSkipBackground.sprite_index = global.ScreenShot;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Instantiating global variables used in cutscene pause
-csYes = true;
-csNo = false;
-global.roomfade = false;
+            <string>///Instantiating Options array
+Options[0] = ("Game Volume: " + global.gameVolume);
+Options[1] = ("SFX Volume: " + global.gameVolume);
+Options[2] = "Back";
+
+space = 48;
+mpos = 0;
 </string>
           </argument>
         </arguments>
@@ -75,39 +54,91 @@ global.roomfade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for key press
+            <string>var move = 0;
 keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
+keyEnter = keyboard_check_pressed(vk_enter);
+keyZ = keyboard_check_pressed(ord("Z"));
 
-// Selection on key press
-// Combinations of csYes and key press
-if (csYes &amp;&amp; keyDown){
-    csYes = false;
-    csNo = true;
+move -= max(keyUp, 0);
+move += max(keyDown, 0);
+
+//Move menu around
+if (move != 0){
+    mpos += move;
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+    //Wrap menu position around
+    if (mpos &lt; 0){
+        mpos = array_length_1d(menu) - 1;
+    }
+    if (mpos &gt; array_length_1d(menu) - 1){
+        mpos = 0;
+    }
 }
 
-else if (csYes &amp;&amp; keyUp){
-    csYes = false;
-    csNo = true;
-    audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+//Select an option
+var select;
+select = max(keyEnter, keyZ, 0);
+if (select == 1){
+    scr_options();
+    audio_play_sound(snd_confirm, 1, false);
+    audio_sound_gain(snd_confirm, global.gameVolume/10, false);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw Menu
+draw_set_halign(fa_right);
+draw_set_valign(fa_middle);
+draw_set_font(fnt_menu);
+draw_set_color(c_white);
 
-// Combinations of csNo and key press
-else if (csNo &amp;&amp; keyUp){
-    csYes = true;
-    csNo = false;
-    audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
-}
-
-else if (csNo &amp;&amp; keyDown){
-    csYes = true;
-    csNo = false;
-    audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+for (i = 0; i &lt; array_length_1d(menu); i++){
+    if (i == mpos){ // Current selected option
+        draw_set_font(fnt_selected);
+        draw_set_alpha(1);
+        //Outline text
+        draw_set_color(c_black);
+        draw_text(700+1 + space, 260 + (i * space), string(menu[i]));
+        draw_text(700-1 + space, 260 + (i * space), string(menu[i]));
+        draw_text(700 + space, 260+1 + (i * space), string(menu[i]));
+        draw_text(700 + space, 260-1 + (i * space), string(menu[i]));
+        //Actual text
+        draw_set_color(c_white);
+        draw_text(700 + space, 260 + (i * space), string(menu[i]));
+    } else { // Not selected options
+        draw_set_font(fnt_menu);
+        draw_set_alpha(0.6);
+        //Outline text
+        draw_set_color(c_black);
+        draw_text(700+1 + space, 264 + (i * space), string(menu[i]));
+        draw_text(700-1 + space, 264 + (i * space), string(menu[i]));
+        draw_text(700 + space, 264+1 + (i * space), string(menu[i]));
+        draw_text(700 + space, 264-1 + (i * space), string(menu[i]));
+        //Actual text
+        draw_set_color(c_white);
+        draw_text(700 + space, 264 + (i * space), string(menu[i]));
+    }
 }
 </string>
           </argument>

@@ -166,22 +166,30 @@ if (askUser){
     // Selection on key press
     // Combinations of csYes and key press
     if (Yes &amp;&amp; keyRight){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = false;
         No = true;
     }
     
     else if (Yes &amp;&amp; keyLeft){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = false;
         No = true;
     }
     
     // Combinations of csNo and key press
     else if (No &amp;&amp; keyLeft){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = true;
         No = false;
     }
     
     else if (No &amp;&amp; keyRight){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = true;
         No = false;
     }
