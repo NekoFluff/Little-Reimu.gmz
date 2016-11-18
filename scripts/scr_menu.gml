@@ -9,7 +9,7 @@ switch (mpos){
         //alarm[0] = 2;
         break;
     case 2:
-        //alarm[0] = 2;
+        obj_menu.menuState = 2;
         //room_goto(room_music);
         break;
     case 3:

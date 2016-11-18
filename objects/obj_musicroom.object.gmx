@@ -26,17 +26,18 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiating Options array
-options[0] = ("Game Volume: " + string(global.gameVolume));
-options[1] = ("SFX Volume: " + string(global.gameVolume));
-options[2] = "Back";
+music[0] = "Song1";
+music[1] = "Song2";
+music[2] = "Back";
 
 //optionState = false;
 space = 48;
-opos = 0;
+mpos = 0;
 
-desiredX = 16;
+desiredX = room_width/2;
+centerX = room_width/2;
 
-for (var i = 0; i &lt; array_length_1d(options); i++) {
+for (var i = 0; i &lt; array_length_1d(music); i++) {
     positions[i] = desiredX;
 }
 </string>
@@ -72,17 +73,17 @@ move -= max(keyUp, 0);
 move += max(keyDown, 0);
 
 //Move options around
-if (obj_menu.menuState == 1){
+if (obj_menu.menuState == 2){
     if (move != 0){
-        opos += move;
+        mpos += move;
         audio_play_sound(snd_select, 1, false);
         audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
-        //Wrap options position around
-        if (opos &lt; 0){
-            opos = array_length_1d(options) - 1;
+        //Wrap music position around
+        if (mpos &lt; 0){
+            mpos = array_length_1d(music) - 1;
         }
-        if (opos &gt; array_length_1d(options) - 1){
-            opos = 0;
+        if (mpos &gt; array_length_1d(music) - 1){
+            mpos = 0;
         }
     }
     
@@ -90,13 +91,13 @@ if (obj_menu.menuState == 1){
     var select;
     select = max(keyEnter, keyZ, 0);
     if (select == 1){
-        scr_options();
+        scr_musicroom();
         audio_play_sound(snd_pause, 1, false);
         audio_sound_gain(snd_pause, global.gameVolume/10, false);
     }
     
     if (keyX){
-        opos = 2;
+        mpos = 2;
         audio_play_sound(snd_cancel, 1, false);
         audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
     }
@@ -124,57 +125,62 @@ if (obj_menu.menuState == 1){
           <argument>
             <kind>1</kind>
             <string>///Draw Options
-draw_set_halign(fa_left);
+draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
 draw_set_font(fnt_menu);
 draw_set_color(c_white);
 
 //If Options is selected
-if (obj_menu.menuState == 1){
-    desiredX = 16;
-    for (i = 0; i &lt; array_length_1d(options); i++){
-        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
-        if (i == opos){ // Current selected option
+if (obj_menu.menuState == 2){
+    desiredX = centerX;
+    for (i = 0; i &lt; array_length_1d(music); i++){
+        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 40), -40) 
+        if (i == mpos){ // Current selected option
             draw_set_font(fnt_selected);
             draw_set_alpha(1);
             //Outline text
             draw_set_color(c_black);
-            draw_text(positions[i]-1, 260 + (i * space), string(options[i]));
-            draw_text(positions[i]+1, 260 + (i * space), string(options[i]));
-            draw_text(positions[i], 260+1 + (i * space), string(options[i]));
-            draw_text(positions[i], 260-1 + (i * space), string(options[i]));
+            draw_text(positions[i]-1, 260 + (i * space), string(music[i]));
+            draw_text(positions[i]+1, 260 + (i * space), string(music[i]));
+            draw_text(positions[i], 260+1 + (i * space), string(music[i]));
+            draw_text(positions[i], 260-1 + (i * space), string(music[i]));
             //Actual text
             draw_set_color(c_white);
-            draw_text(positions[i], 260 + (i * space), string(options[i]));
-        } else { // Not selected options
+            draw_text(positions[i], 260 + (i * space), string(music[i]));
+        } else { // Not selected music
             draw_set_font(fnt_menu);
             draw_set_alpha(0.6);
             //Outline text
             draw_set_color(c_black);
-            draw_text(positions[i]+1, 264 + (i * space), string(options[i]));
-            draw_text(positions[i]-1, 264 + (i * space), string(options[i]));
-            draw_text(positions[i], 264+1 + (i * space), string(options[i]));
-            draw_text(positions[i], 264-1 + (i * space), string(options[i]));
+            draw_text(positions[i]+1, 264 + (i * space), string(music[i]));
+            draw_text(positions[i]-1, 264 + (i * space), string(music[i]));
+            draw_text(positions[i], 264+1 + (i * space), string(music[i]));
+            draw_text(positions[i], 264-1 + (i * space), string(music[i]));
             //Actual text
             draw_set_color(c_white);
-            draw_text(positions[i], 264 + (i * space), string(options[i]));
+            draw_text(positions[i], 264 + (i * space), string(music[i]));
         }
     }
 } else { //If Options not selected
-    desiredX = -260;
-    for (i = 0; i &lt; array_length_1d(options); i++){
-        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
+    for (i = 0; i &lt; array_length_1d(music); i++){
+        desiredX = 960 * power(-1, i);
+        if (desiredX &lt; 0){
+            desiredX = -260;
+        } else {
+            desiredX = 960;
+        }
+        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 40), -40) 
         draw_set_font(fnt_menu);
         draw_set_alpha(0.6);
         //Outline text
         draw_set_color(c_black);
-        draw_text(positions[i]+1, 264 + (i * space), string(options[i]));
-        draw_text(positions[i]-1, 264 + (i * space), string(options[i]));
-        draw_text(positions[i], 264+1 + (i * space), string(options[i]));
-        draw_text(positions[i], 264-1 + (i * space), string(options[i]));
+        draw_text(positions[i]+1, 264 + (i * space), string(music[i]));
+        draw_text(positions[i]-1, 264 + (i * space), string(music[i]));
+        draw_text(positions[i], 264+1 + (i * space), string(music[i]));
+        draw_text(positions[i], 264-1 + (i * space), string(music[i]));
         //Actual text
         draw_set_color(c_white);
-        draw_text(positions[i], 264 + (i * space), string(options[i]));
+        draw_text(positions[i], 264 + (i * space), string(music[i]));
     }
 }
 </string>

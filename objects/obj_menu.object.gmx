@@ -188,7 +188,7 @@ draw_set_valign(fa_middle);
 draw_set_font(fnt_menu);
 draw_set_color(c_white);
 
-if (obj_menu.menuState == 0){ //if menu selected
+if (obj_menu.menuState == 0 &amp;&amp; room_selected != room_difficulty){ //if menu selected
     desiredX = 780;
     for (i = 0; i &lt; array_length_1d(menu); i++){
         positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
@@ -219,7 +219,7 @@ if (obj_menu.menuState == 0){ //if menu selected
         }
     }
 } else { 
-    desiredX = 948;
+    desiredX = 980;
     for (i = 0; i &lt; array_length_1d(menu); i++){
         positions[i] = positions[i] + max(min(0.35 * (desiredX - positions[i]), 15), -15) 
         draw_set_font(fnt_menu);

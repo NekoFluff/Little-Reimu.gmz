@@ -95,6 +95,7 @@
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
     <script>scripts\scr_options.gml</script>
+    <script>scripts\scr_musicroom.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
   </scripts>
@@ -111,8 +112,9 @@
     <object>objects\obj_wall</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
-      <object>objects\obj_options</object>
       <object>objects\obj_menu_aesthetics</object>
+      <object>objects\obj_options</object>
+      <object>objects\obj_musicroom</object>
       <object>objects\obj_difficulty</object>
     </objects>
     <objects name="player">
