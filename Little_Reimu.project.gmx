@@ -8,6 +8,7 @@
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
       <sound>sound\snd_shoot</sound>
+      <sound>sound\snd_shooting</sound>
       <sounds name="Menu SFX">
         <sound>sound\snd_select</sound>
         <sound>sound\snd_confirm</sound>
@@ -44,7 +45,11 @@
     </sprites>
     <sprites name="boss sprites">
       <sprite>sprites\spr_boss1</sprite>
-      <sprite>sprites\spr_boss7</sprite>
+      <sprite>sprites\spr_boss2</sprite>
+      <sprite>sprites\spr_boss3</sprite>
+      <sprite>sprites\spr_boss4</sprite>
+      <sprite>sprites\spr_boss5</sprite>
+      <sprite>sprites\spr_boss6</sprite>
       <sprite>sprites\spr_hakureiBall_corrupt</sprite>
     </sprites>
     <sprites name="background sprites">
@@ -89,9 +94,9 @@
     </scripts>
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
+    <script>scripts\scr_options.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
-    <script>scripts\scr_options.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -106,9 +111,9 @@
     <object>objects\obj_wall</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
+      <object>objects\obj_options</object>
       <object>objects\obj_menu_aesthetics</object>
       <object>objects\obj_difficulty</object>
-      <object>objects\obj_options</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -117,8 +122,8 @@
     </objects>
     <objects name="bosses">
       <object>objects\obj_bosshit</object>
-      <objects name="boss 7">
-        <object>objects\obj_boss7</object>
+      <objects name="boss 6">
+        <object>objects\obj_boss6</object>
         <object>objects\obj_hakureiball_corrupt_left</object>
         <object>objects\obj_hakureiball_corrupt_right</object>
       </objects>
@@ -155,6 +160,7 @@
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_intro</timeline>
+    <timeline>timelines\scene_1_2</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_set_resolution</room>

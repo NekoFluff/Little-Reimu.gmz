@@ -4,7 +4,8 @@ switch (mpos){
         alarm[0] = 2;
         break;
     case 1:
-        //room_goto(room_options);
+        //obj_options.optionState = true;
+        obj_menu.menuState = 1;
         //alarm[0] = 2;
         break;
     case 2:

@@ -144,21 +144,23 @@ if (move != 0){
 }
 
 //Select an option
-if (max(keyEnter, keyZ, 0) == 1){
-    scr_difficulty();
-    if (dpos != 4){
-        audio_play_sound(snd_confirm, 1, false);
-        audio_sound_gain(snd_confirm, global.gameVolume/10, false);//Since this sound is annoyingly loud
-    } else {
+if (global.difficulty == 0){ // If difficulty hasn't been selected
+    if (max(keyEnter, keyZ, 0) == 1){
+        scr_difficulty();
+        if (dpos != 4){
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        } else {
+            audio_play_sound(snd_cancel, 1, false);
+            audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        }
+    }
+
+    if (keyX){
+        dpos = 4;
         audio_play_sound(snd_cancel, 1, false);
         audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
     }
-}
-
-if (keyX){
-    dpos = 4;
-    audio_play_sound(snd_cancel, 1, false);
-    audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
 }
 </string>
           </argument>

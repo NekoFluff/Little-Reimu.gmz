@@ -26,12 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiating Options array
-Options[0] = ("Game Volume: " + global.gameVolume);
-Options[1] = ("SFX Volume: " + global.gameVolume);
-Options[2] = "Back";
+options[0] = ("Game Volume: " + string(global.gameVolume));
+options[1] = ("SFX Volume: " + string(global.gameVolume));
+options[2] = "Back";
 
+//optionState = false;
 space = 48;
-mpos = 0;
+opos = 0;
+
+desiredX = 16;
+
+for (var i = 0; i &lt; array_length_1d(options); i++) {
+    positions[i] = desiredX;
+}
 </string>
           </argument>
         </arguments>
@@ -59,31 +66,40 @@ keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 keyEnter = keyboard_check_pressed(vk_enter);
 keyZ = keyboard_check_pressed(ord("Z"));
+keyX = keyboard_check_pressed(ord("X"));
 
 move -= max(keyUp, 0);
 move += max(keyDown, 0);
 
-//Move menu around
-if (move != 0){
-    mpos += move;
-    audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
-    //Wrap menu position around
-    if (mpos &lt; 0){
-        mpos = array_length_1d(menu) - 1;
+//Move options around
+if (obj_menu.menuState != 0){
+    if (move != 0){
+        opos += move;
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        //Wrap options position around
+        if (opos &lt; 0){
+            opos = array_length_1d(options) - 1;
+        }
+        if (opos &gt; array_length_1d(options) - 1){
+            opos = 0;
+        }
     }
-    if (mpos &gt; array_length_1d(menu) - 1){
-        mpos = 0;
+    
+    //Select an option
+    var select;
+    select = max(keyEnter, keyZ, 0);
+    if (select == 1){
+        scr_options();
+        audio_play_sound(snd_pause, 1, false);
+        audio_sound_gain(snd_pause, global.gameVolume/10, false);
     }
-}
-
-//Select an option
-var select;
-select = max(keyEnter, keyZ, 0);
-if (select == 1){
-    scr_options();
-    audio_play_sound(snd_confirm, 1, false);
-    audio_sound_gain(snd_confirm, global.gameVolume/10, false);
+    
+    if (keyX){
+        opos = 2;
+        audio_play_sound(snd_cancel, 1, false);
+        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+    }
 }
 </string>
           </argument>
@@ -107,37 +123,58 @@ if (select == 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Menu
-draw_set_halign(fa_right);
+            <string>///Draw Options
+draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 draw_set_font(fnt_menu);
 draw_set_color(c_white);
 
-for (i = 0; i &lt; array_length_1d(menu); i++){
-    if (i == mpos){ // Current selected option
-        draw_set_font(fnt_selected);
-        draw_set_alpha(1);
-        //Outline text
-        draw_set_color(c_black);
-        draw_text(700+1 + space, 260 + (i * space), string(menu[i]));
-        draw_text(700-1 + space, 260 + (i * space), string(menu[i]));
-        draw_text(700 + space, 260+1 + (i * space), string(menu[i]));
-        draw_text(700 + space, 260-1 + (i * space), string(menu[i]));
-        //Actual text
-        draw_set_color(c_white);
-        draw_text(700 + space, 260 + (i * space), string(menu[i]));
-    } else { // Not selected options
+//If Options is selected
+if (obj_menu.menuState == 1){
+    desiredX = 16;
+    for (i = 0; i &lt; array_length_1d(options); i++){
+        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
+        if (i == opos){ // Current selected option
+            draw_set_font(fnt_selected);
+            draw_set_alpha(1);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]-1, 260 + (i * space), string(options[i]));
+            draw_text(positions[i]+1, 260 + (i * space), string(options[i]));
+            draw_text(positions[i], 260+1 + (i * space), string(options[i]));
+            draw_text(positions[i], 260-1 + (i * space), string(options[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 260 + (i * space), string(options[i]));
+        } else { // Not selected options
+            draw_set_font(fnt_menu);
+            draw_set_alpha(0.6);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]+1, 264 + (i * space), string(options[i]));
+            draw_text(positions[i]-1, 264 + (i * space), string(options[i]));
+            draw_text(positions[i], 264+1 + (i * space), string(options[i]));
+            draw_text(positions[i], 264-1 + (i * space), string(options[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 264 + (i * space), string(options[i]));
+        }
+    }
+} else { //If Options not selected
+    desiredX = -260;
+    for (i = 0; i &lt; array_length_1d(options); i++){
+        positions[i] = positions[i] + max(min(0.35 * (desiredX - positions[i]), 15), -15) 
         draw_set_font(fnt_menu);
         draw_set_alpha(0.6);
         //Outline text
         draw_set_color(c_black);
-        draw_text(700+1 + space, 264 + (i * space), string(menu[i]));
-        draw_text(700-1 + space, 264 + (i * space), string(menu[i]));
-        draw_text(700 + space, 264+1 + (i * space), string(menu[i]));
-        draw_text(700 + space, 264-1 + (i * space), string(menu[i]));
+        draw_text(positions[i]+1, 264 + (i * space), string(options[i]));
+        draw_text(positions[i]-1, 264 + (i * space), string(options[i]));
+        draw_text(positions[i], 264+1 + (i * space), string(options[i]));
+        draw_text(positions[i], 264-1 + (i * space), string(options[i]));
         //Actual text
         draw_set_color(c_white);
-        draw_text(700 + space, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264 + (i * space), string(options[i]));
     }
 }
 </string>

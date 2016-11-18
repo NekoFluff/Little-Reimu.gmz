@@ -1,12 +1,14 @@
-switch (mpos){
+switch (opos){
     case 0:
-        global.difficulty = 4;
-        room_selected = room_intro;
-        alarm[0] = 2;
         break;
     case 1:
         break
     case 2:
+        //obj_options.optionState = false;
+        obj_menu.menuState = 0;
+        show_debug_message("Running scr_options: " + string(obj_menu.menuState));
+        instance_destroy();
+        instance_create(0, 0, obj_options);
         break;
     default:
         break;

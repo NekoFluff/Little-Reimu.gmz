@@ -157,7 +157,10 @@ if (!invincible){
 
 // Character move/shoot on key press
 if (!dyingAnimation){
+    // Shooting
     if (keyZ &amp;&amp; global.can_shoot &gt; 1){
+        audio_play_sound(snd_shoot, 1, false);
+        audio_sound_gain(snd_shoot, global.gameVolume/10, true);
         if (keyShift){
             pbullet1 = instance_create (obj_player.x, obj_player.y, obj_player_bullet)
             with (pbullet1){
@@ -211,6 +214,8 @@ if (!dyingAnimation){
             }
         global.can_shoot = 0;
         }
+    } else {
+        audio_stop_sound(snd_shoot);
     }
     
     if (keyShift){

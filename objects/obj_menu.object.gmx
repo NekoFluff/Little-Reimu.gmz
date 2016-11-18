@@ -25,10 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiate currentAudio and gameVolume
-global.currentAudio = audio_play_sound(snd_walking,0,0);
-audio_stop_sound(global.currentAudio);
-global.gameVolume = 1;
+            <string>///Instantiating menu array
+menu[0] = "Start";
+menu[1] = "Options";
+menu[2] = "Music Room";
+menu[3] = "Credits";
+menu[4] = "Quit";
+
+global.difficulty = 0;
+menuState = 0;
+
+space = 48; //Space between text
+mpos = 0; //Select position
+
+fadeAlpha = 0;
+room_selected = room_menu;
+
+desiredX = 780;
+for (var i = 0; i &lt; array_length_1d(menu); i++) {
+    positions[i] = desiredX;
+}
 </string>
           </argument>
         </arguments>
@@ -49,20 +65,10 @@ global.gameVolume = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiating menu array
-menu[0] = "Start";
-menu[1] = "Options";
-menu[2] = "Music Room";
-menu[3] = "Credits";
-menu[4] = "Quit";
-
-global.difficulty = 0;
-
-space = 48; //Space between text
-mpos = 0; //Select position
-
-fadeAlpha = 0;
-room_selected = room_menu;
+            <string>///Instantiate currentAudio and gameVolume
+global.currentAudio = audio_play_sound(snd_walking,0,0);
+audio_stop_sound(global.currentAudio);
+global.gameVolume = 1;
 </string>
           </argument>
         </arguments>
@@ -124,32 +130,35 @@ move -= max(keyUp, 0);
 move += max(keyDown, 0);
 
 //Move menu around
-if (move != 0){
-    mpos += move;
-    audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
-    //Wrap menu position around
-    if (mpos &lt; 0){
-        mpos = array_length_1d(menu) - 1;
+if (obj_menu.menuState == 0){
+    if (move != 0){
+        mpos += move;
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        //Wrap menu position around
+        if (mpos &lt; 0){
+            mpos = array_length_1d(menu) - 1;
+        }
+        if (mpos &gt; array_length_1d(menu) - 1){
+            mpos = 0;
+        }
     }
-    if (mpos &gt; array_length_1d(menu) - 1){
-        mpos = 0;
+    
+    //Select an option
+    var select;
+    select = max(keyEnter, keyZ, 0);
+    if (select == 1){
+        scr_menu();
+        show_debug_message("Selected " + string(mpos));
+        audio_play_sound(snd_confirm, 1, false);
+        audio_sound_gain(snd_confirm, global.gameVolume/10, false);
     }
-}
-
-//Select an option
-var select;
-select = max(keyEnter, keyZ, 0);
-if (select == 1){
-    scr_menu();
-    audio_play_sound(snd_confirm, 1, false);
-    audio_sound_gain(snd_confirm, global.gameVolume/10, false);
-}
-
-if (keyX){
-    mpos = 4;
-    audio_play_sound(snd_cancel, 1, false);
-    audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+    
+    if (keyX){
+        mpos = 4;
+        audio_play_sound(snd_cancel, 1, false);
+        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+    }
 }
 </string>
           </argument>
@@ -179,31 +188,51 @@ draw_set_valign(fa_middle);
 draw_set_font(fnt_menu);
 draw_set_color(c_white);
 
-for (i = 0; i &lt; array_length_1d(menu); i++){
-    if (i == mpos){ // Current selected option
-        draw_set_font(fnt_selected);
-        draw_set_alpha(1);
-        //Outline text
-        draw_set_color(c_black);
-        draw_text(700+1 + space, 260 + (i * space), string(menu[i]));
-        draw_text(700-1 + space, 260 + (i * space), string(menu[i]));
-        draw_text(700 + space, 260+1 + (i * space), string(menu[i]));
-        draw_text(700 + space, 260-1 + (i * space), string(menu[i]));
-        //Actual text
-        draw_set_color(c_white);
-        draw_text(700 + space, 260 + (i * space), string(menu[i]));
-    } else { // Not selected options
+if (obj_menu.menuState == 0){ //if menu selected
+    desiredX = 780;
+    for (i = 0; i &lt; array_length_1d(menu); i++){
+        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
+        if (i == mpos){ // Current selected option
+            draw_set_font(fnt_selected);
+            draw_set_alpha(1);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]+1, 260 + (i * space), string(menu[i]));
+            draw_text(positions[i]-1, 260 + (i * space), string(menu[i]));
+            draw_text(positions[i], 260+1 + (i * space), string(menu[i]));
+            draw_text(positions[i], 260-1 + (i * space), string(menu[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 260 + (i * space), string(menu[i]));
+        } else { // Not selected options
+            draw_set_font(fnt_menu);
+            draw_set_alpha(0.6);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]+1, 264 + (i * space), string(menu[i]));
+            draw_text(positions[i]-1, 264 + (i * space), string(menu[i]));
+            draw_text(positions[i], 264+1 + (i * space), string(menu[i]));
+            draw_text(positions[i], 264-1 + (i * space), string(menu[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 264 + (i * space), string(menu[i]));
+        }
+    }
+} else { 
+    desiredX = 948;
+    for (i = 0; i &lt; array_length_1d(menu); i++){
+        positions[i] = positions[i] + max(min(0.35 * (desiredX - positions[i]), 15), -15) 
         draw_set_font(fnt_menu);
         draw_set_alpha(0.6);
         //Outline text
         draw_set_color(c_black);
-        draw_text(700+1 + space, 264 + (i * space), string(menu[i]));
-        draw_text(700-1 + space, 264 + (i * space), string(menu[i]));
-        draw_text(700 + space, 264+1 + (i * space), string(menu[i]));
-        draw_text(700 + space, 264-1 + (i * space), string(menu[i]));
+        draw_text(positions[i]+1, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i]-1, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264+1 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264-1 + (i * space), string(menu[i]));
         //Actual text
         draw_set_color(c_white);
-        draw_text(700 + space, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264 + (i * space), string(menu[i]));
     }
 }
 </string>
