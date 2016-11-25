@@ -98,6 +98,7 @@
     <script>scripts\scr_musicroom.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
+    <script>scripts\scr_credits.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -116,6 +117,8 @@
       <object>objects\obj_options</object>
       <object>objects\obj_musicroom</object>
       <object>objects\obj_difficulty</object>
+      <object>objects\obj_credits</object>
+      <object>objects\obj_credits_back</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -160,13 +163,14 @@
     </objects>
   </objects>
   <timelines name="timelines">
-    <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_intro</timeline>
+    <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_1_2</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
+    <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>

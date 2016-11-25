@@ -10,11 +10,10 @@ switch (mpos){
         break;
     case 2:
         obj_menu.menuState = 2;
-        //room_goto(room_music);
         break;
     case 3:
-        //alarm[0] = 2;
-        //room_goto(room_credits);
+        room_selected = room_credits;
+        alarm[0] = 2;
         break;
     case 4:
         game_end();

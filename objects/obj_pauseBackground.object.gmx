@@ -64,14 +64,14 @@ keyDown = keyboard_check_pressed(vk_down);
 // Combinations of pauseContinue and key press
 if (pauseContinue &amp;&amp; keyDown){
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.sfxVolume/10, false);
     pauseContinue = false;
     pauseQuit = true;
 }
 
 else if (pauseContinue &amp;&amp; keyUp){
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.sfxVolume/10, false);
     pauseContinue = false;
     pauseQuit = true;
 }
@@ -79,14 +79,14 @@ else if (pauseContinue &amp;&amp; keyUp){
 // Combinations of pauseQuit and key press
 else if (pauseQuit &amp;&amp; keyUp){
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.sfxVolume/10, false);
     pauseContinue = true;
     pauseQuit = false;
 }
 
 else if (pauseQuit &amp;&amp; keyDown){
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.sfxVolume/10, false);
     pauseContinue = true;
     pauseQuit = false;
 }

@@ -133,7 +133,7 @@ move += max(keyDown, 0);
 if (move != 0){
     dpos += move;
     audio_play_sound(snd_select, 1, false);
-    audio_sound_gain(snd_select, global.gameVolume/10, false);
+    audio_sound_gain(snd_select, global.sfxVolume/10, false);
     //Wrap menu position around
     if (dpos &lt; 0){
         dpos = array_length_1d(menu) - 1;
@@ -149,17 +149,17 @@ if (global.difficulty == 0){ // If difficulty hasn't been selected
         scr_difficulty();
         if (dpos != 4){
             audio_play_sound(snd_confirm, 1, false);
-            audio_sound_gain(snd_confirm, global.gameVolume/10, false);//Since this sound is annoyingly loud
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);//Since this sound is annoyingly loud
         } else {
             audio_play_sound(snd_cancel, 1, false);
-            audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+            audio_sound_gain(snd_cancel, global.sfxVolume/10, false);//Since this sound is annoyingly loud
         }
     }
 
     if (keyX){
         dpos = 4;
         audio_play_sound(snd_cancel, 1, false);
-        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        audio_sound_gain(snd_cancel, global.sfxVolume/10, false);//Since this sound is annoyingly loud
     }
 }
 </string>

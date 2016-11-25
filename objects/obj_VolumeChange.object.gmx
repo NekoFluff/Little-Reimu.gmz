@@ -29,7 +29,8 @@
 var incrementVolume = 0;
 var holdingKey = false;
 var canInteract = false;
-global.gameVolume = 1;
+global.sfxVolume = 1;
+global.musicVolume = 1;
 </string>
           </argument>
         </arguments>
@@ -55,7 +56,7 @@ global.gameVolume = 1;
             <string>///Decrease volume at a speed based on how long left button is held
 if (keyLeft &amp;&amp; !keyRight){
     incrementVolume += 1;
-    gameVolume += 0.05;
+    global.sfxVolume += 0.05;
     
     // Gradually speed up the increase in volume as the player holds the button more
     if (incrementVolume &lt;= 5){

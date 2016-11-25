@@ -154,10 +154,10 @@ addRadialSpray(5000,360,0,60, 5, obj_bulletTracker, 0)
             <kind>1</kind>
             <string>if (stageOne){
     // first bullet layer
-    bulletSpawn1 = instance_create(obj_boss7.x - 64, obj_boss7.y + 32, obj_hakureiball_corrupt_left);
-    bulletSpawn2 = instance_create(obj_boss7.x + 64, obj_boss7.y + 32, obj_hakureiball_corrupt_right);
-    bulletSpawn3 = instance_create(obj_boss7.x - 128, obj_boss7.y + 64, obj_hakureiball_corrupt_right);
-    bulletSpawn4 = instance_create(obj_boss7.x + 128, obj_boss7.y + 64, obj_hakureiball_corrupt_left);
+    bulletSpawn1 = instance_create(obj_boss6.x - 64, obj_boss6.y + 32, obj_hakureiball_corrupt_left);
+    bulletSpawn2 = instance_create(obj_boss6.x + 64, obj_boss6.y + 32, obj_hakureiball_corrupt_right);
+    bulletSpawn3 = instance_create(obj_boss6.x - 128, obj_boss6.y + 64, obj_hakureiball_corrupt_right);
+    bulletSpawn4 = instance_create(obj_boss6.x + 128, obj_boss6.y + 64, obj_hakureiball_corrupt_left);
 }
 
 </string>

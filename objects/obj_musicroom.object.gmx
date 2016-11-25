@@ -33,6 +33,7 @@ music[2] = "Back";
 //optionState = false;
 space = 48;
 mpos = 0;
+cancel = 2;
 
 desiredX = room_width/2;
 centerX = room_width/2;
@@ -77,7 +78,7 @@ if (obj_menu.menuState == 2){
     if (move != 0){
         mpos += move;
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);//Since this sound is annoyingly loud
         //Wrap music position around
         if (mpos &lt; 0){
             mpos = array_length_1d(music) - 1;
@@ -92,14 +93,19 @@ if (obj_menu.menuState == 2){
     select = max(keyEnter, keyZ, 0);
     if (select == 1){
         scr_musicroom();
-        audio_play_sound(snd_pause, 1, false);
-        audio_sound_gain(snd_pause, global.gameVolume/10, false);
+        if (mpos != cancel){
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
+        } else {
+            audio_play_sound(snd_cancel, 1, false);
+            audio_sound_gain(snd_cancel, global.sfxVolume/10, false);
+        }
     }
     
     if (keyX){
-        mpos = 2;
+        mpos = cancel;
         audio_play_sound(snd_cancel, 1, false);
-        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        audio_sound_gain(snd_cancel, global.sfxVolume/10, false);//Since this sound is annoyingly loud
     }
 }
 </string>
