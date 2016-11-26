@@ -35,6 +35,7 @@ if (75 &lt;= bossHP &lt;= 100){
 }
 
 if (50 &lt;= bossHP &lt;= 75){
+    stageOne = false;
     stageTwo = true;
 }
 

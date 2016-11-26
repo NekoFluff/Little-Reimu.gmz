@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiating Options array
-options[0] = ("Game Volume: " + string(global.gameVolume));
-options[1] = ("SFX Volume: " + string(global.gameVolume));
+options[0] = ("Music Volume: " + string(round(global.musicVolume*100)) + "%");
+options[1] = ("SFX Volume: " + string(round(global.sfxVolume*100)) + "%");
 options[2] = "Back";
 
 //optionState = false;
@@ -61,9 +61,16 @@ for (var i = 0; i &lt; array_length_1d(options); i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var move = 0;
+            <string>options[0] = ("Music Volume: " + string(round(global.musicVolume*100)) + "%");
+options[1] = ("SFX Volume: " + string(round(global.sfxVolume*100)) + "%");
+audio_sound_gain(global.sfx, global.sfxVolume, 0);
+audio_sound_gain(global.music, global.musicVolume, 0);
+
+var move = 0;
 keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
+keyLeft = keyboard_check_pressed(vk_left);
+keyRight = keyboard_check_pressed(vk_right);
 keyEnter = keyboard_check_pressed(vk_enter);
 keyZ = keyboard_check_pressed(ord("Z"));
 keyX = keyboard_check_pressed(ord("X"));
@@ -76,7 +83,7 @@ if (obj_menu.menuState == 1){
     if (move != 0){
         opos += move;
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);//Since this sound is annoyingly loud
         //Wrap options position around
         if (opos &lt; 0){
             opos = array_length_1d(options) - 1;
@@ -88,17 +95,46 @@ if (obj_menu.menuState == 1){
     
     //Select an option
     var select;
+    var left;
+    var right;
+    select = max(keyEnter, keyZ, 0);
+    left = max(keyLeft, 0)
+    right = max(keyRight, 0)
+    
+    if (opos == 0){
+        if (keyLeft and global.musicVolume &gt; 0){
+            global.musicVolume -= 0.05;
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
+        } else if (keyRight and global.musicVolume &lt; 1){
+            global.musicVolume += 0.05;
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
+        }
+    }
+    
+    if (opos == 1){
+        if (keyLeft and global.sfxVolume &gt; 0){
+            global.sfxVolume -= 0.05;
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
+        } else if (keyRight and global.sfxVolume &lt; 1){
+            global.sfxVolume += 0.05;
+            audio_play_sound(snd_confirm, 1, false);
+            audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
+        }
+    } 
+    
+    var select;
     select = max(keyEnter, keyZ, 0);
     if (select == 1){
         scr_options();
-        audio_play_sound(snd_pause, 1, false);
-        audio_sound_gain(snd_pause, global.gameVolume/10, false);
     }
     
     if (keyX){
         opos = 2;
         audio_play_sound(snd_cancel, 1, false);
-        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        audio_sound_gain(snd_cancel, global.sfxVolume/10, false);//Since this sound is annoyingly loud
     }
 }
 </string>

@@ -58,7 +58,12 @@
       <sprite>sprites\spr_bg_sky</sprite>
     </sprites>
     <sprites name="Menu Sprites">
+      <sprite>sprites\spr_blackscreen</sprite>
       <sprite>sprites\spr_start</sprite>
+      <sprite>sprites\spr_lunatic</sprite>
+      <sprite>sprites\spr_hard</sprite>
+      <sprite>sprites\spr_medium</sprite>
+      <sprite>sprites\spr_easy</sprite>
     </sprites>
     <sprites name="Cutscene Sprites">
       <sprite>sprites\s_1_2</sprite>
@@ -70,11 +75,6 @@
       <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_quit</sprite>
     </sprites>
-    <sprite>sprites\spr_blackscreen</sprite>
-    <sprite>sprites\spr_lunatic</sprite>
-    <sprite>sprites\spr_easy</sprite>
-    <sprite>sprites\spr_medium</sprite>
-    <sprite>sprites\spr_hard</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_forest</background>
@@ -121,6 +121,8 @@
       <object>objects\obj_options</object>
       <object>objects\obj_musicroom</object>
       <object>objects\obj_difficulty</object>
+      <object>objects\obj_credits</object>
+      <object>objects\obj_credits_back</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -177,6 +179,7 @@
   <rooms name="rooms">
     <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
+    <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>

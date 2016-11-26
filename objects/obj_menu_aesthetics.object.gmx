@@ -54,6 +54,10 @@ alarm[0] = 30;
     fadeAlpha -= 0.05;
 } else {
     alarm[0] = -1;
+    if !(audio_is_playing(msc_realization)){
+        global.music = audio_play_sound(msc_realization, 1, 1);
+        audio_sound_gain(global.music, global.musicVolume, 0);
+    }
 }
 </string>
           </argument>

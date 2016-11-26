@@ -167,14 +167,14 @@ if (askUser){
     // Combinations of csYes and key press
     if (Yes &amp;&amp; keyRight){
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);
         Yes = false;
         No = true;
     }
     
     else if (Yes &amp;&amp; keyLeft){
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);
         Yes = false;
         No = true;
     }
@@ -182,14 +182,14 @@ if (askUser){
     // Combinations of csNo and key press
     else if (No &amp;&amp; keyLeft){
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);
         Yes = true;
         No = false;
     }
     
     else if (No &amp;&amp; keyRight){
         audio_play_sound(snd_select, 1, false);
-        audio_sound_gain(snd_select, global.gameVolume/10, false);
+        audio_sound_gain(snd_select, global.sfxVolume/10, false);
         Yes = true;
         No = false;
     }
@@ -226,7 +226,8 @@ if (keyEscape and global.sceneNum != 0){
     room_persistent = true;
     global.RoomBeforePause = room;
     room_goto(room_pauseCutscene);
-    audio_pause_sound(global.currentAudio);
+    audio_pause_sound(global.sfx);
+    audio_pause_sound(global.music);
 }
 
 // Skip to the next picture

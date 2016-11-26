@@ -50,7 +50,7 @@ image_yscale = room_height / sprite_height;
           <argument>
             <kind>1</kind>
             <string>///Play sound
-global.currentAudio = audio_play_sound(snd_walking,1,1);
+global.sfx = audio_play_sound(snd_walking,1,1);
 </string>
           </argument>
         </arguments>
@@ -77,7 +77,7 @@ global.currentAudio = audio_play_sound(snd_walking,1,1);
           <argument>
             <kind>1</kind>
             <string>///Stop audio
-audio_stop_sound(global.currentAudio);
+audio_stop_sound(global.sfx);
 </string>
           </argument>
         </arguments>
@@ -107,7 +107,8 @@ audio_stop_sound(global.currentAudio);
 sprite_index = s_1_2;
 
 //In case user skips scene
-audio_stop_sound(global.currentAudio);
+audio_stop_sound(global.sfx);
+audio_stop_sound(global.music);
 </string>
           </argument>
         </arguments>
