@@ -84,66 +84,10 @@ alarm[1] = room_speed*3
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Radial Spray 
-initializeRadialSpray()
-
-//Add radial sprays
-//addRadialSpray(10000,0,360,60, 10, obj_bulletDeceleration, 2000)
-addRadialSpray(5000,360,0,60, 5, obj_bulletTracker, 0)
-//addRadialSpray(5000,370,10,60, 10, obj_bulletTracker, 0)
-//addRadialSpray(5000,380,20,60, 10, obj_bulletTracker, 0)
-//addRadialSpray(5000,390,30,60, 10, obj_bulletTracker, 0)
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Flower Burst Spray
-initializeFlowerBurstSpray();
-addFlowerBurstSpray(15000,20,5,0,3,obj_bulletTracker, 0);
-addFlowerBurstSpray(15000,20,5,0,3,obj_bulletDeceleration, 100);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Burst Spray
-initializeBurstSpray()
-
-//Add burst sprays
-addBurstSpray(5000,5,60,30,0,7,obj_bulletTracker,0)
+            <string>///Initialize Boss Fight
+timeline_index = boss_1_fight;
+timeline_position = 0;
+timeline_running = true;
 </string>
           </argument>
         </arguments>

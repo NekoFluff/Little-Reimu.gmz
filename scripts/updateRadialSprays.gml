@@ -24,7 +24,7 @@ for (var i = 0; i < radialArrayCount; i += 1) {
     } else if (numBullets > 0) { //While you still have bullets to shoot...
         
         //Check if it is the time to shoot.
-        if (dTime > timePerBullet) {
+        if (dTime >= timePerBullet) {
         
             //Create bullet
             var bullet = instance_create(x,y, bulletType);
@@ -33,9 +33,9 @@ for (var i = 0; i < radialArrayCount; i += 1) {
             bullet.image_angle = currentAngle;
             bullet.speed = bulletSpeed;
             bullet.image_xscale = 0.3;
-            bullet.image_yscale = 0.10;
+            bullet.image_yscale = 0.3;
             
-            prevTime = prevTime + timePerBullet; 
+            prevTime = prevTime + dTime; 
             currentAngle += dAngle //Increment angle for next shot.
             numBullets -= 1;
             

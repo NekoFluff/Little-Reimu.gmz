@@ -164,7 +164,7 @@ for (var i = 0; i &lt; numBullets; i++) {
     
     bullet.speed = 0; //Remains still for a set time.
     bullet.image_xscale = 0.3;
-    bullet.image_yscale = 0.1;
+    bullet.image_yscale = 0.3;
     
     bullets[i] = bullet;
     alarm[1] = timer; //Wait to fire

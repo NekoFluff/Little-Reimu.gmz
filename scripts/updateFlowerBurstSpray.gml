@@ -22,7 +22,7 @@ for (var i = 0; i < flowerBurstArrayCount; i += 1) {
     } else if (numBursts > 0) { //While you still have bullets to shoot...
         
         //Check if it is the time to shoot.
-        if (dTime > timePerBurst) {
+        if (dTime >= timePerBurst) {
             
             if (!ds_map_exists(map, "previousXPosition")) {
                 ds_map_add(map, "previousXPosition", obj_player.x);
@@ -57,7 +57,7 @@ for (var i = 0; i < flowerBurstArrayCount; i += 1) {
                 map[? "previousXPosition"] = obj_player.x;
                 map[? "previousYPosition"] = obj_player.y;
                         
-                prevTime = prevTime + timePerBurst; 
+                prevTime = prevTime + dTime; 
             
                 map[? "prevTime"] = prevTime;
                 map[? "numBursts"] = (numBursts - 1);

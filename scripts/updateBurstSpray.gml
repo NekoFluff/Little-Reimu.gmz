@@ -22,7 +22,7 @@ for (var i = 0; i < burstArrayCount; i += 1) {
     } else if (numBursts > 0) { //While you still have bullets to shoot...
         
         //Check if it is the time to shoot.
-        if (dTime > timePerBurst) {
+        if (dTime >= timePerBurst) {
         
             //Create bullet burst
             var angleOffset = map[? "angleOffset"];
@@ -44,7 +44,7 @@ for (var i = 0; i < burstArrayCount; i += 1) {
                 bullet.image_yscale = 0.3;
             }
             
-            prevTime = prevTime + timePerBurst; 
+            prevTime = prevTime + dTime; 
             
             map[? "prevTime"] = prevTime;
             map[? "numBursts"] = (numBursts - 1);

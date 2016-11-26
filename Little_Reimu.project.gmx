@@ -104,9 +104,12 @@
     <objects name="bullets">
       <object>objects\obj_player_bullet</object>
       <object>objects\obj_bullet1</object>
+      <object>objects\obj_bullet2</object>
+      <object>objects\obj_bullet3</object>
       <object>objects\obj_bulletDeceleration</object>
       <object>objects\obj_bulletTracker</object>
       <object>objects\obj_bulletFlower</object>
+      <object>objects\obj_splitterBullet</object>
     </objects>
     <objects name="Backgrounds">
       <object>objects\obj_bg_forest</object>
@@ -131,6 +134,7 @@
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
+    <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
