@@ -29,6 +29,11 @@
 pauseContinue = true;
 pauseQuit = false;
 global.roomfade = false;
+///Set background to ScreenShot / option select
+obj_pauseBackground.sprite_index = global.ScreenShot;
+image_xscale = room_width / sprite_width;
+image_yscale = room_height / sprite_height;
+
 </string>
           </argument>
         </arguments>
@@ -51,33 +56,37 @@ global.roomfade = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set background to ScreenShot / option select
-obj_pauseBackground.sprite_index = global.ScreenShot;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
-
+            <string>///Checking for option state
 keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 
 // Selection on key press
 // Combinations of pauseContinue and key press
 if (pauseContinue &amp;&amp; keyDown){
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
     pauseContinue = false;
     pauseQuit = true;
 }
 
 else if (pauseContinue &amp;&amp; keyUp){
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
     pauseContinue = false;
     pauseQuit = true;
 }
 
 // Combinations of pauseQuit and key press
 else if (pauseQuit &amp;&amp; keyUp){
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
     pauseContinue = true;
     pauseQuit = false;
 }
 
 else if (pauseQuit &amp;&amp; keyDown){
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
     pauseContinue = true;
     pauseQuit = false;
 }

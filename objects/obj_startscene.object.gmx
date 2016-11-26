@@ -30,6 +30,7 @@ Yes = true;
 No = false;
 choiceNo = 0;
 askUser = false;
+gotoMenu = false;
 </string>
           </argument>
         </arguments>
@@ -79,6 +80,67 @@ switch(global.sceneNum){
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move to menu and reset variables
+/*room_set_persistent(room_intro, false);
+global.sceneNum = 0;
+draw_set_alpha(1);
+timeline_delete(timeline_running);
+with(txt){
+    instance_destroy();
+}*/
+game_restart();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (gotoMenu){
+    if (draw_get_alpha() &gt; 0){
+        draw_set_alpha(draw_get_alpha() - 0.05);
+        alarm[0] = 2;
+    } else {
+        alarm[1] = room_speed;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -104,22 +166,30 @@ if (askUser){
     // Selection on key press
     // Combinations of csYes and key press
     if (Yes &amp;&amp; keyRight){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = false;
         No = true;
     }
     
     else if (Yes &amp;&amp; keyLeft){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = false;
         No = true;
     }
     
     // Combinations of csNo and key press
     else if (No &amp;&amp; keyLeft){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = true;
         No = false;
     }
     
     else if (No &amp;&amp; keyRight){
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);
         Yes = true;
         No = false;
     }
@@ -147,8 +217,9 @@ if (askUser){
             <string>///Move to pause room / Skip picture
 keyEscape = keyboard_check_pressed(vk_escape);
 keyEnter = keyboard_check_pressed(vk_enter);
+keyZ = keyboard_check_pressed(ord("Z"));
 
-if (keyEscape){
+if (keyEscape and global.sceneNum != 0){
     var width = surface_get_width(application_surface);
     var height = surface_get_height(application_surface);
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
@@ -159,13 +230,12 @@ if (keyEscape){
 }
 
 // Skip to the next picture
-if (keyEnter){
+if (keyEnter or keyZ){
     if (timeline_index == scene_intro) {
         if (askUser == false){
                 txt.skipLine = true;
         }
-    }
-    else {
+    } else {
         var tempPosition = timeline_position;
         
         while (tempPosition &gt;= 0){ // Subtract tempPosition by 150 until there's a negative number

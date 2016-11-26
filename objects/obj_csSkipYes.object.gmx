@@ -36,13 +36,34 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
     global.roomfade = false;
     sprite_delete(global.ScreenShot);
     
-    switch (global.sceneNum){ // Fight selection
+    switch (global.sceneNum){ // Scene selection
+        /*case 0:
+            room_goto(global.RoomBeforePause);
+            sprite_delete(global.ScreenShot);
+            audio_resume_sound(global.currentAudio);
+            
+            with(global.RoomBeforePause){
+                with(obj_startscene){
+                    with(txt){
+                        instance_destroy();
+                    }
+                    timeline_delete(timeline_running);
+                    timeline_index = scene_1_1;
+                    timeline_position = 0;
+                    timeline_running = true;
+                }
+            }
+            global.sceneNum = 1;
+            break;*/
         case 1:
             room_goto(room_fight_1);
+            break;
         case 2:
             //room_goto(room_fight_2);
+            break;
         case 3:
             //room_goto(room_fight_3);
+            break;
     }
 }
 </string>
@@ -69,7 +90,9 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
             <kind>1</kind>
             <string>///Checks for key 'Enter' when 'Yes' selected
 if (obj_csSkipBackground.csYes){
-    if (keyboard_check_pressed(vk_enter)){
+    if (keyboard_check_pressed(vk_enter) or keyboard_check_pressed(ord("Z"))){
+        audio_play_sound(snd_confirm, 1, false);
+        audio_sound_gain(snd_confirm, global.gameVolume/10, false);
         alarm[0] = 1;
         obj_csSkipNo.image_alpha = 0;
         obj_csSkipYes.image_alpha = 0;

@@ -7,8 +7,15 @@
   <sounds name="sound">
     <sounds name="SFX">
       <sound>sound\snd_walking</sound>
+      <sound>sound\snd_shoot</sound>
+      <sound>sound\snd_shooting</sound>
+      <sounds name="Menu SFX">
+        <sound>sound\snd_select</sound>
+        <sound>sound\snd_confirm</sound>
+        <sound>sound\snd_cancel</sound>
+        <sound>sound\snd_pause</sound>
+      </sounds>
     </sounds>
-    <sound>sound\msc_</sound>
     <sounds name="BGM">
       <sound>sound\msc_shenanigans</sound>
       <sound>sound\msc_happy</sound>
@@ -18,8 +25,8 @@
   <sprites name="sprites">
     <sprites name="player sprites">
       <sprite>sprites\spr_player_static</sprite>
-      <sprite>sprites\spr_player_left</sprite>
       <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_left</sprite>
       <sprite>sprites\spr_hitbox</sprite>
       <sprite>sprites\spr_player_center</sprite>
       <sprite>sprites\spr_star</sprite>
@@ -38,7 +45,11 @@
     </sprites>
     <sprites name="boss sprites">
       <sprite>sprites\spr_boss1</sprite>
-      <sprite>sprites\spr_boss7</sprite>
+      <sprite>sprites\spr_boss2</sprite>
+      <sprite>sprites\spr_boss3</sprite>
+      <sprite>sprites\spr_boss4</sprite>
+      <sprite>sprites\spr_boss5</sprite>
+      <sprite>sprites\spr_boss6</sprite>
       <sprite>sprites\spr_hakureiBall_corrupt</sprite>
     </sprites>
     <sprites name="background sprites">
@@ -60,6 +71,10 @@
       <sprite>sprites\spr_quit</sprite>
     </sprites>
     <sprite>sprites\spr_blackscreen</sprite>
+    <sprite>sprites\spr_lunatic</sprite>
+    <sprite>sprites\spr_easy</sprite>
+    <sprite>sprites\spr_medium</sprite>
+    <sprite>sprites\spr_hard</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_forest</background>
@@ -80,25 +95,33 @@
     </scripts>
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
+    <script>scripts\scr_options.gml</script>
+    <script>scripts\scr_musicroom.gml</script>
     <script>scripts\scr_menu.gml</script>
     <scripts name="Flower Burst Pattern">
       <script>scripts\initializeFlowerBurstSpray.gml</script>
       <script>scripts\addFlowerBurstSpray.gml</script>
       <script>scripts\updateFlowerBurstSpray.gml</script>
     </scripts>
+    <script>scripts\scr_difficulty.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fnt_horror</font>
-    <font>fonts\fnt_storyteller</font>
+    <font>fonts\fnt_default</font>
     <font>fonts\fnt_menu</font>
     <font>fonts\fnt_selected</font>
-    <font>fonts\fnt_default</font>
+    <font>fonts\fnt_controls</font>
+    <font>fonts\fnt_horror</font>
+    <font>fonts\fnt_storyteller</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_wall</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
+      <object>objects\obj_menu_aesthetics</object>
+      <object>objects\obj_options</object>
+      <object>objects\obj_musicroom</object>
+      <object>objects\obj_difficulty</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -107,8 +130,8 @@
     </objects>
     <objects name="bosses">
       <object>objects\obj_bosshit</object>
-      <objects name="boss 7">
-        <object>objects\obj_boss7</object>
+      <objects name="boss 6">
+        <object>objects\obj_boss6</object>
         <object>objects\obj_hakureiball_corrupt_left</object>
         <object>objects\obj_hakureiball_corrupt_right</object>
       </objects>
@@ -133,6 +156,9 @@
       <object>objects\obj_csSkipOverlay</object>
       <object>objects\obj_csSkipYes</object>
       <object>objects\obj_csSkipNo</object>
+      <object>objects\obj_introYes</object>
+      <object>objects\obj_introNo</object>
+      <object>objects\obj_text</object>
     </objects>
     <objects name="Pause Room Controls">
       <object>objects\obj_pauseBackground</object>
@@ -142,17 +168,17 @@
       <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
     </objects>
-    <object>objects\obj_text</object>
-    <object>objects\obj_introYes</object>
-    <object>objects\obj_introNo</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_intro</timeline>
     <timeline>timelines\boss_1_fight</timeline>
+    <timeline>timelines\scene_1_2</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
+    <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>

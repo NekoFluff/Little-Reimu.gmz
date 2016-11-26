@@ -28,6 +28,11 @@ image_yscale = room_height / sprite_height;
           </argument>
         </arguments>
       </action>
+    </event>
+  </entry>
+  <entry>
+    <step>30</step>
+    <event>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,7 +58,7 @@ global.currentAudio = audio_play_sound(snd_walking,1,1);
     </event>
   </entry>
   <entry>
-    <step>120</step>
+    <step>140</step>
     <event>
       <action>
         <libid>1</libid>

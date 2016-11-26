@@ -32,8 +32,71 @@ menu[2] = "Music Room";
 menu[3] = "Credits";
 menu[4] = "Quit";
 
+global.difficulty = 0;
+menuState = 0;
+
 space = 48; //Space between text
 mpos = 0; //Select position
+
+fadeAlpha = 0;
+room_selected = room_menu;
+
+desiredX = 780;
+for (var i = 0; i &lt; array_length_1d(menu); i++) {
+    positions[i] = desiredX;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiate currentAudio and gameVolume
+global.currentAudio = audio_play_sound(snd_walking,0,0);
+audio_stop_sound(global.currentAudio);
+global.gameVolume = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (fadeAlpha &lt; 1){
+    alarm[0] = 1;
+    fadeAlpha += 0.05;
+} else {
+    room_goto(room_selected);
+}
 </string>
           </argument>
         </arguments>
@@ -61,27 +124,41 @@ keyUp = keyboard_check_pressed(vk_up);
 keyDown = keyboard_check_pressed(vk_down);
 keyEnter = keyboard_check_pressed(vk_enter);
 keyZ = keyboard_check_pressed(ord("Z"));
+keyX = keyboard_check_pressed(ord("X"));
 
 move -= max(keyUp, 0);
 move += max(keyDown, 0);
 
 //Move menu around
-if (move != 0){
-    mpos += move;
-    //Wrap menu position around
-    if (mpos &lt; 0){
-        mpos = array_length_1d(menu) - 1;
+if (obj_menu.menuState == 0){
+    if (move != 0){
+        mpos += move;
+        audio_play_sound(snd_select, 1, false);
+        audio_sound_gain(snd_select, global.gameVolume/10, false);//Since this sound is annoyingly loud
+        //Wrap menu position around
+        if (mpos &lt; 0){
+            mpos = array_length_1d(menu) - 1;
+        }
+        if (mpos &gt; array_length_1d(menu) - 1){
+            mpos = 0;
+        }
     }
-    if (mpos &gt; array_length_1d(menu) - 1){
-        mpos = 0;
+    
+    //Select an option
+    var select;
+    select = max(keyEnter, keyZ, 0);
+    if (select == 1){
+        scr_menu();
+        show_debug_message("Selected " + string(mpos));
+        audio_play_sound(snd_confirm, 1, false);
+        audio_sound_gain(snd_confirm, global.gameVolume/10, false);
     }
-}
-
-//Select an option
-var select;
-select = max(keyEnter, keyZ, 0);
-if (select == 1){
-    scr_menu();
+    
+    if (keyX){
+        mpos = 4;
+        audio_play_sound(snd_cancel, 1, false);
+        audio_sound_gain(snd_cancel, global.gameVolume/10, false);//Since this sound is annoyingly loud
+    }
 }
 </string>
           </argument>
@@ -105,21 +182,141 @@ if (select == 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_right);
+            <string>///Draw Menu
+draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
-draw_set_font(fnt_default);
+draw_set_font(fnt_menu);
 draw_set_color(c_white);
 
-for (i = 0; i &lt; array_length_1d(menu); i++){
-    if (i == mpos){
-        draw_set_font(fnt_selected);
-        draw_set_alpha(1);
-        draw_text(540 + space, 140 + (i * space), string(menu[i]));
-    } else {
+if (obj_menu.menuState == 0 &amp;&amp; room_selected != room_difficulty){ //if menu selected
+    desiredX = 780;
+    for (i = 0; i &lt; array_length_1d(menu); i++){
+        positions[i] = positions[i] + max(min(0.5 * (desiredX - positions[i]), 25), -25) 
+        if (i == mpos){ // Current selected option
+            draw_set_font(fnt_selected);
+            draw_set_alpha(1);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]+1, 260 + (i * space), string(menu[i]));
+            draw_text(positions[i]-1, 260 + (i * space), string(menu[i]));
+            draw_text(positions[i], 260+1 + (i * space), string(menu[i]));
+            draw_text(positions[i], 260-1 + (i * space), string(menu[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 260 + (i * space), string(menu[i]));
+        } else { // Not selected options
+            draw_set_font(fnt_menu);
+            draw_set_alpha(0.6);
+            //Outline text
+            draw_set_color(c_black);
+            draw_text(positions[i]+1, 264 + (i * space), string(menu[i]));
+            draw_text(positions[i]-1, 264 + (i * space), string(menu[i]));
+            draw_text(positions[i], 264+1 + (i * space), string(menu[i]));
+            draw_text(positions[i], 264-1 + (i * space), string(menu[i]));
+            //Actual text
+            draw_set_color(c_white);
+            draw_text(positions[i], 264 + (i * space), string(menu[i]));
+        }
+    }
+} else { 
+    desiredX = 980;
+    for (i = 0; i &lt; array_length_1d(menu); i++){
+        positions[i] = positions[i] + max(min(0.35 * (desiredX - positions[i]), 15), -15) 
         draw_set_font(fnt_menu);
         draw_set_alpha(0.6);
-        draw_text(544 + space, 144 + (i * space), string(menu[i]));
+        //Outline text
+        draw_set_color(c_black);
+        draw_text(positions[i]+1, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i]-1, 264 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264+1 + (i * space), string(menu[i]));
+        draw_text(positions[i], 264-1 + (i * space), string(menu[i]));
+        //Actual text
+        draw_set_color(c_white);
+        draw_text(positions[i], 264 + (i * space), string(menu[i]));
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw Title/Controls
+draw_set_halign(fa_middle);
+draw_set_valign(fa_middle);
+draw_set_font(fnt_menu);
+draw_set_color(c_white);
+
+//Draw title
+draw_set_alpha(1);
+draw_set_font(fnt_selected);
+
+//Outline
+draw_set_color(c_black);
+draw_text(room_width/2-1, 96, "Little Reimu");
+draw_text(room_width/2+1, 96, "Little Reimu");
+draw_text(room_width/2, 96-1, "Little Reimu");
+draw_text(room_width/2, 96+1, "Little Reimu");
+
+//Actual text
+draw_set_color(c_white);
+draw_text(room_width/2, 96, "Little Reimu");
+
+//Draw controls
+draw_set_halign(fa_left);
+draw_set_font(fnt_controls);
+draw_set_alpha(1);
+
+/*//Outline
+draw_set_color(c_black);
+draw_text(8-1, room_height-16, "Select: Enter / Z     Move: Arrow Keys");
+draw_text(8+1, room_height-16, "Select: Enter / Z     Move: Arrow Keys");
+draw_text(8, room_height-16-1, "Select: Enter / Z     Move: Arrow Keys");
+draw_text(8, room_height-16+1, "Select: Enter / Z     Move: Arrow Keys");*/
+
+//Actual Text
+draw_set_color(c_black);
+draw_text(8, room_height-16, "Select: Enter / Z     Back: X     Move: Arrow Keys");
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw fade out
+if (fadeAlpha &lt; 1){
+    fadeScreen = draw_sprite_ext(spr_blackscreen, 0, 1, 1, 1, 1, 0, c_white, fadeAlpha);
+} else {
+    fadeScreen = draw_sprite_ext(spr_blackscreen, 0, 1, 1, 1, 1, 0, c_white, 1);
 }
 </string>
           </argument>

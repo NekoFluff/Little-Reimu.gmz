@@ -84,22 +84,30 @@ keyDown = keyboard_check_pressed(vk_down);
 if (csYes &amp;&amp; keyDown){
     csYes = false;
     csNo = true;
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
 }
 
 else if (csYes &amp;&amp; keyUp){
     csYes = false;
     csNo = true;
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
 }
 
 // Combinations of csNo and key press
 else if (csNo &amp;&amp; keyUp){
     csYes = true;
     csNo = false;
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
 }
 
 else if (csNo &amp;&amp; keyDown){
     csYes = true;
     csNo = false;
+    audio_play_sound(snd_select, 1, false);
+    audio_sound_gain(snd_select, global.gameVolume/10, false);
 }
 </string>
           </argument>

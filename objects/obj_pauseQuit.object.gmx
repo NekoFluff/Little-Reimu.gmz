@@ -31,7 +31,7 @@ if (obj_pauseOverlay.image_alpha &lt; 1){ // If the image isn't completely black
     alarm[0] = 2;
 } else { // Disable alarm and go to the next room
     alarm[0] = -1;
-    room_goto(room_menu);
+    game_restart();
     global.roomfade = false;
     sprite_delete(global.ScreenShot);
 }
@@ -60,7 +60,9 @@ if (obj_pauseOverlay.image_alpha &lt; 1){ // If the image isn't completely black
             <string>///Checks for key 'Enter' when 'Quit' selected
 
 if (obj_pauseBackground.pauseQuit){
-    if (keyboard_check_pressed(vk_enter)){
+    if (keyboard_check_pressed(vk_enter) or keyboard_check_pressed(ord("Z"))){
+        audio_play_sound(snd_confirm, 1, false);
+        audio_sound_gain(snd_confirm, global.gameVolume/10, false);
         alarm[0] = 1;
         self.image_alpha = 0;
         self.image_alpha = 0;

@@ -84,9 +84,6 @@ if (instance_number(obj_player) &lt;= 0 &amp;&amp; lives &gt;= 0){
     newPlayer.spawnEffectTrigger = 1;
 }
 
-
-
-
 </string>
           </argument>
         </arguments>
