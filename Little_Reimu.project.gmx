@@ -67,6 +67,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_storyteller.gml</script>
     <scripts name="Radial Spray Pattern">
       <script>scripts\addRadialSpray.gml</script>
       <script>scripts\updateRadialSprays.gml</script>
@@ -80,6 +81,11 @@
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
     <script>scripts\scr_menu.gml</script>
+    <scripts name="Flower Burst Pattern">
+      <script>scripts\initializeFlowerBurstSpray.gml</script>
+      <script>scripts\addFlowerBurstSpray.gml</script>
+      <script>scripts\updateFlowerBurstSpray.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_horror</font>
@@ -110,8 +116,12 @@
     <objects name="bullets">
       <object>objects\obj_player_bullet</object>
       <object>objects\obj_bullet1</object>
+      <object>objects\obj_bullet2</object>
+      <object>objects\obj_bullet3</object>
       <object>objects\obj_bulletDeceleration</object>
       <object>objects\obj_bulletTracker</object>
+      <object>objects\obj_bulletFlower</object>
+      <object>objects\obj_splitterBullet</object>
     </objects>
     <objects name="Backgrounds">
       <object>objects\obj_bg_forest</object>
@@ -139,6 +149,7 @@
   <timelines name="timelines">
     <timeline>timelines\scene_1_1</timeline>
     <timeline>timelines\scene_intro</timeline>
+    <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_menu</room>

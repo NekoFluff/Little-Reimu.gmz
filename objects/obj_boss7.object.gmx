@@ -11,6 +11,41 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiate Variables
+bossHP = 100;
+i = 0;
+j = 240;
+
+if (75 &lt;= bossHP &lt;= 100){
+    stageOne = true;
+}
+
+if (50 &lt;= bossHP &lt;= 75){
+    stageTwo = true;
+}
+
+alarm[0] = room_speed/16;
+alarm[1] = room_speed*3
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>611</id>
         <kind>6</kind>
         <userelative>-1</userelative>
@@ -49,169 +84,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiate Variables
-bossHP = 100;
-i = 0;
-j = 240;
-
-if (75 &lt;= bossHP &lt;= 100){
-    stageOne = true;
-}
-
-if (50 &lt;= bossHP &lt;= 75){
-    stageTwo = true;
-}
-
-alarm[0] = room_speed/16;
-alarm[1] = room_speed*3
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>initializeRadialSpray</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Add radial sprays
-//addRadialSpray(10000,0,360,60, 10, obj_bulletDeceleration, 2000)
-addRadialSpray(5000,360,0,60, 5, obj_bulletTracker, 0)
-//addRadialSpray(5000,370,10,60, 10, obj_bulletTracker, 0)
-//addRadialSpray(5000,380,20,60, 10, obj_bulletTracker, 0)
-//addRadialSpray(5000,390,30,60, 10, obj_bulletTracker, 0)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (stageOne){
-    // first bullet layer
-    bulletSpawn1 = instance_create(obj_boss7.x - 64, obj_boss7.y + 32, obj_hakureiball_corrupt_left);
-    bulletSpawn2 = instance_create(obj_boss7.x + 64, obj_boss7.y + 32, obj_hakureiball_corrupt_right);
-    bulletSpawn3 = instance_create(obj_boss7.x - 128, obj_boss7.y + 64, obj_hakureiball_corrupt_right);
-    bulletSpawn4 = instance_create(obj_boss7.x + 128, obj_boss7.y + 64, obj_hakureiball_corrupt_left);
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*
-///Execute Bullet Stage 1
-if (stageOne){
-    if (i &lt; 90){
-    // first bullet layer
-        bullet = instance_create(obj_boss7.x, obj_boss7.y, obj_bullet1);
-        bullet.direction = j;
-        bullet.image_angle = j;
-        bullet.speed = 2.5;
-        bullet.image_xscale = 0.3;
-        bullet.image_yscale = 0.1;
-        // second bullet layer
-        bullet2 = instance_create(obj_boss7.x, obj_boss7.y, obj_bullet1);
-        bullet2.direction = j - 10;
-        bullet2.image_angle = j - 10;
-        bullet2.speed = 2.5;
-        bullet2.image_xscale = 0.3;
-        bullet2.image_yscale = 0.1;
-        // third bullet layer
-        bullet3 = instance_create(obj_boss7.x, obj_boss7.y, obj_bullet1);
-        bullet3.direction = j + 10;
-        bullet3.image_angle = j + 10;
-        bullet3.speed = 2.5;
-        bullet3.image_xscale = 0.3;
-        bullet3.image_yscale = 0.1;
-        j += 30;
-        i++;
-        alarm[0] = room_speed/16;
-    }
-}*/
+            <string>///Initialize Boss Fight
+timeline_index = boss_1_fight;
+timeline_position = 0;
+timeline_running = true;
 </string>
           </argument>
         </arguments>
@@ -328,6 +204,86 @@ if (stageOne){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>updateFlowerBurstSpray</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>updateBurstSpray</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_player_bullet">
       <action>
@@ -370,7 +326,7 @@ if (stageOne){
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_bosshit</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>4</kind>
