@@ -58,7 +58,12 @@
       <sprite>sprites\spr_bg_sky</sprite>
     </sprites>
     <sprites name="Menu Sprites">
+      <sprite>sprites\spr_blackscreen</sprite>
       <sprite>sprites\spr_start</sprite>
+      <sprite>sprites\spr_lunatic</sprite>
+      <sprite>sprites\spr_hard</sprite>
+      <sprite>sprites\spr_medium</sprite>
+      <sprite>sprites\spr_easy</sprite>
     </sprites>
     <sprites name="Cutscene Sprites">
       <sprite>sprites\s_1_2</sprite>
@@ -70,11 +75,6 @@
       <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_quit</sprite>
     </sprites>
-    <sprite>sprites\spr_blackscreen</sprite>
-    <sprite>sprites\spr_lunatic</sprite>
-    <sprite>sprites\spr_easy</sprite>
-    <sprite>sprites\spr_medium</sprite>
-    <sprite>sprites\spr_hard</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_forest</background>
@@ -98,7 +98,6 @@
     <script>scripts\scr_musicroom.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
-    <script>scripts\scr_credits.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>

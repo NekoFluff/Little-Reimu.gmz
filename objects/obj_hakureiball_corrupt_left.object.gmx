@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>image_alpha = 0;
-image_xscale = 0.3;
-image_yscale = 0.3;
 spin = false;
 justcreated = true;
 i = 0;
