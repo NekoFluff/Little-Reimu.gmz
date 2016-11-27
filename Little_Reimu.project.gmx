@@ -31,6 +31,18 @@
       <sprite>sprites\spr_player_center</sprite>
       <sprite>sprites\spr_star</sprite>
     </sprites>
+    <sprites name="point bullet sprites">
+      <sprite>sprites\spr_point_bullet_lightgreen</sprite>
+      <sprite>sprites\spr_point_bullet_yellow</sprite>
+      <sprite>sprites\spr_point_bullet_lightblue</sprite>
+      <sprite>sprites\spr_point_bullet_green</sprite>
+      <sprite>sprites\spr_point_bullet_orange</sprite>
+      <sprite>sprites\spr_point_bullet_red</sprite>
+      <sprite>sprites\spr_point_shot_black</sprite>
+      <sprite>sprites\spr_point_shot_blue</sprite>
+      <sprite>sprites\spr_point_shot_pink</sprite>
+      <sprite>sprites\spr_point_shot_purple</sprite>
+    </sprites>
     <sprites name="large bullet sprites">
       <sprite>sprites\spr_bullet_limegreen</sprite>
       <sprite>sprites\spr_bullet_yellow</sprite>
@@ -42,6 +54,18 @@
       <sprite>sprites\spr_bullet_red</sprite>
       <sprite>sprites\spr_bullet_black</sprite>
       <sprite>sprites\spr_bullet_white</sprite>
+    </sprites>
+    <sprites name="oval bullet sprites">
+      <sprite>sprites\spr_oval_bullet_black</sprite>
+      <sprite>sprites\spr_oval_bullet_blue</sprite>
+      <sprite>sprites\spr_oval_bullet_green</sprite>
+      <sprite>sprites\spr_oval_bullet_lightblue</sprite>
+      <sprite>sprites\spr_oval_bullet_limegreen</sprite>
+      <sprite>sprites\spr_oval_bullet_orange</sprite>
+      <sprite>sprites\spr_oval_bullet_red</sprite>
+      <sprite>sprites\spr_oval_bullet_teal</sprite>
+      <sprite>sprites\spr_oval_bullet_white</sprite>
+      <sprite>sprites\spr_oval_bullet_yellow</sprite>
     </sprites>
     <sprites name="boss sprites">
       <sprite>sprites\spr_boss1</sprite>
@@ -65,15 +89,49 @@
       <sprite>sprites\spr_medium</sprite>
       <sprite>sprites\spr_easy</sprite>
     </sprites>
-    <sprites name="Cutscene Sprites">
-      <sprite>sprites\s_1_2</sprite>
-      <sprite>sprites\s_1_1</sprite>
-    </sprites>
     <sprites name="Pause Menu Sprites">
       <sprite>sprites\spr_yes</sprite>
       <sprite>sprites\spr_no</sprite>
       <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_quit</sprite>
+    </sprites>
+    <sprites name="Cutscene Sprites">
+      <sprites name="Scene 1">
+        <sprite>sprites\s_1_1</sprite>
+        <sprite>sprites\s_1_2</sprite>
+        <sprite>sprites\s_1_3</sprite>
+        <sprite>sprites\s_1_4</sprite>
+        <sprite>sprites\s_1_5</sprite>
+        <sprite>sprites\s_1_6</sprite>
+        <sprite>sprites\s_1_7</sprite>
+        <sprite>sprites\s_1_8</sprite>
+        <sprite>sprites\s_1_9</sprite>
+        <sprite>sprites\s_1_10</sprite>
+        <sprite>sprites\s_1_11</sprite>
+        <sprite>sprites\s_1_12</sprite>
+        <sprite>sprites\s_1_13</sprite>
+        <sprite>sprites\s_1_14</sprite>
+        <sprite>sprites\s_1_15</sprite>
+        <sprite>sprites\s_1_16</sprite>
+        <sprite>sprites\s_1_17</sprite>
+        <sprite>sprites\s_1_18</sprite>
+        <sprite>sprites\s_1_19</sprite>
+        <sprite>sprites\s_1_20</sprite>
+        <sprite>sprites\s_1_21</sprite>
+        <sprite>sprites\s_1_22</sprite>
+        <sprite>sprites\s_1_23</sprite>
+        <sprite>sprites\s_1_24</sprite>
+        <sprite>sprites\s_1_25</sprite>
+        <sprite>sprites\s_1_26</sprite>
+      </sprites>
+      <sprites name="Scene 2">
+        <sprite>sprites\s_2_1</sprite>
+        <sprite>sprites\s_2_2</sprite>
+        <sprite>sprites\s_2_3</sprite>
+        <sprite>sprites\s_2_4</sprite>
+        <sprite>sprites\s_2_5</sprite>
+        <sprite>sprites\s_2_6</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -180,6 +238,31 @@
       <object>objects\obj_pauseQuit</object>
       <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
+    </objects>
+    <object>objects\obj_blackscreen</object>
+    <objects name="Point bullets">
+      <object>objects\obj_point_bullet_yellow</object>
+      <object>objects\obj_point_bullet_lightgreen</object>
+      <object>objects\obj_point_bullet_lightblue</object>
+      <object>objects\obj_point_bullet_green</object>
+      <object>objects\obj_point_bullet_orange</object>
+      <object>objects\obj_point_bullet_red</object>
+      <object>objects\obj_point_bullet_black</object>
+      <object>objects\obj_point_bullet_blue</object>
+      <object>objects\obj_point_bullet_pink</object>
+      <object>objects\obj_point_bullet_purple</object>
+    </objects>
+    <objects name="oval bullets">
+      <object>objects\obj_oval_bullet_black</object>
+      <object>objects\obj_oval_bullet_blue</object>
+      <object>objects\obj_oval_bullet_green</object>
+      <object>objects\obj_oval_bullet_lightblue</object>
+      <object>objects\obj_oval_bullet_limegreen</object>
+      <object>objects\obj_oval_bullet_orange</object>
+      <object>objects\obj_oval_bullet_red</object>
+      <object>objects\obj_oval_bullet_teal</object>
+      <object>objects\obj_oval_bullet_white</object>
+      <object>objects\obj_oval_bullet_yellow</object>
     </objects>
   </objects>
   <timelines name="timelines">
