@@ -1,4 +1,4 @@
-///addFlowerBurstSpray(duration, numBursts, bulletsPerBurst, angleOffset, bulletSpeed, bulletType, pauseTime,)
+///addFlowerBurstSpray(duration, numBursts, bulletsPerBurst, angleOffset, bulletSpeed, bulletType, pauseTime)
 var newMap = ds_map_create(); //Create a new object (dictionary)
 
 var duration = argument0;

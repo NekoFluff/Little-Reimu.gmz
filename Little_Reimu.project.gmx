@@ -83,25 +83,35 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Radial Spray Pattern">
+      <script>scripts\initializeRadialSpray.gml</script>
       <script>scripts\addRadialSpray.gml</script>
       <script>scripts\updateRadialSprays.gml</script>
-      <script>scripts\initializeRadialSpray.gml</script>
     </scripts>
     <scripts name="Burst Pattern">
       <script>scripts\initializeBurstSpray.gml</script>
       <script>scripts\addBurstSpray.gml</script>
       <script>scripts\updateBurstSpray.gml</script>
     </scripts>
-    <script>scripts\scr_storyteller.gml</script>
-    <script>scripts\scr_updateText.gml</script>
-    <script>scripts\scr_options.gml</script>
-    <script>scripts\scr_musicroom.gml</script>
-    <script>scripts\scr_menu.gml</script>
     <scripts name="Flower Burst Pattern">
       <script>scripts\initializeFlowerBurstSpray.gml</script>
       <script>scripts\addFlowerBurstSpray.gml</script>
       <script>scripts\updateFlowerBurstSpray.gml</script>
     </scripts>
+    <scripts name="Shotgun Pattern">
+      <script>scripts\initializeShotgunSpray.gml</script>
+      <script>scripts\addShotgunSpray.gml</script>
+      <script>scripts\updateShotgunSpray.gml</script>
+    </scripts>
+    <scripts name="Oscillation Pattern">
+      <script>scripts\initializeOscillationSpray.gml</script>
+      <script>scripts\addOscillationSpray.gml</script>
+      <script>scripts\updateOscillationSpray.gml</script>
+    </scripts>
+    <script>scripts\scr_storyteller.gml</script>
+    <script>scripts\scr_updateText.gml</script>
+    <script>scripts\scr_options.gml</script>
+    <script>scripts\scr_musicroom.gml</script>
+    <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -142,6 +152,8 @@
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
       <object>objects\obj_bullet3</object>
+      <object>objects\obj_bullet5</object>
+      <object>objects\obj_bullet6</object>
       <object>objects\obj_bulletDeceleration</object>
       <object>objects\obj_bulletTracker</object>
       <object>objects\obj_bulletFlower</object>
@@ -177,6 +189,7 @@
     <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\room_fight_1</room>
     <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_credits</room>
@@ -184,7 +197,6 @@
     <room>rooms\room_intro</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
-    <room>rooms\room_fight_1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

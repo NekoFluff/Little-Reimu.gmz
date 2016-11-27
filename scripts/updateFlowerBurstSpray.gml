@@ -57,7 +57,11 @@ for (var i = 0; i < flowerBurstArrayCount; i += 1) {
                 map[? "previousXPosition"] = obj_player.x;
                 map[? "previousYPosition"] = obj_player.y;
                         
-                prevTime = prevTime + dTime; 
+                if ((dTime - timePerBurst) >= 0.25 * timePerBurst) {
+                    prevTime = prevTime + dTime; 
+                } else {
+                    prevTime = prevTime + timePerBurst; 
+                }
             
                 map[? "prevTime"] = prevTime;
                 map[? "numBursts"] = (numBursts - 1);

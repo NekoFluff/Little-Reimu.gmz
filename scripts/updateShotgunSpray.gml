@@ -1,6 +1,6 @@
-///updateBurstSpray()
-for (var i = 0; i < burstArrayCount; i += 1) { 
-    var map = burstArray[i];
+///updateShotgunSpray()
+for (var i = 0; i < shotgunArrayCount; i += 1) { 
+    var map = shotgunArray[i];
     var numBursts = map[? "numBursts"]
 
     //Time variables
@@ -22,13 +22,12 @@ for (var i = 0; i < burstArrayCount; i += 1) {
     } else if (numBursts > 0) { //While you still have bullets to shoot...
         
         //Check if it is the time to shoot.
-        if (dTime >= timePerBurst) {
+        if ((dTime >= timePerBurst) && instance_exists(obj_player)) {
         
-            //Create bullet burst
-            var angleOffset = map[? "angleOffset"];
-            var currentAngle = angleOffset;
+            //Create shotgun burst
             var bulletsPerBurst = map[? "bulletsPerBurst"];
-            var angleBetweenBullets = 360/bulletsPerBurst;
+            var angleBetweenBullets = 2;
+            var currentAngle = point_direction(x,y, obj_player.x, obj_player.y) - (angleBetweenBullets * bulletsPerBurst/2)
             var bulletSpeed = map[? "bulletSpeed"];
             var bulletType = map[? "bulletType"];
             
@@ -52,14 +51,13 @@ for (var i = 0; i < burstArrayCount; i += 1) {
             
             map[? "prevTime"] = prevTime;
             map[? "numBursts"] = (numBursts - 1);
-            map[? "angleOffset"] = angleOffset + map[? "rotationPerBurst"];
         }
     } else {
         //Destroy the map and update the radialArray
-        ds_map_destroy(burstArray[i]);
-        for (var j = i;  j < burstArrayCount - 1; j += 1) {
+        ds_map_destroy(shotgunArray[i]);
+        for (var j = i;  j < shotgunArrayCount - 1; j += 1) {
             //Shift remaining maps
-            burstArray[j] = burstArray[j+1];
+            shotgunArray[j] = shotgunArray[j+1];
             
             
         }
@@ -67,6 +65,6 @@ for (var i = 0; i < burstArrayCount; i += 1) {
         i -= 1;   
         
         //Subtract 1 from the count
-        burstArrayCount -= 1;
+        shotgunArrayCount -= 1;
     }
 }

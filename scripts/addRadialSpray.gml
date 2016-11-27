@@ -22,6 +22,8 @@ ds_map_add(newMap, "bulletSpeed", bulletSpeed);
 ds_map_add(newMap, "bulletType", bulletType);
 ds_map_add(newMap, "pauseTime", pauseTime);
 
+ds_map_add(newMap, "pauseTimeFinished", false);
+
 radialArray[radialArrayCount] = newMap;
 radialArrayCount = radialArrayCount + 1;
 

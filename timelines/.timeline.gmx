@@ -20,18 +20,16 @@
           <argument>
             <kind>1</kind>
             <string>///First Spray
+//addBurstSpray(3000,7,35,5,0,2.5,obj_bullet1,0)
 
-/* 
-// Tri Spray
+/* Tri Spray
 addRadialSpray(5000,360,0,45,2.5,obj_bullet1,0)
 addRadialSpray(6000, 390,30,45,2.5,obj_bullet1,0)
 addRadialSpray(6000,420,60,45,2.5,obj_bullet1,0)
 addRadialSpray(5000,540,180,45,2.5,obj_bullet1,0)
 */
 
-
-/*
-// Lotus Spray
+// Star Spray
 addRadialSpray(1000,0,60,15,3,obj_splitterBullet,0)
 addRadialSpray(1000,60,120,15,3,obj_splitterBullet,0)
 addRadialSpray(1000,120,180,15,3,obj_splitterBullet,0)
@@ -59,19 +57,14 @@ addRadialSpray(1000,120,180,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,180,240,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,240,300,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,300,360,15,3,obj_splitterBullet,1750)
-*/
 
 
-/* 
-// Simple Shotgun
-addShotgunSpray(5000,4,5,3,obj_bullet2,0);
-addShotgunSpray(5000,4,5,3,obj_bullet2,250);
-*/
+show_debug_message("RADIAL SPRAYYYY")
 
+addShotgunSpray(5000,4,5,3,obj_bullet2,3000);
+addShotgunSpray(5000,4,5,3,obj_bullet2,3250);
 
-
-/* 
-//Fire Hell Burst Spray
+/* Fire Burst Spray
 var numBullets = 20;
 var degree = 360/numBullets;
 addBurstSpray(8000,6,numBullets,0,0,4,obj_bullet3,0);
@@ -83,60 +76,6 @@ addBurstSpray(8000,6,numBullets,0,2*degree/4,3,obj_bullet3,1500);
 addBurstSpray(8000,6,numBullets,0,3*degree/4,4,obj_bullet3,1750);
 addBurstSpray(8000,6,numBullets,0,3*degree/4,3,obj_bullet3,2000);
 */
-
-/*
-//Rainbow Spray
-//5 radial sprays. 360/5 = 72 degrees each.
-//3 colors per spray (purple, blue, and green). 
-//Slight delay between the three
-var angleDiff = 360/5;
-var duration = 2000;
-var numBullets = 40
-var repeatCount = 3
-
-for (var j = 0; j &lt; repeatCount; j++) {
-    var offset = duration*2*j
-    
-    //Forwards
-    for (var forward = 0; forward &lt; 5; forward++) {
-        var fromAngle = forward*angleDiff
-        var toAngle = fromAngle+angleDiff
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet6,offset+0)
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet2,offset+200)
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet5,offset+400)
-    }
-    
-    //Backwards
-    for (var backward = 0; backward &lt; 5; backward++) {
-        var fromAngle = (backward+1)*angleDiff
-        var toAngle = fromAngle-angleDiff
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet6,duration+offset+0)
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet2,duration+offset+200)
-        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet5,duration+offset+400)
-    }
-}
-*/
-
-/*
-//Improved Rainbow Spray
-var duration = 40000
-var range = 360/5
-for (var i = 0; i &lt; 5; i++) {
-    addOscillationSpray(duration,i*range,range-15,8000,40*10,3,obj_bullet5,0);
-    addOscillationSpray(duration,i*range+5,range-15,8000,40*10,3,obj_bullet2,0);
-    addOscillationSpray(duration,i*range+10,range-15,8000,40*10,3,obj_bullet6,0);
-}
-*/
-
-addOscillationSpray(40000,0,360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,0,-360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,180,360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,180,-360,8000,40*20,3,obj_bullet5,0);
-/*
-
-*/
-
-
 </string>
           </argument>
         </arguments>
