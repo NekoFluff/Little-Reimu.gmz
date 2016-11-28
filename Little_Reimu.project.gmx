@@ -23,14 +23,6 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprites name="player sprites">
-      <sprite>sprites\spr_player_static</sprite>
-      <sprite>sprites\spr_player_right</sprite>
-      <sprite>sprites\spr_player_left</sprite>
-      <sprite>sprites\spr_hitbox</sprite>
-      <sprite>sprites\spr_player_center</sprite>
-      <sprite>sprites\spr_star</sprite>
-    </sprites>
     <sprites name="point bullet sprites">
       <sprite>sprites\spr_point_bullet_lightgreen</sprite>
       <sprite>sprites\spr_point_bullet_yellow</sprite>
@@ -67,6 +59,14 @@
       <sprite>sprites\spr_oval_bullet_white</sprite>
       <sprite>sprites\spr_oval_bullet_yellow</sprite>
     </sprites>
+    <sprites name="player sprites">
+      <sprite>sprites\spr_player_static</sprite>
+      <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_left</sprite>
+      <sprite>sprites\spr_hitbox</sprite>
+      <sprite>sprites\spr_player_center</sprite>
+      <sprite>sprites\spr_star</sprite>
+    </sprites>
     <sprites name="boss sprites">
       <sprite>sprites\spr_boss1</sprite>
       <sprite>sprites\spr_boss2</sprite>
@@ -77,7 +77,6 @@
       <sprite>sprites\spr_hakureiBall_corrupt</sprite>
     </sprites>
     <sprites name="background sprites">
-      <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_bg_forest</sprite>
       <sprite>sprites\spr_bg_sky</sprite>
     </sprites>
@@ -182,7 +181,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_controller</object>
-    <object>objects\obj_wall</object>
+    <object>objects\obj_blackscreen</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
       <object>objects\obj_menu_aesthetics</object>
@@ -199,6 +198,11 @@
     </objects>
     <objects name="bosses">
       <object>objects\obj_bosshit</object>
+      <object>objects\obj_boss1</object>
+      <object>objects\obj_boss2</object>
+      <object>objects\obj_boss3</object>
+      <object>objects\obj_boss4</object>
+      <object>objects\obj_boss5</object>
       <objects name="boss 6">
         <object>objects\obj_boss6</object>
         <object>objects\obj_hakureiball_corrupt_left</object>
@@ -239,7 +243,6 @@
       <object>objects\obj_VolumeChange</object>
       <object>objects\obj_pauseVolume</object>
     </objects>
-    <object>objects\obj_blackscreen</object>
     <objects name="Point bullets">
       <object>objects\obj_point_bullet_yellow</object>
       <object>objects\obj_point_bullet_lightgreen</object>
@@ -272,8 +275,8 @@
     <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
-    <room>rooms\room_fight_1</room>
     <room>rooms\room_set_resolution</room>
+    <room>rooms\room_fight_1</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>

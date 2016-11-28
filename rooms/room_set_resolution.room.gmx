@@ -16,7 +16,9 @@ audio_stop_sound(global.sfx);
 audio_stop_sound(global.music);
 global.musicVolume = 1;
 global.sfxVolume = 1;
-room_goto(room_menu);</code>
+global.difficulty = 0;
+//room_next(room);
+room_goto_next();</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

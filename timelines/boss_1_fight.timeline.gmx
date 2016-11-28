@@ -19,6 +19,89 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Arithmetic Sign: Guidance of 7,500,000 Years
+var delay = 1000;
+/*for (i = 0; i &lt; 5; i++){
+    addRadialSpray(1000,0,45,5,2.5,obj_point_bullet_yellow,delay*i)
+}*/
+
+
+    //addRadialSpray(500,0,0,5,2.5,obj_point_bullet_yellow,0)
+    addRadialSpray(250,36,72,5,0.75,obj_point_bullet_yellow,0)
+    addRadialSpray(250,108,144,5,0.75,obj_point_bullet_yellow,0)
+    addRadialSpray(250,180,216,5,0.75,obj_point_bullet_yellow,0)
+    addRadialSpray(250,252,288,5,0.75,obj_point_bullet_yellow,0)
+    addRadialSpray(250,324,360,5,0.75,obj_point_bullet_yellow,0)
+    
+    addRadialSpray(250,36,0,5,0.75,obj_point_bullet_yellow,750)
+    addRadialSpray(250,108,72,5,0.75,obj_point_bullet_yellow,750)
+    addRadialSpray(250,180,144,5,0.75,obj_point_bullet_yellow,750)
+    addRadialSpray(250,252,216,5,0.75,obj_point_bullet_yellow,750)
+    addRadialSpray(250,324,288,5,0.75,obj_point_bullet_yellow,750)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>1500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Second Spray
+//Geometry: Boundary between Wave and Particle
+//Wave
+var duration = 20000
+var range = 360/5
+for (var i = 0; i &lt; 5; i++) {
+    addOscillationSpray(duration,i*range+85,range-15,8000,40*10,3,obj_point_bullet_green,0);
+    addOscillationSpray(duration,i*range+90,range-15,8000,40*10,3,obj_point_bullet_blue,0);
+    addOscillationSpray(duration,i*range+95,range-15,8000,40*11,3,obj_point_bullet_purple,0);
+}
+//Particle
+var numBursts = duration/2000;
+addBurstSpray(duration, numBursts, 360/numBursts+5, 0, 0, 2, obj_point_bullet_orange, 0);
+addBurstSpray(duration, numBursts*2, 360/numBursts+5, 3, 0, 1.5, obj_point_bullet_red, 150);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///First Spray
 
 /* 
@@ -128,15 +211,23 @@ for (var i = 0; i &lt; 5; i++) {
 }
 */
 
+/*
+//Random waterworks spray
 addOscillationSpray(40000,0,360,8000,40*20,3,obj_bullet5,0);
 addOscillationSpray(40000,0,-360,8000,40*20,3,obj_bullet5,0);
 addOscillationSpray(40000,180,360,8000,40*20,3,obj_bullet5,0);
 addOscillationSpray(40000,180,-360,8000,40*20,3,obj_bullet5,0);
-/*
-
 */
 
-
+//Definite Bullet Patters//
+//Tutorial Sign: Boundary of a Shotgun and Your Face (Shotgun Wedding)
+addShotgunSpray(20000, 20, 5, 3, obj_oval_bullet_blue, 0);
+addShotgunSpray(18000, 18, 5, 3, obj_point_bullet_orange, 2150);
+addShotgunSpray(16000, 16, 5, 3, obj_point_bullet_yellow, 4300);
+addShotgunSpray(14000, 14, 5, 3, obj_point_bullet_green, 6450);
+addShotgunSpray(12000, 12, 5, 3, obj_point_bullet_lightblue, 8600);
+addShotgunSpray(10000, 10, 5, 3, obj_point_bullet_blue, 10750);
+addShotgunSpray(8000, 8, 5, 3, obj_point_bullet_purple, 12900);
 </string>
           </argument>
         </arguments>

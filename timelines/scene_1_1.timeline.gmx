@@ -105,7 +105,6 @@ audio_stop_sound(global.sfx);
             <kind>1</kind>
             <string>///Pic 2
 sprite_index = s_1_2;
-
 //In case user skips scene
 audio_stop_sound(global.sfx);
 audio_stop_sound(global.music);

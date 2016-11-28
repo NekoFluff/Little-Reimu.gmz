@@ -34,8 +34,8 @@ for (var i = 0; i < radialArrayCount; i += 1) {
                 bullet.direction = currentAngle;
                 bullet.image_angle = currentAngle;
                 bullet.speed = bulletSpeed;
-                bullet.image_xscale = 0.3;
-                bullet.image_yscale = 0.3;
+                //bullet.image_xscale = 0.3;
+                //bullet.image_yscale = 0.3;
                 
                 if ((dTime - timePerBullet) >= 0.25 * timePerBullet) {
                     prevTime = prevTime + dTime; 

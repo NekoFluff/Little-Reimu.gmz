@@ -36,7 +36,7 @@ invincible = false;
 dyingAnimation = false;
 spawnEffectTrigger = 0;
 
-alarm[1] = 1;
+alarm[1] = 2;
 </string>
           </argument>
         </arguments>
@@ -62,14 +62,14 @@ alarm[1] = 1;
             <string>// stretching player sprite
 if (obj_player.image_xscale == 1){
     alarm[1] = -1;
-    alarm[0] = 5;
+    alarm[0] = 10;
     
 } else {
     with (obj_player){
         image_xscale += 0.25;
         image_yscale -= 0.25;
     }
-    alarm[1] = 1;
+    alarm[1] = 2;
 }
 </string>
           </argument>
@@ -96,11 +96,11 @@ if (obj_player.image_xscale == 1){
             <string>if (spawnEffectRepeat &lt;= 40){
     if (spawnEffectRepeat % 2 == 1){
         obj_player.image_alpha = 0.3;
-        alarm[0] = 1;
+        alarm[0] = 2;
         spawnEffectRepeat++;
     } else {
         obj_player.image_alpha = 1;
-        alarm[0] = 4;
+        alarm[0] = 8;
         spawnEffectRepeat++;
     }
 } else {
@@ -140,13 +140,13 @@ keyZ = keyboard_check(ord("Z"));
 keyEscape = keyboard_check_pressed(vk_escape);
 
 //Player speed
-var normalSpeed = 9;
-var slowSpeed = 3;
+var normalSpeed = 5;
+var slowSpeed = 2;
 
 // player spawn blink effect
 if (invincible &amp;&amp; spawnEffectTrigger == 1){
     obj_player.image_alpha = 1;
-    alarm[0] = 5;
+    alarm[0] = 10;
     spawnEffectTrigger = 0;
     spawnEffectRepeat = 1;
 }
@@ -159,10 +159,10 @@ if (!invincible){
 if (!dyingAnimation){
     // Shooting
     if (keyZ &amp;&amp; global.can_shoot &gt; 1){
-        audio_play_sound(snd_shoot, 1, false);
-        audio_sound_gain(snd_shoot, global.sfxVolume/10, true);
         if (keyShift){
             pbullet1 = instance_create (obj_player.x, obj_player.y, obj_player_bullet)
+            audio_play_sound(snd_shoot, 1, false);
+            audio_sound_gain(snd_shoot, global.sfxVolume/10, 0);
             with (pbullet1){
                 speed = 30;
                 direction = 90;
@@ -185,11 +185,13 @@ if (!dyingAnimation){
                 image_xscale = 0.3;
                 image_yscale = 0.3;
             }
-        global.can_shoot = -1;
+        global.can_shoot = -4;
         }
         
         else {
             pbullet1 = instance_create (obj_player.x, obj_player.y, obj_player_bullet)
+            audio_play_sound(snd_shoot, 1, false);
+            audio_sound_gain(snd_shoot, global.sfxVolume/10, 0);
             with (pbullet1){
                 speed = 30;
                 direction = 90;
@@ -212,11 +214,11 @@ if (!dyingAnimation){
                 image_xscale = 0.3;
                 image_yscale = 0.3;
             }
-        global.can_shoot = 0;
+        global.can_shoot = -2;
         }
-    } else {
+    } /*else {
         audio_stop_sound(snd_shoot);
-    }
+    }*/
     
     if (keyShift){
         playerhit.image_alpha = 1;

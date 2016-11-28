@@ -32,7 +32,6 @@ menu[2] = "Music Room";
 menu[3] = "Credits";
 menu[4] = "Quit";
 
-global.difficulty = 0;
 menuState = 0;
 
 space = 48; //Space between text

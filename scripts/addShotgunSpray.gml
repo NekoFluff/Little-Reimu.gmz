@@ -1,4 +1,4 @@
-///addBurstSpray(duration, numBursts, bulletsPerBurst, bulletSpeed, bulletType, pauseTime)
+///addShotgunSpray(duration, numBursts, bulletsPerBurst, bulletSpeed, bulletType, pauseTime)
 var newMap = ds_map_create(); //Create a new object (dictionary)
 
 var duration = argument0;

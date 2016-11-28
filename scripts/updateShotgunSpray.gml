@@ -26,7 +26,7 @@ for (var i = 0; i < shotgunArrayCount; i += 1) {
         
             //Create shotgun burst
             var bulletsPerBurst = map[? "bulletsPerBurst"];
-            var angleBetweenBullets = 2;
+            var angleBetweenBullets = 3;
             var currentAngle = point_direction(x,y, obj_player.x, obj_player.y) - (angleBetweenBullets * bulletsPerBurst/2)
             var bulletSpeed = map[? "bulletSpeed"];
             var bulletType = map[? "bulletType"];
@@ -39,8 +39,8 @@ for (var i = 0; i < shotgunArrayCount; i += 1) {
                 currentAngle += angleBetweenBullets;
                 
                 bullet.speed = bulletSpeed;
-                bullet.image_xscale = 0.3;
-                bullet.image_yscale = 0.3;
+                //bullet.image_xscale = 0.3;
+                //bullet.image_yscale = 0.3;
             }
             
             if ((dTime - timePerBurst) >= 0.25 * timePerBurst) {

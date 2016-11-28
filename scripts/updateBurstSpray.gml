@@ -40,8 +40,8 @@ for (var i = 0; i < burstArrayCount; i += 1) {
                 currentAngle += angleBetweenBullets;
                 
                 bullet.speed = bulletSpeed;
-                bullet.image_xscale = 0.3;
-                bullet.image_yscale = 0.3;
+                //bullet.image_xscale = 0.3;
+                //bullet.image_yscale = 0.3;
             }
             
             if ((dTime - timePerBurst) >= 0.25 * timePerBurst) {
