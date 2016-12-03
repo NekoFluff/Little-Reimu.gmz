@@ -74,7 +74,7 @@
       <sprite>sprites\spr_boss4</sprite>
       <sprite>sprites\spr_boss5</sprite>
       <sprite>sprites\spr_boss6</sprite>
-      <sprite>sprites\spr_hakureiBall_corrupt</sprite>
+      <sprite>sprites\spr_hb_corrupt</sprite>
     </sprites>
     <sprites name="background sprites">
       <sprite>sprites\spr_bg_forest</sprite>
@@ -130,6 +130,77 @@
         <sprite>sprites\s_2_4</sprite>
         <sprite>sprites\s_2_5</sprite>
         <sprite>sprites\s_2_6</sprite>
+        <sprite>sprites\s_2_7_1</sprite>
+        <sprite>sprites\s_2_7_2</sprite>
+        <sprite>sprites\s_2_8</sprite>
+        <sprite>sprites\s_2_9</sprite>
+        <sprite>sprites\s_2_10</sprite>
+        <sprite>sprites\s_2_11</sprite>
+        <sprite>sprites\s_2_12</sprite>
+        <sprite>sprites\s_2_13</sprite>
+        <sprite>sprites\s_2_14</sprite>
+        <sprite>sprites\s_2_15_1</sprite>
+        <sprite>sprites\s_2_15_2</sprite>
+        <sprite>sprites\s_2_16</sprite>
+        <sprite>sprites\s_2_17</sprite>
+        <sprite>sprites\s_2_18</sprite>
+        <sprite>sprites\s_2_19</sprite>
+        <sprite>sprites\s_2_20</sprite>
+      </sprites>
+      <sprites name="Scene 3">
+        <sprite>sprites\s_3_1</sprite>
+        <sprite>sprites\s_3_2</sprite>
+        <sprite>sprites\s_3_3</sprite>
+        <sprite>sprites\s_3_4</sprite>
+        <sprite>sprites\s_3_5</sprite>
+        <sprite>sprites\s_3_6_1</sprite>
+        <sprite>sprites\s_3_6_2</sprite>
+        <sprite>sprites\s_3_7</sprite>
+        <sprite>sprites\s_3_8</sprite>
+        <sprite>sprites\s_3_9</sprite>
+        <sprite>sprites\s_3_10</sprite>
+        <sprite>sprites\s_3_11</sprite>
+        <sprite>sprites\s_3_12</sprite>
+        <sprite>sprites\s_3_13</sprite>
+        <sprite>sprites\s_3_14_1</sprite>
+        <sprite>sprites\s_3_14_2</sprite>
+        <sprite>sprites\s_3_15</sprite>
+      </sprites>
+      <sprite>sprites\s_sky</sprite>
+      <sprite>sprites\s_day</sprite>
+      <sprite>sprites\s_night</sprite>
+      <sprite>sprites\s_rain</sprite>
+      <sprites name="Scene 4">
+        <sprite>sprites\s_4_1</sprite>
+        <sprite>sprites\s_4_2</sprite>
+        <sprite>sprites\s_4_3</sprite>
+        <sprite>sprites\s_4_4</sprite>
+        <sprite>sprites\s_4_5</sprite>
+        <sprite>sprites\s_4_6</sprite>
+        <sprite>sprites\s_4_7_1</sprite>
+        <sprite>sprites\s_4_7_2</sprite>
+        <sprite>sprites\s_4_8</sprite>
+        <sprite>sprites\s_4_9</sprite>
+        <sprite>sprites\s_4_10</sprite>
+        <sprite>sprites\s_4_11</sprite>
+        <sprite>sprites\s_4_12</sprite>
+        <sprite>sprites\s_4_13</sprite>
+        <sprite>sprites\s_4_14</sprite>
+        <sprite>sprites\s_4_15</sprite>
+        <sprite>sprites\s_4_16</sprite>
+        <sprite>sprites\s_4_17_1</sprite>
+        <sprite>sprites\s_4_17_2</sprite>
+        <sprite>sprites\s_4_18</sprite>
+        <sprite>sprites\s_4_19</sprite>
+        <sprite>sprites\s_4_20</sprite>
+        <sprite>sprites\s_4_21</sprite>
+        <sprite>sprites\s_4_22</sprite>
+        <sprite>sprites\s_4_23</sprite>
+        <sprite>sprites\s_4_24</sprite>
+        <sprite>sprites\s_4_25</sprite>
+        <sprite>sprites\s_4_26</sprite>
+        <sprite>sprites\s_4_27</sprite>
+        <sprite>sprites\s_4_28</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -182,6 +253,7 @@
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_blackscreen</object>
+    <object>objects\obj_fadein</object>
     <objects name="Menu">
       <object>objects\obj_menu</object>
       <object>objects\obj_menu_aesthetics</object>
@@ -209,7 +281,7 @@
         <object>objects\obj_hakureiball_corrupt_right</object>
       </objects>
     </objects>
-    <objects name="bullets">
+    <objects name="large bullets">
       <object>objects\obj_player_bullet</object>
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
@@ -254,6 +326,7 @@
       <object>objects\obj_point_bullet_blue</object>
       <object>objects\obj_point_bullet_pink</object>
       <object>objects\obj_point_bullet_purple</object>
+      <object>objects\obj_point_bullet_changespeed</object>
     </objects>
     <objects name="oval bullets">
       <object>objects\obj_oval_bullet_black</object>
@@ -270,8 +343,10 @@
   </objects>
   <timelines name="timelines">
     <timeline>timelines\scene_intro</timeline>
-    <timeline>timelines\scene_1_1</timeline>
-    <timeline>timelines\scene_1_2</timeline>
+    <timeline>timelines\scene_1</timeline>
+    <timeline>timelines\scene_2</timeline>
+    <timeline>timelines\scene_3</timeline>
+    <timeline>timelines\scene_4</timeline>
     <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">

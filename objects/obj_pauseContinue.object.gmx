@@ -36,6 +36,26 @@ if (obj_pauseBackground.pauseContinue){
         audio_play_sound(snd_confirm, 1, false);
         audio_sound_gain(snd_confirm, global.sfxVolume/10, false);
         room_goto(global.RoomBeforePause);
+        with (global.RoomBeforePause){
+            if (global.bossFight == 1){
+                obj_boss1.timeline_running = true;
+            }
+            else if (global.bossFight == 2){
+                obj_boss2.timeline_running = true;
+            }
+            else if (global.bossFight == 3){
+                obj_boss3.timeline_running = true;
+            }
+            else if (global.bossFight == 4){
+                obj_boss4.timeline_running = true;
+            }
+            else if (global.bossFight == 5){
+                obj_boss5.timeline_running = true;
+            }
+            else if (global.bossFight == 6){
+                obj_boss6.timeline_running = true;
+            }
+        }
         sprite_delete(global.ScreenShot);
         audio_resume_sound(global.sfx);
         audio_resume_sound(global.music);

@@ -65,12 +65,12 @@ switch(global.sceneNum){
         timeline_running = true;
         break;
     case 1:
-        timeline_index = scene_1_1;
+        timeline_index = scene_1;
         timeline_position = 0;
         timeline_running = true;
         break;
     case 2:
-        timeline_index = scene_1_2;
+        timeline_index = scene_2;
         timeline_position = 0;
         timeline_running = true;
         break;

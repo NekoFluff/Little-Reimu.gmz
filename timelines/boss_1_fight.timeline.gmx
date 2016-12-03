@@ -19,25 +19,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Arithmetic Sign: Guidance of 7,500,000 Years
-var delay = 1000;
-/*for (i = 0; i &lt; 5; i++){
-    addRadialSpray(1000,0,45,5,2.5,obj_point_bullet_yellow,delay*i)
-}*/
+            <string>///In-between Bullet pattern
+global.difficulty = 4;
+var numSprayBullets = 5+global.difficulty
 
-
-    //addRadialSpray(500,0,0,5,2.5,obj_point_bullet_yellow,0)
-    addRadialSpray(250,36,72,5,0.75,obj_point_bullet_yellow,0)
-    addRadialSpray(250,108,144,5,0.75,obj_point_bullet_yellow,0)
-    addRadialSpray(250,180,216,5,0.75,obj_point_bullet_yellow,0)
-    addRadialSpray(250,252,288,5,0.75,obj_point_bullet_yellow,0)
-    addRadialSpray(250,324,360,5,0.75,obj_point_bullet_yellow,0)
+for (i = 0; i &lt; 5; i++){
+    //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_changespeed,0)
+    addRadialSpray(250,36+(10*i),82+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,108+(10*i),154+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,180+(10*i),226+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,252+(10*i),298+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,324+(10*i),370+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1000+(2000*i))
     
-    addRadialSpray(250,36,0,5,0.75,obj_point_bullet_yellow,750)
-    addRadialSpray(250,108,72,5,0.75,obj_point_bullet_yellow,750)
-    addRadialSpray(250,180,144,5,0.75,obj_point_bullet_yellow,750)
-    addRadialSpray(250,252,216,5,0.75,obj_point_bullet_yellow,750)
-    addRadialSpray(250,324,288,5,0.75,obj_point_bullet_yellow,750)
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,2,obj_point_bullet_changespeed,1750+(2000*i))
+}
 </string>
           </argument>
         </arguments>
@@ -63,46 +62,8 @@ var delay = 1000;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Second Spray
-//Geometry: Boundary between Wave and Particle
-//Wave
-var duration = 20000
-var range = 360/5
-for (var i = 0; i &lt; 5; i++) {
-    addOscillationSpray(duration,i*range+85,range-15,8000,40*10,3,obj_point_bullet_green,0);
-    addOscillationSpray(duration,i*range+90,range-15,8000,40*10,3,obj_point_bullet_blue,0);
-    addOscillationSpray(duration,i*range+95,range-15,8000,40*11,3,obj_point_bullet_purple,0);
-}
-//Particle
-var numBursts = duration/2000;
-addBurstSpray(duration, numBursts, 360/numBursts+5, 0, 0, 2, obj_point_bullet_orange, 0);
-addBurstSpray(duration, numBursts*2, 360/numBursts+5, 3, 0, 1.5, obj_point_bullet_red, 150);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </entry>
-  <entry>
-    <step>3000</step>
-    <event>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///First Spray
+global.difficulty = 4;
 
 /* 
 // Tri Spray
@@ -213,13 +174,12 @@ for (var i = 0; i &lt; 5; i++) {
 
 /*
 //Random waterworks spray
-addOscillationSpray(40000,0,360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,0,-360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,180,360,8000,40*20,3,obj_bullet5,0);
-addOscillationSpray(40000,180,-360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,0,360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,0,-360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,180,360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,180,-360,8000,40*20,3,obj_bullet5,0);
 */
 
-//Definite Bullet Patters//
 //Tutorial Sign: Boundary of a Shotgun and Your Face (Shotgun Wedding)
 addShotgunSpray(20000, 20, 5, 3, obj_oval_bullet_blue, 0);
 addShotgunSpray(18000, 18, 5, 3, obj_point_bullet_orange, 2150);
@@ -228,6 +188,109 @@ addShotgunSpray(14000, 14, 5, 3, obj_point_bullet_green, 6450);
 addShotgunSpray(12000, 12, 5, 3, obj_point_bullet_lightblue, 8600);
 addShotgunSpray(10000, 10, 5, 3, obj_point_bullet_blue, 10750);
 addShotgunSpray(8000, 8, 5, 3, obj_point_bullet_purple, 12900);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Arithmetic Sign: Guidance of 7,500,000 Years
+var numSprayBullets = 3+global.difficulty
+
+for (i = 0; i &lt; 5; i++){
+    //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_yellow,0)
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+}
+
+var delay1 = 12500;
+
+for (i = 0; i &lt; 5; i++){
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+}
+
+var numBursts = 8+(3*global.difficulty);
+var numBullets = 12+(4*global.difficulty);
+
+for (i = 0; i &lt; global.difficulty; i++){
+    addBurstSpray(9000,numBursts,numBullets,8,0,1.5,obj_point_bullet_red,delay1+2500);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>4590</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Geometry: Boundary between Wave and Particle
+//Wave
+var duration = 20000
+var range = 360/5
+for (var i = 0; i &lt; 5; i++) {
+    addOscillationSpray(duration,i*range+90,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_green,0);
+    addOscillationSpray(duration,i*range+95,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_blue,0);
+    addOscillationSpray(duration,i*range+100,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_purple,0);
+}
+//Particle
+var numBursts = duration/2000;
+addBurstSpray(duration,numBursts-2+(2*global.difficulty),360/numBursts+2+(global.difficulty),0,0,1.5,obj_point_bullet_orange,0);
+addBurstSpray(duration,numBursts-2+(2*global.difficulty)*2,360/numBursts+2+(global.difficulty),5,5,1,obj_point_bullet_red,150);
 </string>
           </argument>
         </arguments>

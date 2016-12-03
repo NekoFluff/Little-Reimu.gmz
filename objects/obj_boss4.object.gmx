@@ -92,6 +92,7 @@ initializeFlowerBurstSpray();
 initializeShotgunSpray();
 initializeOscillationSpray();
 
+global.bossFight = 4;
 timeline_index = boss_4_fight;
 timeline_position = 0;
 timeline_running = true;

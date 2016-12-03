@@ -19,17 +19,62 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///First Spray
-//addBurstSpray(3000,7,35,5,0,2.5,obj_bullet1,0)
+            <string>///In-between Bullet pattern
+var numSprayBullets = 3+global.difficulty
 
-/* Tri Spray
+for (i = 0; i &lt; 5; i++){
+    //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_changespeed,0)
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1000+(2000*i))
+    addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1000+(2000*i))
+    
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_changespeed,1750+(2000*i))
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>1500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///First Spray
+global.difficulty = 4;
+
+/* 
+// Tri Spray
 addRadialSpray(5000,360,0,45,2.5,obj_bullet1,0)
 addRadialSpray(6000, 390,30,45,2.5,obj_bullet1,0)
 addRadialSpray(6000,420,60,45,2.5,obj_bullet1,0)
 addRadialSpray(5000,540,180,45,2.5,obj_bullet1,0)
 */
 
-// Star Spray
+
+/*
+// Lotus Spray
 addRadialSpray(1000,0,60,15,3,obj_splitterBullet,0)
 addRadialSpray(1000,60,120,15,3,obj_splitterBullet,0)
 addRadialSpray(1000,120,180,15,3,obj_splitterBullet,0)
@@ -57,14 +102,19 @@ addRadialSpray(1000,120,180,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,180,240,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,240,300,15,3,obj_splitterBullet,1750)
 addRadialSpray(1000,300,360,15,3,obj_splitterBullet,1750)
+*/
 
 
-show_debug_message("RADIAL SPRAYYYY")
+/* 
+// Simple Shotgun
+addShotgunSpray(5000,4,5,3,obj_bullet2,0);
+addShotgunSpray(5000,4,5,3,obj_bullet2,250);
+*/
 
-addShotgunSpray(5000,4,5,3,obj_bullet2,3000);
-addShotgunSpray(5000,4,5,3,obj_bullet2,3250);
 
-/* Fire Burst Spray
+
+/* 
+//Fire Hell Burst Spray
 var numBullets = 20;
 var degree = 360/numBullets;
 addBurstSpray(8000,6,numBullets,0,0,4,obj_bullet3,0);
@@ -76,6 +126,170 @@ addBurstSpray(8000,6,numBullets,0,2*degree/4,3,obj_bullet3,1500);
 addBurstSpray(8000,6,numBullets,0,3*degree/4,4,obj_bullet3,1750);
 addBurstSpray(8000,6,numBullets,0,3*degree/4,3,obj_bullet3,2000);
 */
+
+/*
+//Rainbow Spray
+//5 radial sprays. 360/5 = 72 degrees each.
+//3 colors per spray (purple, blue, and green). 
+//Slight delay between the three
+var angleDiff = 360/5;
+var duration = 2000;
+var numBullets = 40
+var repeatCount = 3
+
+for (var j = 0; j &lt; repeatCount; j++) {
+    var offset = duration*2*j
+    
+    //Forwards
+    for (var forward = 0; forward &lt; 5; forward++) {
+        var fromAngle = forward*angleDiff
+        var toAngle = fromAngle+angleDiff
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet6,offset+0)
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet2,offset+200)
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet5,offset+400)
+    }
+    
+    //Backwards
+    for (var backward = 0; backward &lt; 5; backward++) {
+        var fromAngle = (backward+1)*angleDiff
+        var toAngle = fromAngle-angleDiff
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet6,duration+offset+0)
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet2,duration+offset+200)
+        addRadialSpray(duration,fromAngle,toAngle,numBullets,3,obj_bullet5,duration+offset+400)
+    }
+}
+*/
+
+/*
+//Improved Rainbow Spray
+var duration = 40000
+var range = 360/5
+for (var i = 0; i &lt; 5; i++) {
+    addOscillationSpray(duration,i*range,range-15,8000,40*10,3,obj_bullet5,0);
+    addOscillationSpray(duration,i*range+5,range-15,8000,40*10,3,obj_bullet2,0);
+    addOscillationSpray(duration,i*range+10,range-15,8000,40*10,3,obj_bullet6,0);
+}
+*/
+
+/*
+//Random waterworks spray
+addOscillationSpray(20000,0,360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,0,-360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,180,360,8000,40*20,3,obj_bullet5,0);
+addOscillationSpray(20000,180,-360,8000,40*20,3,obj_bullet5,0);
+*/
+
+//Tutorial Sign: Boundary of a Shotgun and Your Face (Shotgun Wedding)
+addShotgunSpray(20000, 20, 5, 3, obj_oval_bullet_blue, 0);
+addShotgunSpray(18000, 18, 5, 3, obj_point_bullet_orange, 2150);
+addShotgunSpray(16000, 16, 5, 3, obj_point_bullet_yellow, 4300);
+addShotgunSpray(14000, 14, 5, 3, obj_point_bullet_green, 6450);
+addShotgunSpray(12000, 12, 5, 3, obj_point_bullet_lightblue, 8600);
+addShotgunSpray(10000, 10, 5, 3, obj_point_bullet_blue, 10750);
+addShotgunSpray(8000, 8, 5, 3, obj_point_bullet_purple, 12900);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Arithmetic Sign: Guidance of 7,500,000 Years
+var numSprayBullets = 3+global.difficulty
+
+for (i = 0; i &lt; 5; i++){
+    //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_yellow,0)
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+}
+
+var delay1 = 12500;
+
+for (i = 0; i &lt; 5; i++){
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1000+(2000*i))
+    
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,delay1+1750+(2000*i))
+}
+
+var numBursts = 8+(3*global.difficulty);
+var numBullets = 12+(4*global.difficulty);
+
+for (i = 0; i &lt; global.difficulty; i++){
+    addBurstSpray(9000,numBursts,numBullets,8,0,1.5,obj_point_bullet_red,delay1+2500);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>4590</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Geometry: Boundary between Wave and Particle
+//Wave
+var duration = 20000
+var range = 360/5
+for (var i = 0; i &lt; 5; i++) {
+    addOscillationSpray(duration,i*range+90,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_green,0);
+    addOscillationSpray(duration,i*range+95,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_blue,0);
+    addOscillationSpray(duration,i*range+100,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_purple,0);
+}
+//Particle
+var numBursts = duration/2000;
+addBurstSpray(duration,numBursts-2+(2*global.difficulty),360/numBursts+2+(global.difficulty),0,0,1.5,obj_point_bullet_orange,0);
+addBurstSpray(duration,numBursts-2+(2*global.difficulty)*2,360/numBursts+2+(global.difficulty),5,5,1,obj_point_bullet_red,150);
 </string>
           </argument>
         </arguments>

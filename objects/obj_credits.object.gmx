@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -60,7 +60,7 @@ draw_text(8, room_height-16+1, "Select: Enter / Z     Move: Arrow Keys");*/
 
 //Actual Text
 draw_set_color(c_black);
-draw_text(48, 148, "Original story and art by: ");
+draw_text(48, 148, "Original story and art by: Joyful");
 draw_text(48, 180, "Sprites and SFX by: ZUN and Team Shanghai Alice");
 draw_text(48, 212, "All songs belong to their respective groups");
 draw_text(48, 244, "&gt;insert groups here&lt;");

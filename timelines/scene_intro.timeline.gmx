@@ -173,7 +173,7 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
     }
     
     //Move to scene_1_1 timeline
-    timeline_index = scene_1_1;
+    timeline_index = scene_1;
     timeline_position = 0;
     timeline_running = true;
     global.sceneNum = 1;

@@ -3,7 +3,7 @@
   <spriteName>spr_player_static</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-15</depth>
+  <depth>-9</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -320,6 +320,24 @@ if (keyEscape){
     global.ScreenShot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
     room_persistent = true;
     global.RoomBeforePause = room;
+    if (global.bossFight == 1){
+        obj_boss1.timeline_running = false;
+    }
+    else if (global.bossFight == 2){
+        obj_boss2.timeline_running = false;
+    }
+    else if (global.bossFight == 3){
+        obj_boss3.timeline_running = false;
+    }
+    else if (global.bossFight == 4){
+        obj_boss4.timeline_running = false;
+    }
+    else if (global.bossFight == 5){
+        obj_boss5.timeline_running = false;
+    }
+    else if (global.bossFight == 6){
+        obj_boss6.timeline_running = false;
+    }
     room_goto(room_pauseGame);
 }
 
@@ -349,8 +367,9 @@ if (keyEscape){
 if (!invincible) {
     with(other) {
         if (hasGrazed == false) {
-            global.graze += 1;
             hasGrazed = true;
+            global.graze += 1;
+            show_debug_message("adding...");
         }
     }
 }
