@@ -20,13 +20,13 @@
           <argument>
             <kind>1</kind>
             <string>///Pic 1
-with (obj_blackscreen){
-    instance_destroy();
+if (instance_exists(obj_blackscreen)){
+    with (obj_blackscreen){
+        instance_destroy();
+    }
 }
 sprite_index = s_day;
 instance_create(0,0,obj_fadein);
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
 </string>
           </argument>
         </arguments>
@@ -1393,32 +1393,6 @@ sprite_index = s_sky
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = s_4_37
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </entry>
-  <entry>
-    <step>6400</step>
-    <event>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>instance_create(0,0,obj_blackscreen)
 </string>
           </argument>
@@ -1427,7 +1401,7 @@ sprite_index = s_sky
     </event>
   </entry>
   <entry>
-    <step>6450</step>
+    <step>6350</step>
     <event>
       <action>
         <libid>1</libid>
@@ -1448,6 +1422,7 @@ sprite_index = s_sky
             <string>global.sceneNum += 1;
 timeline_index = scene_5
 timeline_position = 0;
+timeline_running = true;
 </string>
           </argument>
         </arguments>

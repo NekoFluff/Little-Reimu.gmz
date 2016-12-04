@@ -63,7 +63,7 @@ draw_set_color(c_black);
 draw_text(48, 148, "Original story and art by: Joyful");
 draw_text(48, 180, "Sprites and SFX by: ZUN and Team Shanghai Alice");
 draw_text(48, 212, "All songs belong to their respective groups");
-draw_text(48, 244, "&gt;insert groups here&lt;");
+draw_text(48, 244, "Xenoglossy");
 
 </string>
           </argument>

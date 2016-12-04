@@ -20,12 +20,12 @@
           <argument>
             <kind>1</kind>
             <string>///Pic 1
-with (obj_blackscreen){
-    instance_destroy();
+if (instance_exists(obj_blackscreen)){
+    with (obj_blackscreen){
+        instance_destroy();
+    }
 }
 sprite_index = s_day;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
 </string>
           </argument>
         </arguments>
@@ -526,6 +526,8 @@ sprite_index = s_3_5;
             <kind>1</kind>
             <string>global.sceneNum += 1;
 timeline_index = scene_4
+timeline_position = 0;
+timeline_running = true;
 </string>
           </argument>
         </arguments>

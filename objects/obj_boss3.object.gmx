@@ -11,42 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Instantiate Variables
-bossHP = 100;
-i = 0;
-j = 240;
-
-if (75 &lt;= bossHP &lt;= 100){
-    stageOne = true;
-}
-
-if (50 &lt;= bossHP &lt;= 75){
-    stageOne = false;
-    stageTwo = true;
-}
-
-alarm[0] = room_speed/16;
-alarm[1] = room_speed*3
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>611</id>
         <kind>6</kind>
         <userelative>-1</userelative>
@@ -96,6 +60,42 @@ global.bossFight = 3;
 timeline_index = boss_3_fight;
 timeline_position = 0;
 timeline_running = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Instantiate Variables
+bossHP = 100;
+i = 0;
+j = 240;
+
+if (75 &lt;= bossHP &lt;= 100){
+    stageOne = true;
+}
+
+if (50 &lt;= bossHP &lt;= 75){
+    stageOne = false;
+    stageTwo = true;
+}
+
+alarm[0] = room_speed/16;
+alarm[1] = room_speed*3
 </string>
           </argument>
         </arguments>
@@ -373,6 +373,60 @@ if bossHP &lt;= 0{
           <argument>
             <kind>4</kind>
             <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Pause Sprays
+pauseRadialSprays();
+pauseBurstSprays();
+pauseShotgunSprays();
+pauseOscillationSprays();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Resume Sprays
+resumeRadialSprays();
+resumeBurstSprays();
+resumeOscillationSprays();
+resumeShotgunSprays();
+</string>
           </argument>
         </arguments>
       </action>

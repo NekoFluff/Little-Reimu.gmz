@@ -36,7 +36,7 @@ if (obj_csSkipOverlay.image_alpha &lt; 1){ // If the screen isn't completely bla
     global.roomfade = false;
     sprite_delete(global.ScreenShot);
     
-    switch (global.sceneNum){ // Scene selection
+    switch (global.bossFight){ // Scene selection
         /*case 0:
             room_goto(global.RoomBeforePause);
             sprite_delete(global.ScreenShot);

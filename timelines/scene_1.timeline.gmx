@@ -21,8 +21,10 @@
             <kind>1</kind>
             <string>///Pic 1
 sprite_index = s_1_1;
-image_xscale = room_width / sprite_width;
-image_yscale = room_height / sprite_height;
+if (image_xscale != room_width / sprite_width){
+    image_xscale = room_width / sprite_width;
+    image_yscale = room_height / sprite_height;
+}
 fadeAlpha = 0;
 </string>
           </argument>
@@ -810,8 +812,14 @@ blackscreen = instance_create(x, y, obj_blackscreen);
           <argument>
             <kind>1</kind>
             <string>///Go to fight
+/*
 global.sceneNum += 1;
 room_goto(room_fight_1);
+*/
+global.sceneNum += 1;
+timeline_index = scene_2
+timeline_position = 0;
+timeline_running = true;
 </string>
           </argument>
         </arguments>

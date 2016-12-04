@@ -166,10 +166,6 @@
         <sprite>sprites\s_3_14_2</sprite>
         <sprite>sprites\s_3_15</sprite>
       </sprites>
-      <sprite>sprites\s_sky</sprite>
-      <sprite>sprites\s_day</sprite>
-      <sprite>sprites\s_night</sprite>
-      <sprite>sprites\s_rain</sprite>
       <sprites name="Scene 4">
         <sprite>sprites\s_4_1</sprite>
         <sprite>sprites\s_4_2</sprite>
@@ -201,7 +197,47 @@
         <sprite>sprites\s_4_26</sprite>
         <sprite>sprites\s_4_27</sprite>
         <sprite>sprites\s_4_28</sprite>
+        <sprite>sprites\s_4_29</sprite>
+        <sprite>sprites\s_4_30</sprite>
+        <sprite>sprites\s_4_31</sprite>
+        <sprite>sprites\s_4_32_1</sprite>
+        <sprite>sprites\s_4_32_2</sprite>
+        <sprite>sprites\s_4_33</sprite>
+        <sprite>sprites\s_4_34</sprite>
+        <sprite>sprites\s_4_35</sprite>
+        <sprite>sprites\s_4_36</sprite>
       </sprites>
+      <sprites name="Scene 5">
+        <sprite>sprites\s_5_1</sprite>
+        <sprite>sprites\s_5_1_2</sprite>
+        <sprite>sprites\s_5_1_3</sprite>
+        <sprite>sprites\s_5_2</sprite>
+        <sprite>sprites\s_5_3</sprite>
+        <sprite>sprites\s_5_4</sprite>
+        <sprite>sprites\s_5_5</sprite>
+        <sprite>sprites\s_5_6</sprite>
+        <sprite>sprites\s_5_7</sprite>
+        <sprite>sprites\s_5_8</sprite>
+        <sprite>sprites\s_5_9_1</sprite>
+        <sprite>sprites\s_5_9_2</sprite>
+        <sprite>sprites\s_5_10</sprite>
+        <sprite>sprites\s_5_11</sprite>
+        <sprite>sprites\s_5_12</sprite>
+        <sprite>sprites\s_5_13</sprite>
+        <sprite>sprites\s_5_14</sprite>
+        <sprite>sprites\s_5_15</sprite>
+        <sprite>sprites\s_5_16_1</sprite>
+        <sprite>sprites\s_5_16_2</sprite>
+        <sprite>sprites\s_5_17</sprite>
+        <sprite>sprites\s_5_18</sprite>
+        <sprite>sprites\s_5_19</sprite>
+        <sprite>sprites\s_5_20</sprite>
+        <sprite>sprites\s_5_21</sprite>
+      </sprites>
+      <sprite>sprites\s_sky</sprite>
+      <sprite>sprites\s_day</sprite>
+      <sprite>sprites\s_night</sprite>
+      <sprite>sprites\s_rain</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -214,11 +250,15 @@
       <script>scripts\initializeRadialSpray.gml</script>
       <script>scripts\addRadialSpray.gml</script>
       <script>scripts\updateRadialSprays.gml</script>
+      <script>scripts\pauseRadialSprays.gml</script>
+      <script>scripts\resumeRadialSprays.gml</script>
     </scripts>
     <scripts name="Burst Pattern">
       <script>scripts\initializeBurstSpray.gml</script>
       <script>scripts\addBurstSpray.gml</script>
       <script>scripts\updateBurstSpray.gml</script>
+      <script>scripts\pauseBurstSprays.gml</script>
+      <script>scripts\resumeBurstSprays.gml</script>
     </scripts>
     <scripts name="Flower Burst Pattern">
       <script>scripts\initializeFlowerBurstSpray.gml</script>
@@ -229,11 +269,15 @@
       <script>scripts\initializeShotgunSpray.gml</script>
       <script>scripts\addShotgunSpray.gml</script>
       <script>scripts\updateShotgunSpray.gml</script>
+      <script>scripts\pauseShotgunSprays.gml</script>
+      <script>scripts\resumeShotgunSprays.gml</script>
     </scripts>
     <scripts name="Oscillation Pattern">
       <script>scripts\initializeOscillationSpray.gml</script>
       <script>scripts\addOscillationSpray.gml</script>
       <script>scripts\updateOscillationSpray.gml</script>
+      <script>scripts\pauseOscillationSprays.gml</script>
+      <script>scripts\resumeOscillationSprays.gml</script>
     </scripts>
     <script>scripts\scr_storyteller.gml</script>
     <script>scripts\scr_updateText.gml</script>
@@ -347,15 +391,16 @@
     <timeline>timelines\scene_2</timeline>
     <timeline>timelines\scene_3</timeline>
     <timeline>timelines\scene_4</timeline>
+    <timeline>timelines\scene_5</timeline>
     <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_set_resolution</room>
-    <room>rooms\room_fight_1</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
+    <room>rooms\room_fight_1</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
   </rooms>
