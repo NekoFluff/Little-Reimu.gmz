@@ -6,18 +6,22 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="SFX">
-      <sound>sound\snd_walking</sound>
-      <sound>sound\snd_shoot</sound>
-      <sound>sound\snd_shooting</sound>
       <sounds name="Menu SFX">
         <sound>sound\snd_select</sound>
         <sound>sound\snd_confirm</sound>
         <sound>sound\snd_cancel</sound>
         <sound>sound\snd_pause</sound>
       </sounds>
+      <sound>sound\snd_walking</sound>
+      <sound>sound\snd_shoot</sound>
+      <sound>sound\snd_shooting</sound>
+      <sound>sound\snd_player_death</sound>
+      <sound>sound\snd_boss_death</sound>
+      <sound>sound\snd_boss_shoot</sound>
     </sounds>
     <sounds name="BGM">
       <sound>sound\msc_shenanigans</sound>
+      <sound>sound\snd_thunderstorm</sound>
       <sound>sound\msc_happy</sound>
       <sound>sound\msc_realization</sound>
     </sounds>
@@ -306,6 +310,7 @@
       <object>objects\obj_difficulty</object>
       <object>objects\obj_credits</object>
       <object>objects\obj_credits_back</object>
+      <object>objects\obj_creditsFade</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
@@ -324,6 +329,7 @@
         <object>objects\obj_hakureiball_corrupt_left</object>
         <object>objects\obj_hakureiball_corrupt_right</object>
       </objects>
+      <object>objects\obj_bossHPBar</object>
     </objects>
     <objects name="large bullets">
       <object>objects\obj_player_bullet</object>
@@ -350,6 +356,7 @@
       <object>objects\obj_introYes</object>
       <object>objects\obj_introNo</object>
       <object>objects\obj_text</object>
+      <object>objects\obj_csAsk</object>
     </objects>
     <objects name="Pause Room Controls">
       <object>objects\obj_pauseBackground</object>
@@ -400,7 +407,10 @@
     <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
+    <room>rooms\room_scene_2</room>
     <room>rooms\room_fight_1</room>
+    <room>rooms\room_fight_2</room>
+    <room>rooms\room_fight_3</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
   </rooms>
