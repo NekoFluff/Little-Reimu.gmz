@@ -294,7 +294,7 @@ if (50 &lt;= global.bossHP &lt;= 75){
             <kind>1</kind>
             <string>///Destroy boss at 0 hp
 if global.bossHP &lt;= 0{
-    //show_message("Boss beaten!")
+    show_message("Boss beaten!")
     global.bossFight = 2;
     room_goto(room_scene_2)
     instance_destroy();

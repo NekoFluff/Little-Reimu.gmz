@@ -54,7 +54,7 @@
     <instance objName="obj_controller" x="0" y="0" name="inst_182D749F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bg_sky" x="32" y="32" name="inst_DC656667" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bg_forest" x="0" y="0" name="inst_7CE66E64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boss1" x="224" y="96" name="inst_34B74ADF" locked="0" code="" scaleX="0.492537319660187" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boss1" x="224" y="96" name="inst_34B74ADF" locked="0" code="" scaleX="0.759999990463257" scaleY="0.694444417953491" colour="4294967295" rotation="0"/>
     <instance objName="obj_bossHPBar" x="32" y="0" name="inst_B6B2B353" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
