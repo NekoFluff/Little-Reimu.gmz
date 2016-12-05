@@ -311,6 +311,7 @@
       <object>objects\obj_player</object>
       <object>objects\obj_player_hitbox_center</object>
       <object>objects\obj_player_hitbox</object>
+      <object>objects\obj_bombExplosion</object>
     </objects>
     <objects name="bosses">
       <object>objects\obj_bosshit</object>
@@ -395,12 +396,12 @@
     <timeline>timelines\boss_1_fight</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\room_fight_1</room>
     <room>rooms\room_set_resolution</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_credits</room>
     <room>rooms\room_difficulty</room>
     <room>rooms\room_intro</room>
-    <room>rooms\room_fight_1</room>
     <room>rooms\room_pauseGame</room>
     <room>rooms\room_pauseCutscene</room>
   </rooms>
