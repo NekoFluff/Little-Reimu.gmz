@@ -37,6 +37,9 @@ global.bossFight = 2;
 timeline_index = boss_2_fight;
 timeline_position = 0;
 timeline_running = true;
+
+global.music = audio_play_sound(msc_necrofantasia, 1, true);
+audio_sound_gain(global.music, global.musicVolume/2, false);
 </string>
           </argument>
         </arguments>
@@ -294,8 +297,10 @@ if (50 &lt;= global.bossHP &lt;= 75){
             <kind>1</kind>
             <string>///Destroy boss at 0 hp
 if global.bossHP &lt;= 0{
-    global.bossFight = 2;
-    room_goto(room_scene_2)
+    audio_sound_gain(global.music, 0, 1000);
+    show_message("Boss beaten!")
+    global.bossFight = 3;
+    room_goto(room_fight_3);
     instance_destroy();
 }
 </string>

@@ -20,10 +20,13 @@
       <sound>sound\snd_boss_shoot</sound>
     </sounds>
     <sounds name="BGM">
+      <sound>sound\msc_necrofantasia</sound>
       <sound>sound\msc_shenanigans</sound>
       <sound>sound\snd_thunderstorm</sound>
       <sound>sound\msc_happy</sound>
       <sound>sound\msc_realization</sound>
+      <sound>sound\msc_dream_battle</sound>
+      <sound>sound\msc_dichromatic</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -48,6 +51,7 @@
       <sprite>sprites\spr_bullet_green</sprite>
       <sprite>sprites\spr_bullet_blue</sprite>
       <sprite>sprites\spr_bullet_red</sprite>
+      <sprite>sprites\spr_smallbullet_red</sprite>
       <sprite>sprites\spr_bullet_black</sprite>
       <sprite>sprites\spr_bullet_white</sprite>
     </sprites>
@@ -335,7 +339,9 @@
       <object>objects\obj_player_bullet</object>
       <object>objects\obj_bullet1</object>
       <object>objects\obj_bullet2</object>
+      <object>objects\obj_large_bullet_gravity</object>
       <object>objects\obj_bullet3</object>
+      <object>objects\obj_bullet4</object>
       <object>objects\obj_bullet5</object>
       <object>objects\obj_bullet6</object>
       <object>objects\obj_bulletDeceleration</object>
@@ -378,10 +384,13 @@
       <object>objects\obj_point_bullet_pink</object>
       <object>objects\obj_point_bullet_purple</object>
       <object>objects\obj_point_bullet_changespeed</object>
+      <object>objects\obj_point_bullet_changespeed2</object>
+      <object>objects\obj_point_bullet_changespeed3</object>
     </objects>
     <objects name="oval bullets">
       <object>objects\obj_oval_bullet_black</object>
       <object>objects\obj_oval_bullet_blue</object>
+      <object>objects\obj_oval_bullet_gravity</object>
       <object>objects\obj_oval_bullet_green</object>
       <object>objects\obj_oval_bullet_lightblue</object>
       <object>objects\obj_oval_bullet_limegreen</object>
@@ -400,6 +409,8 @@
     <timeline>timelines\scene_4</timeline>
     <timeline>timelines\scene_5</timeline>
     <timeline>timelines\boss_1_fight</timeline>
+    <timeline>timelines\boss_2_fight</timeline>
+    <timeline>timelines\boss_3_fight</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\room_set_resolution</room>
