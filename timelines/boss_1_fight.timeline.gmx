@@ -135,7 +135,6 @@ addOscillationSpray(20000,0,-360,8000,40*20,3,obj_bullet5,0);
 addOscillationSpray(20000,180,360,8000,40*20,3,obj_bullet5,0);
 addOscillationSpray(20000,180,-360,8000,40*20,3,obj_bullet5,0);
 */
-
 //Tutorial Sign: Boundary of a Shotgun and Your Face (Shotgun Wedding)
 addShotgunSpray(20000, 20, 5, 3, obj_oval_bullet_blue, 0);
 addShotgunSpray(18000, 18, 5, 3, obj_point_bullet_orange, 2150);

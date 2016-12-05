@@ -37,6 +37,9 @@ global.bossFight = 1;
 timeline_index = boss_1_fight;
 timeline_position = 0;
 timeline_running = true;
+
+global.music = audio_play_sound(msc_dream_battle, 1, true);
+audio_sound_gain(global.music, global.musicVolume, false);
 </string>
           </argument>
         </arguments>
@@ -294,6 +297,7 @@ if (50 &lt;= global.bossHP &lt;= 75){
             <kind>1</kind>
             <string>///Destroy boss at 0 hp
 if global.bossHP &lt;= 0{
+    audio_sound_gain(global.music, 0, 1000);
     show_message("Boss beaten!")
     global.bossFight = 2;
     room_goto(room_scene_2)

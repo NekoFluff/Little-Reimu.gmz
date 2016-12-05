@@ -98,6 +98,8 @@ if (obj_player.image_xscale &lt;= 0){
             <string>///Check for bullet hit
 with(other) {
     if (hasHit == false &amp;&amp; !obj_player.invincible){
+        audio_play_sound(snd_player_death, 1, false);
+        audio_sound_gain(snd_player_death, global.sfxVolume/10, false);
         global.timesDied++;
         hasHit = true;
         obj_player.dyingAnimation = true;

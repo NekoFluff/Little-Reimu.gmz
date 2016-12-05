@@ -162,6 +162,7 @@ draw_text(448, 160, "Bomb");
 // Variables
 draw_text(512, 64, score);
 draw_text(512, 96, global.graze);
+
 /*
 for (i = 0; i &lt; lives; i++){
     draw_sprite_ext(spr_star, 0, 512 + (20 * i), 128, 1, 1, 0, c_white, 1);

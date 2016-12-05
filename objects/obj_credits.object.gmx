@@ -62,8 +62,10 @@ draw_text(8, room_height-16+1, "Select: Enter / Z     Move: Arrow Keys");*/
 draw_set_color(c_black);
 draw_text(48, 148, "Original story and art by: Joyful");
 draw_text(48, 180, "Sprites and SFX by: ZUN and Team Shanghai Alice");
-draw_text(48, 212, "All songs belong to their respective groups");
+draw_text(48, 212, "All songs belong to their respective groups:");
 draw_text(48, 244, "Xenoglossy");
+draw_text(48, 276, "MelodicTasty");
+draw_text(48, 308, "Buta-Otome");
 
 </string>
           </argument>

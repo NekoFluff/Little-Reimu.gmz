@@ -186,7 +186,7 @@ addShotgunSpray(8000, 8, 5, 3, obj_point_bullet_purple, 12900);
 global.difficulty = 4;
 var numSprayBullets = 5+global.difficulty
 
-for (i = 0; i &lt; 5; i++){
+for (i = 0; i &lt; 8; i++){
     //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_changespeed,0)
     addRadialSpray(250,36+(10*i),82+(10*i),numSprayBullets,2,obj_point_bullet_changespeed2,1000+(2000*i))
     addRadialSpray(250,108+(10*i),154+(10*i),numSprayBullets,2,obj_point_bullet_orange,1000+(2000*i))
@@ -236,17 +236,17 @@ var numSprayBullets = 3+global.difficulty
 
 for (i = 0; i &lt; 5; i++){
     //addRadialSpray(500,0,0,numSprayBullets2.numSprayBulletsobj_point_bullet_yellow,0)
-    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,46+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_orange,1000+(2000*i))
     addRadialSpray(250,118+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
-    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
-    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
+    addRadialSpray(250,190+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_purple,1000+(2000*i))
+    addRadialSpray(250,262+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_orange,1000+(2000*i))
     addRadialSpray(250,334+(10*i),360+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1000+(2000*i))
     
-    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
-    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,36+(10*i),0+(10*i),numSprayBullets,1,obj_point_bullet_purple,1750+(2000*i))
+    addRadialSpray(250,108+(10*i),72+(10*i),numSprayBullets,1,obj_point_bullet_orange,1750+(2000*i))
     addRadialSpray(250,180+(10*i),144+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
-    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
-    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_yellow,1750+(2000*i))
+    addRadialSpray(250,252+(10*i),216+(10*i),numSprayBullets,1,obj_point_bullet_purple,1750+(2000*i))
+    addRadialSpray(250,324+(10*i),288+(10*i),numSprayBullets,1,obj_point_bullet_orange,1750+(2000*i))
 }
 
 var delay1 = 12500;
@@ -301,11 +301,12 @@ for (i = 0; i &lt; global.difficulty; i++){
 var duration = 20000
 var range = 360/5
 for (var i = 0; i &lt; 5; i++) {
-    addOscillationSpray(duration,i*range+90,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_green,0);
-    addOscillationSpray(duration,i*range+95,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_blue,0);
-    addOscillationSpray(duration,i*range+100,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*10,3,obj_point_bullet_purple,0);
+    addOscillationSpray(duration,i*range+90,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*3,3,obj_point_bullet_changespeed2,0);
+    addOscillationSpray(duration,i*range+95,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*3,3,obj_point_bullet_changespeed3,0);
+    addOscillationSpray(duration,i*range+100,range-35+(4*global.difficulty),10000-(750*global.difficulty),40*3,3,obj_point_bullet_changespeed2,0);
 }
 //Particle
+/*
 var numBursts = duration/2000;
 addBurstSpray(duration,numBursts-2+(2*global.difficulty),360/numBursts+2+(global.difficulty),0,0,1.5,obj_point_bullet_orange,0);
 addBurstSpray(duration,numBursts-2+(2*global.difficulty)*2,360/numBursts+2+(global.difficulty),5,5,1,obj_point_bullet_red,150);

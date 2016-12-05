@@ -145,7 +145,7 @@ repeat (room_speed * 0.1)
           <argument>
             <kind>1</kind>
             <string>///If still outside the room, destroy the instance
-if (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height) {
+if (!point_in_rectangle(x,y,32,32,384,416)) {
     instance_destroy()
 } else {
     bulletOutsideDebouncer = false;
