@@ -29,6 +29,7 @@
 global.bossHP = 0;
 global.graze = 0;
 global.can_shoot = 0;
+global.bombs = 3;
 draw_set_font(fnt_default);
 draw_set_color(c_black);
 </string>
@@ -161,15 +162,17 @@ draw_text(448, 160, "Bomb");
 // Variables
 draw_text(512, 64, score);
 draw_text(512, 96, global.graze);
+
 /*
 for (i = 0; i &lt; lives; i++){
     draw_sprite_ext(spr_star, 0, 512 + (20 * i), 128, 1, 1, 0, c_white, 1);
+}*/
+
+
+for (i = 0; i &lt; global.bombs; i++){
+    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 160, 1, 1, 0, c_white, 1);
 }
-if (instance_exists(obj_player)) {
-    for (i = 0; i &lt; obj_player.bombs; i++){
-        draw_sprite_ext(spr_star, 0, 512 + (20 * i), 160, 1, 1, 0, c_white, 1);
-    }
-}
+
 </string>
           </argument>
         </arguments>

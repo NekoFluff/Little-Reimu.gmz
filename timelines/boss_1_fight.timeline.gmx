@@ -144,6 +144,7 @@ addShotgunSpray(14000, 14, 5, 3, obj_point_bullet_green, 6450);
 addShotgunSpray(12000, 12, 5, 3, obj_point_bullet_lightblue, 8600);
 addShotgunSpray(10000, 10, 5, 3, obj_point_bullet_blue, 10750);
 addShotgunSpray(8000, 8, 5, 3, obj_point_bullet_purple, 12900);
+moveTo(64,128,0.2);
 </string>
           </argument>
         </arguments>

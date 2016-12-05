@@ -35,7 +35,7 @@ spawnEffectRepeat = 0;
 invincible = false;
 dyingAnimation = false;
 spawnEffectTrigger = 0;
-bombs = 3;
+
 
 alarm[1] = 2;
 </string>
@@ -160,8 +160,8 @@ if (!invincible){
 // Character move/shoot on key press
 if (!dyingAnimation){
     // Bombs
-    if (keyX &amp;&amp; bombs &gt; 0) {
-        bombs--;
+    if (keyX &amp;&amp; global.bombs &gt; 0) {
+        global.bombs--;
         instance_create(x,y,obj_bombExplosion);
     }
 
