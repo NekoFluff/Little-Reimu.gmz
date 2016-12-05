@@ -52,8 +52,6 @@ gotoMenu = false;
           <argument>
             <kind>1</kind>
             <string>///Choose which scene to display
-global.sceneNum = 0;
-
 // Instantiating keys
 keyZ = keyboard_check_pressed(ord("Z"));
 keyEnter = keyboard_check_pressed(vk_enter);

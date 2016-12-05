@@ -602,10 +602,7 @@ sprite_index = s_5_4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_blackscreen){
-    instance_destroy();
-}
-sprite_index = s_sky
+            <string>sprite_index = s_5_19
 </string>
           </argument>
         </arguments>
@@ -631,7 +628,7 @@ sprite_index = s_sky
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = s_5_19
+            <string>sprite_index = s_5_20
 </string>
           </argument>
         </arguments>
@@ -639,7 +636,7 @@ sprite_index = s_sky
     </event>
   </entry>
   <entry>
-    <step>3150</step>
+    <step>3075</step>
     <event>
       <action>
         <libid>1</libid>
@@ -657,7 +654,7 @@ sprite_index = s_sky
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = s_5_20
+            <string>sprite_index = s_5_21
 </string>
           </argument>
         </arguments>
@@ -683,7 +680,8 @@ sprite_index = s_sky
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = s_6_21
+            <string>sprite_index = s_5_21
+instance_create(0,0,obj_blackscreen)
 </string>
           </argument>
         </arguments>
@@ -709,8 +707,11 @@ sprite_index = s_sky
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(room_fight_2);
+            <string>with(obj_blackscreen){
+    instance_destroy();
+}
 global.sceneNum += 1;
+room_goto(room_fight_2);
 /*
 global.sceneNum += 1;
 timeline_index = 

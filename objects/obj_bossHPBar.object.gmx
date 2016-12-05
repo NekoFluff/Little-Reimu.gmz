@@ -3,38 +3,11 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (keyboard_check_pressed(ord('Z')) or keyboard_check_pressed(vk_enter)){
-    obj_creditsFade.alarm[0] = 2;
-    audio_play_sound(snd_cancel,0,0);
-    audio_sound_gain(snd_cancel,global.sfxVolume/10,0);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -52,19 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_middle);
-draw_set_valign(fa_middle);
-draw_set_font(fnt_selected);
+            <string>//draw_rectangle(64,40,((416-32)*(global.bossHP/100)),50,false);
+draw_healthbar(64, 40, 416-32, 50, global.bossHP, c_white, c_orange, c_white, 0, false, false);
 
-//Outline
-draw_set_color(c_black);
-draw_text(room_width/2+1, room_height-64, "Back");
-draw_text(room_width/2-1, room_height-64, "Back");
-draw_text(room_width/2, room_height-64+1, "Back");
-draw_text(room_width/2, room_height-64-1, "Back");
-//Text
-draw_set_color(c_white);
-draw_text(room_width/2, room_height-64, "Back");
 </string>
           </argument>
         </arguments>

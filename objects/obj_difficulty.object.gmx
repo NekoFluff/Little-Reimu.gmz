@@ -148,6 +148,7 @@ if (global.difficulty == 0){ // If difficulty hasn't been selected
     if (max(keyEnter, keyZ, 0) == 1){
         scr_difficulty();
         if (dpos != 4){
+            audio_sound_gain(global.music,0,1500)
             audio_play_sound(snd_confirm, 1, false);
             audio_sound_gain(snd_confirm, global.sfxVolume/10, false);//Since this sound is annoyingly loud
         } else {

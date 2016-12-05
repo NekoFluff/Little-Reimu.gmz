@@ -17,7 +17,11 @@ audio_stop_sound(global.music);
 global.musicVolume = 1;
 global.sfxVolume = 1;
 global.difficulty = 0;
-global.bossFight = 0;
+global.bossFight = 1;
+global.timesDied = 0;
+global.bossesBeat = 0;
+global.bossHP = 100;
+global.sceneNum = 0;
 //room_next(room);
 room_goto_next();</code>
   <enableViews>0</enableViews>

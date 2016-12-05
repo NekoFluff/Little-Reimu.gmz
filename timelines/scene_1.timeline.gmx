@@ -106,7 +106,6 @@ audio_stop_sound(global.sfx);
           <argument>
             <kind>1</kind>
             <string>///Pic 2
-sprite_index = s_1_2;
 //In case user skips scene
 audio_stop_sound(global.sfx);
 audio_stop_sound(global.music);
@@ -812,14 +811,16 @@ blackscreen = instance_create(x, y, obj_blackscreen);
           <argument>
             <kind>1</kind>
             <string>///Go to fight
-/*
+
 global.sceneNum += 1;
 room_goto(room_fight_1);
-*/
+
+/*
 global.sceneNum += 1;
 timeline_index = scene_2
 timeline_position = 0;
 timeline_running = true;
+*/
 </string>
           </argument>
         </arguments>

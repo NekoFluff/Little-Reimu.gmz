@@ -23,6 +23,9 @@
 // Creating black background
 sprite_index = spr_blackscreen;
 draw_set_alpha(1);
+global.sfx = audio_play_sound(snd_thunderstorm,1,1);
+audio_sound_gain(global.sfx, global.musicVolume, 500);
+
 currentTextIndex = 0;
 arrayIntro[0] = "Stories are peculiar things."
 arrayIntro[1] = "They're meant to tell an account of events. A tale, to be exact."
@@ -173,6 +176,7 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
     }
     
     //Move to scene_1_1 timeline
+    audio_sound_gain(global.sfx, 0, 1000);
     timeline_index = scene_1;
     timeline_position = 0;
     timeline_running = true;
@@ -327,6 +331,7 @@ if (currentTextIndex &lt; array_length_1d(arrayIntro)) { //Still have text to pr
     show_debug_message("Going to Menu");
     //Move to menu
     obj_startscene.alarm[0] = 2;
+    audio_sound_gain(global.sfx, 0, 1500);
     gotoMenu = true;
 }
 </string>
