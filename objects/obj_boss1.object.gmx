@@ -31,6 +31,7 @@ initializeBurstSpray();
 initializeFlowerBurstSpray();
 initializeShotgunSpray();
 initializeOscillationSpray();
+initializeMovement()
 global.bossHP = 100;
 global.sceneNum = 2;
 global.bossFight = 1;
@@ -38,8 +39,10 @@ timeline_index = boss_1_fight;
 timeline_position = 0;
 timeline_running = true;
 
+
 global.music = audio_play_sound(msc_dream_battle, 1, true);
 audio_sound_gain(global.music, global.musicVolume, false);
+
 </string>
           </argument>
         </arguments>
@@ -256,6 +259,46 @@ if (50 &lt;= global.bossHP &lt;= 75){
           <argument>
             <kind>9</kind>
             <script>updateOscillationSpray</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>updateMovement</script>
           </argument>
           <argument>
             <kind>0</kind>

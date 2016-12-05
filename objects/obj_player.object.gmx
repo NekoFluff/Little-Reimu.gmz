@@ -36,6 +36,7 @@ invincible = false;
 dyingAnimation = false;
 spawnEffectTrigger = 0;
 
+
 alarm[1] = 2;
 </string>
           </argument>
@@ -129,7 +130,7 @@ if (obj_player.image_xscale == 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Movement
+            <string>///User Input
 // Check key presses
 keyLeft = keyboard_check(vk_left);
 keyRight = keyboard_check(vk_right);
@@ -137,6 +138,7 @@ keyUp = keyboard_check(vk_up);
 keyDown = keyboard_check(vk_down);
 keyShift = keyboard_check(vk_shift);
 keyZ = keyboard_check(ord("Z"));
+keyX = keyboard_check_pressed(ord("X"));
 keyEscape = keyboard_check_pressed(vk_escape);
 
 //Player speed
@@ -157,6 +159,12 @@ if (!invincible){
 
 // Character move/shoot on key press
 if (!dyingAnimation){
+    // Bombs
+    if (keyX &amp;&amp; global.bombs &gt; 0) {
+        global.bombs--;
+        instance_create(x,y,obj_bombExplosion);
+    }
+
     // Shooting
     if (keyZ &amp;&amp; global.can_shoot &gt; 1){
         if (keyShift){
@@ -369,7 +377,7 @@ if (!invincible) {
         if (hasGrazed == false) {
             hasGrazed = true;
             global.graze += 1;
-            show_debug_message("adding...");
+            show_debug_message("Adding graze...");
         }
     }
 }

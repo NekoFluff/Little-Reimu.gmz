@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-999</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,34 +25,84 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Instantiate global variables
-global.bossHP = 0;
-global.graze = 0;
-global.can_shoot = 0;
-global.bombs = 3;
-draw_set_font(fnt_default);
-draw_set_color(c_black);
+            <string>///Instantiate Variables
+currentRadius = 0;
+radiusIncreasePerStep = 3;
+particleDelay = room_speed/20
 </string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>3</string>
+            <kind>1</kind>
+            <string>///Particle Effects
+emitterRange = 3;
+
+//Particle System
+pS = part_system_create();
+//part_system_depth(FirstParticleSystem, -100);
+part_system_position(pS, 0, 0);
+
+//Particle Effect
+ring = part_type_create();
+part_type_shape(ring, pt_shape_ring);
+part_type_scale(ring, 1, 1);
+part_type_size(ring, 0,0,0.11,0);
+part_type_color1(ring, $ffffff);
+part_type_alpha2(ring, 1, 0.8);
+part_type_speed(ring, 0, 0, 0, 0);
+part_type_direction(ring, 0, 359, 0, 0);
+//part_type_gravity(whiteParticle, 0.02, 90);
+part_type_orientation(ring, 0,359,10,0,true);
+part_type_life(ring, room_speed*5, room_speed*5);
+part_type_blend(ring, true);
+
+//Particle Emitter
+emitter = part_emitter_create(pS);
+part_emitter_region(pS,emitter,x,x,y,y,0,0);
+part_emitter_burst(pS,emitter,ring,1);
+alarm[0] = particleDelay
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Delete the particle system and itself
+part_system_destroy(pS);
+instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>
@@ -74,59 +124,23 @@ draw_set_color(c_black);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create instance of Player
-if (instance_number(obj_player) &lt;= 0){
-    var newPlayer = instance_create(224, 384, obj_player);
-    newPlayer.image_alpha = 0;
-    newPlayer.image_xscale = 0;
-    newPlayer.image_yscale = 2;
-    newPlayer.invincible = true;
-    newPlayer.spawnEffectTrigger = 1;
+            <string>///Expand radius and delete bullets
+currentRadius += radiusIncreasePerStep;
+
+
+//if collision_ellipse(x, y, mouse_x, mouse_y, all, false, true) {} //Check all instances for a collision along a line
+
+with (obj_bullet1) {
+    var dist = abs(point_distance(x,y,other.x,other.y))
+    if ((dist &lt;= other.currentRadius+3) &amp;&amp; (dist &gt;= other.currentRadius-3) &amp;&amp; point_in_rectangle(x,y,32,32,416,416)) {
+        global.graze += 100;
+        instance_destroy();
+    } 
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Increment Can_Shoot
-global.can_shoot += 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>score = ((global.graze*10)+(global.bossesBeat)*global.graze) - (global.timesDied * 1000)
+if (currentRadius &gt; 416*sqrt(2)) {
+    alarm[1] = room_speed * 2;
+}
 </string>
           </argument>
         </arguments>
@@ -149,29 +163,8 @@ global.can_shoot += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Scoreboard/Lives
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-
-// Labels
-draw_text(448, 64, "Score");
-draw_text(448, 96, "Graze");
-draw_text(448, 128, "Times Died");
-draw_text(448, 160, "Bomb");
-
-// Variables
-draw_text(512, 64, score);
-draw_text(512, 96, global.graze);
-
-/*
-for (i = 0; i &lt; lives; i++){
-    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 128, 1, 1, 0, c_white, 1);
-}*/
-
-
-for (i = 0; i &lt; global.bombs; i++){
-    draw_sprite_ext(spr_star, 0, 512 + (20 * i), 160, 1, 1, 0, c_white, 1);
-}
+            <string>///Draw circle
+//draw_circle(x,y,currentRadius,true);
 
 </string>
           </argument>

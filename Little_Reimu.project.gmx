@@ -293,6 +293,9 @@
     <script>scripts\scr_musicroom.gml</script>
     <script>scripts\scr_menu.gml</script>
     <script>scripts\scr_difficulty.gml</script>
+    <script>scripts\updateMovement.gml</script>
+    <script>scripts\initializeMovement.gml</script>
+    <script>scripts\moveTo.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -320,6 +323,7 @@
       <object>objects\obj_player</object>
       <object>objects\obj_player_hitbox_center</object>
       <object>objects\obj_player_hitbox</object>
+      <object>objects\obj_bombExplosion</object>
     </objects>
     <objects name="bosses">
       <object>objects\obj_bosshit</object>
